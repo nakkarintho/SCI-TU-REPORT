@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="30dp"
+    android:orientation="vertical"
+    tools:context=".fragment.ProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+
+            android:text="@string/name_th"
+            app:fontFamily="@font/my_font"
+            android:textSize="24sp"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fontFamily="@font/my_font"
+            android:textSize="24sp"
+             />
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        >
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="@string/birthdate_th"
+            app:fontFamily="@font/my_font"
+            android:textSize="24sp"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/birthdate_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fontFamily="@font/my_font"
+            android:textSize="24sp"
+             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        >
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="@string/email_th"
+            app:fontFamily="@font/my_font"
+            android:textSize="24sp"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/email_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fontFamily="@font/my_font"
+            android:textSize="24sp"
+             />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

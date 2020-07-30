@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:animateLayoutChanges="true"
+    tools:context=".OneChecklistActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+            <com.coldzify.finalproject.TitleBarView
+                android:id="@+id/titleBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title_name="@string/all_report_th"
+                app:icon_pic="@drawable/ic_menugrid"
+                />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/uncheck_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                />
+
+            <LinearLayout
+                android:id="@+id/finish_header_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="vertical"
+                android:visibility="visible"
+                >
+                <View
+                    android:background="@color/placeholder_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/finish_textView"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/my_font"
+                    android:text="@string/finished_status_th"
+                    android:textSize="24sp"
+
+                    />
+                <View
+                    android:background="@color/placeholder_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    />
+
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/checked_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="16dp"
+        android:gravity="center"
+        >
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_list_th"
+            android:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/red_round_button"
+
+            android:onClick="onClickAddList"
+            />
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/reset_th"
+            android:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/red_round_button"
+
+            android:onClick="onClickReset"
+
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

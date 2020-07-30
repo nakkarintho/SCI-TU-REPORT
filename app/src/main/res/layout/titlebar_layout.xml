@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/color_titleBar_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/title_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_centerInParent="true"
+        app:fontFamily="@font/my_font"
+
+        android:text="@string/app_name"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/menu_textView"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="@string/menu_th"
+        android:gravity="center_vertical"
+        app:fontFamily="@font/my_font"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:drawableLeft="@drawable/ic_menugrid"
+        android:drawablePadding="6dp"
+        android:contentDescription="@string/menu_icon" />
+
+    <ImageView
+        android:id="@+id/report_menu_imageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:layout_toLeftOf="@id/frameLayout"
+        android:contentDescription="@string/menu_icon"
+        android:src="@drawable/ic_megaphone_white" />
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        >
+        <ImageView
+            android:id="@+id/noti_imageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_notifications_white"
+            android:layout_gravity="center"
+            android:contentDescription="@string/notification_icon"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/noti_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/noti_circle"
+            android:layout_gravity="end"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:visibility="invisible"
+            />
+
+    </FrameLayout>
+
+
+
+</RelativeLayout>

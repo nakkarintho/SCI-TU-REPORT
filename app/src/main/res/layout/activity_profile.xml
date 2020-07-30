@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProfileActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/color_titleBar_bg"
+        android:padding="10dp"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back_white_30dp"
+                android:onClick="onClickArrowBack"
+                android:contentDescription="@string/arrow_back" />
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                >
+                <ImageView
+                    android:id="@+id/noti_imageView"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_notifications_white"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/notification_icon"
+                    />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/noti_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/noti_circle"
+                    android:layout_gravity="end"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:visibility="invisible"
+                    />
+
+            </FrameLayout>
+        </FrameLayout>
+       <!-- <com.coldzify.finalproject.TitleBarView
+            android:id="@+id/titlebarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title_name="@string/app_name"
+            app:icon_pic="@drawable/ic_menugrid"
+            />-->
+
+
+        <ImageView
+            android:id="@+id/user_imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/user_image"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            app:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+
+
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:tabMode="fixed"
+
+        android:minHeight="?attr/actionBarSize"
+        app:tabGravity="fill"
+        app:tabTextColor="@color/color_black"
+        app:tabSelectedTextColor="@color/color_titleBar_bg"
+        app:tabTextAppearance="@style/tab_text"
+        />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:animateLayoutChanges="true"
+    tools:context=".ChecklistActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <com.coldzify.finalproject.TitleBarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title_name="ห้องที่ดูแล"
+            app:icon_pic="@drawable/ic_menugrid"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_takecare_room_th"
+            app:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            android:drawableLeft="@drawable/ic_add_red"
+            android:drawablePadding="20dp"
+            android:onClick="onClickAddList"
+            />
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/placeholder_background"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/addList_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@color/white_transparent"
+            android:layout_gravity="center"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/checklistName_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:backgroundTint="@color/color_titleBar_bg"
+                    app:fontFamily="@font/my_font"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:hint="@string/checklist_name_th"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                >
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/red_round_button"
+                    android:text="@string/save_th"
+                    app:fontFamily="@font/my_font"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:onClick="onClickSave"
+                    />
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/cancel_th"
+                    android:background="@drawable/red_round_button"
+                    app:fontFamily="@font/my_font"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:onClick="onClickCancel"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+</FrameLayout>

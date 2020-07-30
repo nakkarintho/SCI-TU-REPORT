@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".FeedActivity">
+
+    <com.coldzify.finalproject.TitleBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_name="@string/all_problem_in_faculty"
+        app:icon_pic="@drawable/ic_menugrid"
+        />
+   <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_titleBar_bg"
+        android:padding="10dp"
+        android:focusableInTouchMode="true"
+
+        >
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:inputType="text"
+            android:background="@drawable/search_edittext"
+            android:textColor="@color/white"
+            android:textColorHint="#CC9391"
+            android:drawableRight="@drawable/ic_search"
+            app:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            android:hint="@string/search_th"
+            android:shadowColor="@color/color_black"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            app:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            android:text="@string/filter_th"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_filter"
+            android:drawablePadding="5dp"
+            />
+    </LinearLayout>-->
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerFrameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/report_placeholder_layout" />
+            <include layout="@layout/report_placeholder_layout" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

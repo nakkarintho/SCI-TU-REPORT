@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SearchHousekeeperActivity">
+    <com.coldzify.finalproject.TitleBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_name="@string/search_housekeeper_th"
+        app:icon_pic="@drawable/ic_menugrid"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:text="@string/building_th"
+            android:gravity="end"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            app:fontFamily="@font/my_font"
+            />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/building_spinner"
+            android:layout_marginLeft="6dp"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:textSize="18sp"
+            app:fontFamily="@font/my_font"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:focusableInTouchMode="true"
+        >
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:gravity="end"
+            android:text="@string/room_th"
+            app:fontFamily="@font/my_font"
+            android:textSize="18sp"
+            />
+
+        <android.support.v7.widget.AppCompatAutoCompleteTextView
+            android:id="@+id/room_autoComplete"
+            android:layout_marginLeft="6dp"
+            android:padding="6dp"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/room_edittext"
+            android:completionThreshold="1"
+            app:fontFamily="@font/my_font"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_marginTop="40dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/search_th"
+        app:fontFamily="@font/my_font"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/red_round_button"
+        android:onClick="onClickSearch"
+        />
+
+</LinearLayout>

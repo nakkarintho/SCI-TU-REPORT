@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/ic_close_menu"
+                android:contentDescription="@string/close_image_button_description" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/all_menu_th"
+
+                app:fontFamily="@font/my_font"
+                android:textSize="26sp"/>
+
+        </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            />
+
+
+
+        <!--<GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2"
+            >
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/report_textView"
+                android:layout_margin="@dimen/menu_item_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/report_problem2_th"
+                android:textAlignment="center"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_megaphone"
+                android:drawablePadding="@dimen/space_text_icon_menu"
+                />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/view_profile_textView"
+                android:layout_margin="@dimen/menu_item_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/view_profile_th"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:drawableTop="@drawable/ic_profile"
+                android:drawablePadding="@dimen/space_text_icon_menu"
+                />
+
+
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/all_report_textView"
+                android:layout_margin="@dimen/menu_item_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/all_report_th"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:drawableTop="@drawable/ic_allreport_icon"
+                android:drawablePadding="@dimen/space_text_icon_menu"
+                />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/checkList_textView"
+                android:layout_margin="@dimen/menu_item_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_list_th"
+                android:textAlignment="center"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_report_status"
+                android:drawablePadding="@dimen/space_text_icon_menu"
+                android:visibility="gone"
+                />
+
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/housekeeper_textView"
+                android:layout_margin="@dimen/menu_item_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                android:text="@string/contact_housekeeper_th"
+                android:drawableTop="@drawable/ic_housekeeper"
+                android:drawablePadding="@dimen/space_text_icon_menu"
+                />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/setting_textView"
+                android:layout_margin="@dimen/menu_item_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/setting_th"
+                android:textAlignment="center"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                android:drawableTop="@drawable/ic_settings"
+                android:drawablePadding="@dimen/space_text_icon_menu"
+                />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/logout_textView"
+                android:layout_margin="@dimen/menu_item_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                android:text="@string/logout_th"
+                android:drawableTop="@drawable/ic_logout"
+                android:drawablePadding="@dimen/space_text_icon_menu"
+                />
+
+
+
+
+        </GridLayout>-->
+
+
+
+
+</LinearLayout>
+
+
+
+
+
+

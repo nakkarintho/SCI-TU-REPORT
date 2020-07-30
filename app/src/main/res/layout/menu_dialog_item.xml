@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/report_textView"
+    android:layout_margin="@dimen/menu_item_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/report_problem2_th"
+    android:textAlignment="center"
+    app:fontFamily="@font/my_font"
+    android:lineSpacingExtra="6dp"
+    android:textSize="20sp"
+    android:gravity="center"
+    android:drawableTop="@drawable/ic_megaphone"
+    android:drawablePadding="@dimen/space_text_icon_menu" />

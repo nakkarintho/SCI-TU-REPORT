@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The bottom layer is a blue square rotate 45 degree rotation. -->
+    <item
+        >
+            <shape>
+                <solid />
+                <size
+
+                    android:width="4dp"
+                    android:height="23dp" />
+            </shape>
+
+    </item>
+    <!--The middle layer is a red oval.-->
+    <item
+
+        android:bottom="19dp"
+        >
+        <shape android:shape="oval">
+            <solid android:color="#676767" />
+        </shape>
+    </item>
+    <!--The top layer is a green oval. -->
+    <item
+        android:top="6dp"
+        android:bottom="13dp"
+        >
+
+        <shape android:shape="oval">
+            <solid android:color="#676767" />
+
+        </shape>
+    </item>
+    <item
+        android:top="12dp"
+        android:bottom="7dp"
+        >
+
+        <shape android:shape="oval">
+            <solid android:color="#676767" />
+
+        </shape>
+    </item>
+</layer-list>

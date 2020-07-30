@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/select_problem_type_th"
+        app:fontFamily="@font/my_font"
+        android:textSize="26sp"
+        android:textStyle="bold"
+
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="16dp"
+
+                >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3"
+                    >
+                    <android.support.v7.widget.AppCompatTextView
+                        android:background="@drawable/detail_problem_background"
+                        android:layout_weight="1"
+                        android:id="@+id/electric_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/electric_problem_th"
+                        android:textSize="16sp"
+                        android:drawableTop="@drawable/ic_electrics"
+                        android:textAlignment="center"
+                        app:fontFamily="@font/my_font"
+                        />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:background="@drawable/detail_problem_background"
+                        android:layout_weight="1"
+                        android:id="@+id/water_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/water_problem_th"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:drawableTop="@drawable/ic_water"
+                        app:fontFamily="@font/my_font"
+                        />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:background="@drawable/detail_problem_background"
+                        android:layout_weight="1"
+                        android:id="@+id/pollution_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pollution_problem_th"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:drawableTop="@drawable/ic_pollution"
+                        app:fontFamily="@font/my_font"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:weightSum="3"
+                    >
+                    <android.support.v7.widget.AppCompatTextView
+                        android:background="@drawable/detail_problem_background"
+                        android:layout_weight="1"
+                        android:id="@+id/material_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/damaged_material_problem_th"
+                        app:fontFamily="@font/my_font"
+                        android:textSize="16sp"
+                        android:drawableTop="@drawable/ic_material"
+                        android:textAlignment="center"
+                        />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:background="@drawable/detail_problem_background"
+                        android:layout_weight="1"
+                        android:id="@+id/clean_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clean_problem_th"
+                        android:textAlignment="center"
+                        app:fontFamily="@font/my_font"
+                        android:textSize="16sp"
+                        android:drawableTop="@drawable/ic_clean"
+                        />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:background="@drawable/detail_problem_background"
+                        android:layout_weight="1"
+                        android:id="@+id/security_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/security_problem_th"
+                        android:textAlignment="center"
+                        app:fontFamily="@font/my_font"
+                        android:textSize="16sp"
+                        android:drawableTop="@drawable/ic_security"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:weightSum="3"
+                    >
+                    <android.support.v7.widget.AppCompatTextView
+                        android:background="@drawable/detail_problem_background"
+                        android:layout_weight="1"
+                        android:id="@+id/environment_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/environment_problem_th"
+                        app:fontFamily="@font/my_font"
+                        android:textSize="16sp"
+                        android:drawableTop="@drawable/ic_environment"
+                        android:textAlignment="center"
+                        />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:background="@drawable/detail_problem_background"
+                        android:layout_weight="1"
+                        android:id="@+id/traffic_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/traffic_problem_th"
+                        android:textAlignment="center"
+                        app:fontFamily="@font/my_font"
+                        android:textSize="16sp"
+                        android:drawableTop="@drawable/ic_traffic"
+                        />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:background="@drawable/detail_problem_background"
+                        android:layout_weight="1"
+                        android:id="@+id/building_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/building_problem_th"
+
+                        app:fontFamily="@font/my_font"
+                        android:textSize="16sp"
+                        android:textAlignment="center"
+                        android:drawableTop="@drawable/ic_building"
+                        />
+                </TableRow>
+
+
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

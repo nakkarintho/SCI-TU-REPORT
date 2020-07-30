@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0a51e0</color>
+    <color name="colorPrimaryDark">#7E0F0B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="color_preloader_start">#000000</color>
+    <color name="color_preloader_center">#000000</color>
+    <color name="color_preloader_end">#ff56a9c7</color>
+    <color name="color_bg_dialog">#2b2b2b</color>
+    <color name="color_black">#000000</color>
+    <color name="pink">#F5A4A3</color>
+    <color name="white_transparent">#E5FFFFFF</color>
+    <color name="placeholder_background">#dddddd</color>
+    <color name="onfocus_button_background">#eeeeee</color>
+    <color name="white">#FFFFFF</color>
+    <color name="color_progress_status">#fec18d</color>
+    <color name="color_titleBar_bg">#7E0F0B</color>
+    <color name="statusBar_color">#972B27</color>
+    <color name="statusBar_second_color">#ABABAB</color>
+    <color name="color_text_login">#FE5E58</color>
+</resources>

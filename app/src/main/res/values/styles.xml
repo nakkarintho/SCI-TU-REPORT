@@ -1,0 +1,60 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+    </style>
+    <style name="FullyTranslucent" parent="android:Theme.Translucent.NoTitleBar">
+        <item name="android:progressBarStyle">@style/InvisibleProgress</item>
+    </style>
+
+    <style name="InvisibleProgress">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash_screen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="MenuDialogAnimation.Window" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/menu_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/menu_anim_out</item>
+
+    </style>
+    <style name="MenuDialog" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
+
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/white_transparent</item>
+        <item name="android:windowAnimationStyle">@style/MenuDialogAnimation.Window</item>
+    </style>
+    <style name="CommentDialog" parent="android:Theme.Translucent.NoTitleBar">
+
+       <item name="android:windowAnimationStyle">@style/CommentDialogAnimation.Window</item>
+
+    </style>
+    <style name="CommentDialogAnimation.Window" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/translate_to_top</item>
+        <item name="android:windowExitAnimation">@anim/translate_to_bottom</item>
+
+    </style>
+
+    <style name="CustomProgressBarHorizontal" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/my_font</item>
+    </style>
+
+
+
+    <style name="ReportStatusTextStyle" parent="">
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+</resources>

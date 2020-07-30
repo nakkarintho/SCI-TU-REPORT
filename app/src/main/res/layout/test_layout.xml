@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ConcernedPortionofScreen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:orientation="vertical">
+
+        <!-- Parent FrameLayout 'FL' -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <!-- This is Layout 'LL'
+                 This is where you will place your image & the nice bg
+            -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                android:background="#b2ebf2" >
+                <ImageView
+                    android:id="@+id/pic_imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFA001"
+
+                    android:padding="1dp"
+                    android:contentDescription="@string/report_picture" />
+            </LinearLayout>
+
+            <!-- BL = 50dp -->
+            <Button
+                android:id="@+id/takePhoto_button"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="ถ่ายรูป"
+                android:background="#b2ebf2"
+                android:onClick="onTakePhoto"
+                android:layout_gravity="bottom|center_horizontal"
+                />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/RestofScreen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/location_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/detect_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detect_location"
+            android:onClick="onDetect"
+            />
+        <EditText
+            android:id="@+id/detail_editText"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="@drawable/custom_edittext"
+            />
+
+        <Button
+
+            android:id="@+id/report_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/report"
+            android:onClick="report"
+            />
+    </LinearLayout>
+
+</LinearLayout>

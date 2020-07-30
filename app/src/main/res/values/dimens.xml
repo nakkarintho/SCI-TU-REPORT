@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menu_item_margin">16dp</dimen>
+    <dimen name="icon_button_size">30dp</dimen>
+    <dimen name="space_text_icon_menu">8dp</dimen>
+    <dimen name="text_size_report_status">10sp</dimen>
+    <dimen name="edittext_padding">10dp</dimen>
+    <dimen name="edittext_margin_top">10dp</dimen>
+    <dimen name="error_textSize">12sp</dimen>
+    <dimen name="button_marginTop_login">20dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="profile_detail_textSize">18sp</dimen>
+</resources>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/background_login"
+    tools:context=".LoginActivity">
+
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:src="@drawable/red_logo"
+        />
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/color_text_login"
+        app:fontFamily="@font/my_font"
+        android:textSize="24sp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_th"
+                android:textColor="@color/color_text_login"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/email_error_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*กรอกข้อมูลไม่ครบถ้วน"
+                app:fontFamily="@font/my_font"
+                android:textSize="16sp"
+
+                android:textColor="@android:color/holo_red_dark"
+                android:layout_gravity="end"
+                android:visibility="invisible"
+                />
+        </FrameLayout>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/email_editText"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            app:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            android:backgroundTint="@color/color_text_login"
+
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password_th"
+                android:textColor="@color/color_text_login"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/password_error_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*กรอกข้อมูลไม่ครบถ้วน"
+                app:fontFamily="@font/my_font"
+                android:textSize="16sp"
+
+                android:textColor="@android:color/holo_red_dark"
+                android:layout_gravity="end"
+                android:visibility="invisible"/>
+        </FrameLayout>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/password_editText"
+            android:layout_gravity="center"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            app:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/color_text_login"
+
+            />
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/button_marginTop_login"
+        android:layout_gravity="center"
+        android:text="@string/login_th"
+        android:textColor="@color/color_text_login"
+        app:fontFamily="@font/my_font"
+        android:textSize="20sp"
+        android:background="@drawable/white_round_button"
+        android:onClick="onLoginWithEmail"
+        />
+
+
+    <!--<com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/button_marginTop_login"
+        android:weightSum="12">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="4"
+            android:background="@color/white"/>
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="หรือเข้าสู่ระบบด้วย"
+            app:fontFamily="@font/my_font"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="4"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/login_button"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/button_marginTop_login"
+        android:layout_gravity="center"
+        android:background="@drawable/facebook_button_round"
+        android:textColor="@color/com_facebook_button_text_color"
+        app:fontFamily="@font/my_font"
+        android:textSize="20sp"
+        android:drawableLeft="@drawable/com_facebook_button_icon"
+
+        android:paddingLeft="90dp"
+        android:paddingRight="80dp"
+        android:text="@string/facebook"
+        android:onClick="onClickLogin"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/button_marginTop_login"
+        >
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/not_member_th"
+            android:textColor="@color/white"
+            app:fontFamily="@font/my_font"
+            android:textSize="16sp"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/register_th"
+            android:textColor="@color/color_text_login"
+            app:fontFamily="@font/my_font"
+            android:textSize="16sp"
+            android:onClick="onClickSignUp"
+            />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

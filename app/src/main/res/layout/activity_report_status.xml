@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ReportStatusActivity">
+
+    <com.coldzify.finalproject.TitleBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_name="@string/app_name"
+        app:icon_pic="@drawable/ic_menugrid"
+        >
+
+
+    </com.coldzify.finalproject.TitleBarView>
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="3"
+        android:progress="1"
+
+        />
+
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+
+        android:orientation="vertical"
+        android:background="@color/color_titleBar_bg">
+
+            <com.coldzify.finalproject.TickedProgressBarView
+                android:id="@+id/tickedProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:lineWidth="4dp"
+                app:percentWidth="0.4"
+                android:indeterminate="false"
+                android:max="3"
+                android:progress="1"
+                android:progressDrawable="@drawable/progress_horizontal"
+
+                />
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

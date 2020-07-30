@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TitleBarView">
+        <attr name="title_name" format="string" />
+        <attr name="icon_pic" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="TickedProgressBarView">
+        <attr name="lineWidth" format="dimension" />
+        <attr name="percentWidth" format="float"/>
+    </declare-styleable>
+</resources>

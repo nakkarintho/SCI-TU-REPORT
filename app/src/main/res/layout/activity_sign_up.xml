@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="none"
+    android:background="@drawable/background_login"
+    android:padding="10dp"
+    tools:context=".SignUpActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+
+            android:src="@drawable/ic_arrow_red_pink"
+            android:onClick="onClickArrowBack"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="36dp"
+            android:textColor="@color/color_text_login"
+            android:text="@string/register_th"
+            app:fontFamily="@font/my_font"
+            android:textSize="36sp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_th"
+                    android:textColor="@color/color_text_login"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="20sp"
+                    />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/firstname_error_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*กรอกข้อมูลไม่ครบถ้วน"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_gravity="end"
+                    android:visibility="invisible"
+                    />
+            </FrameLayout>
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/firstname_editText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/edittext_padding"
+                app:backgroundTint="@color/color_text_login"
+                android:inputType="text"
+
+                android:textColor="@color/white"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/edittext_margin_top"
+            android:layout_gravity="center_horizontal"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lastname_th"
+                    android:textColor="@color/color_text_login"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="20sp"
+                    />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/lastname_error_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*กรอกข้อมูลไม่ครบถ้วน"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_gravity="end"
+                    android:visibility="invisible"
+                    />
+            </FrameLayout>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/lastname_editText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/edittext_padding"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                app:backgroundTint="@color/color_text_login"
+                android:inputType="text"
+                android:textColor="@color/white"
+
+                />
+        </LinearLayout>
+
+
+
+        <!--<RadioGroup
+            android:id="@+id/gender_radio_group"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/edittext_margin_top"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender_th"
+                />
+            <RadioButton
+                android:id="@+id/male_radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="@string/male_th"
+                android:checked="true"
+                />
+            <RadioButton
+                android:id="@+id/female_radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/female_th"
+                />
+        </RadioGroup>-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/edittext_margin_top"
+            android:layout_gravity="center_horizontal"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/birthdate_th"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="20sp"
+                    android:textColor="@color/color_text_login"
+                    />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/birthdate_error_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*กรุณาเลือกวันเกิด"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_gravity="end"
+                    android:visibility="invisible"
+                    />
+            </FrameLayout>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/birthdate_editText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/edittext_padding"
+                android:focusableInTouchMode="false"
+                android:drawableRight="@drawable/ic_calendar"
+                android:clickable="true"
+                app:backgroundTint="@color/color_text_login"
+                android:inputType="date"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+
+
+                android:focusable="true" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/edittext_margin_top"
+            android:layout_gravity="center_horizontal"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_th"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="20sp"
+                    android:textColor="@color/color_text_login"
+                    />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/email_error_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*รูปแบบอีเมลไม่ถูกต้อง"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_gravity="end"
+                    android:visibility="invisible"
+                    />
+            </FrameLayout>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/email_editText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/edittext_padding"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                app:backgroundTint="@color/color_text_login"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/edittext_margin_top"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_th"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="20sp"
+                    android:textColor="@color/color_text_login"
+                    />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/password_error_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*รหัสผ่านต้องมากกว่า 6 ตัวอักษร"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_gravity="end"
+                    android:visibility="invisible"/>
+            </FrameLayout>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/password_editText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/edittext_padding"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                app:backgroundTint="@color/color_text_login"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/edittext_margin_top"
+            android:layout_gravity="center_horizontal"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/confirm_password_th"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="20sp"
+                    android:textColor="@color/color_text_login"
+                    />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/confirmPassword_error_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*รหัสผ่านไม่ตรงกัน"
+                    app:fontFamily="@font/my_font"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_gravity="end"
+                    android:visibility="invisible"
+                    />
+            </FrameLayout>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/confirmPassword_editText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/edittext_padding"
+                app:backgroundTint="@color/color_text_login"
+                android:inputType="textPassword"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+
+                />
+        </LinearLayout>
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_marginTop="@dimen/edittext_margin_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/normal_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/normal_user_th"
+                android:checked="true"
+                app:fontFamily="@font/my_font"
+                android:textSize="16sp"
+                android:textColor="@color/color_text_login"
+
+                app:buttonTint="@color/white"
+                />
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/staff_radio"
+                android:layout_marginLeft="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/officer_th"
+                app:fontFamily="@font/my_font"
+                android:textSize="16sp"
+                android:textColor="@color/color_text_login"
+
+                app:buttonTint="@color/white"
+                />
+            <android.support.v7.widget.AppCompatRadioButton
+                android:layout_marginLeft="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/room_caretaker_th"
+                app:fontFamily="@font/my_font"
+                android:textSize="16sp"
+                android:textColor="@color/color_text_login"
+                app:buttonTint="@color/white"
+                />
+        </RadioGroup>
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/white_round_button"
+            android:text="@string/register_th"
+            app:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            android:textColor="@color/color_text_login"
+            android:onClick="onSignUp"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>
