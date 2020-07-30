@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
@@ -46,7 +47,5 @@ dependencies {
     implementation 'fr.avianey.com.viewpagerindicator:library:2.4.1.1@aar'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.github.chrisbanes:PhotoView:2.0.0'
-
-
 }
-apply plugin: 'com.google.gms.google-services'
+

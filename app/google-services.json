@@ -1,39 +1,37 @@
 {
   "project_info": {
-    "project_number": "731071346540",
-    "firebase_url": "https://coldz-projecttu.firebaseio.com",
-    "project_id": "coldz-projecttuu",
-    "storage_bucket": "coldz-projecttu.appspot.com"
+    "project_number": "528629798157",
+    "firebase_url": "https://scitu-problemboy-uvigpa.firebaseio.com",
+    "project_id": "scitu-problemboy-uvigpa",
+    "storage_bucket": "scitu-problemboy-uvigpa.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:731071346540:android:5965d0c30d09b2fc",
+        "mobilesdk_app_id": "1:528629798157:android:6bf2fb40783fa02c688c44",
         "android_client_info": {
           "package_name": "com.coldzify.finalproject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "731071346540-n7fe5nj5aplpekd90l9blm5356au2unh.apps.googleusercontent.com",
+          "client_id": "528629798157-ehqpqc8b4vdpc3e7tqljagg0n8isc066.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA4DDeGbU2tDeQfxLhKOv0EMfAulPdUH6Y"
+          "current_key": "AIzaSyA92-61NNM4Mi6jg9u5Hd6pypyErmxmGPM"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528629798157-ehqpqc8b4vdpc3e7tqljagg0n8isc066.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
