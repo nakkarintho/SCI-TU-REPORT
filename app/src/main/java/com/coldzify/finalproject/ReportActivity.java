@@ -27,7 +27,6 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 
@@ -841,8 +840,8 @@ public class ReportActivity extends AppCompatActivity {
             case WATER:
                 str = "ปัญหาการประปา";
                 break;
-            case POLLUTION:
-                str = "ปัญหามลพิษ";
+            case TECHNOLOGY:
+                str = "ปัญหาสารสนเทศ";
                 break;
             case MATERIAL:
                 str = "ปัญหาวัสดุชำรุด";
@@ -875,8 +874,8 @@ public class ReportActivity extends AppCompatActivity {
             case WATER:
                 str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_water);
                 break;
-            case POLLUTION:
-                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_pollution);
+            case TECHNOLOGY:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_technology);
                 break;
             case MATERIAL:
                 str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_material);

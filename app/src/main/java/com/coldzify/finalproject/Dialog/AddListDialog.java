@@ -89,7 +89,7 @@ public class AddListDialog extends DialogFragment {
                 type = ProblemType.WATER.name();
                 break;
             case 3:
-                type = ProblemType.POLLUTION.name();
+                type = ProblemType.TECHNOLOGY.name();
                 break;
             case 4:
                 type = ProblemType.MATERIAL.name();

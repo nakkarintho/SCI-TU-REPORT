@@ -68,7 +68,7 @@
     <string name="detail_th">รายละเอียด</string>
     <string name="change_th"><u>เปลี่ยน</u></string>
     <string name="find_again_th"><u>ค้นหาใหม่</u></string>
-    <string name="pollution_problem_th">ปัญหามลพิษ</string>
+    <string name="technology_problem_th">ปัญหาสารสนเทศ</string>
     <string name="water_problem_th">ปัญหาการประปา</string>
     <string name="electric_problem_th">ปัญหาการไฟฟ้า</string>
     <string name="damaged_material_problem_th">ปัญหาวัสดุชำรุด</string>

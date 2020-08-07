@@ -63,18 +63,18 @@
                         android:drawableTop="@drawable/ic_water"
                         app:fontFamily="@font/my_font"
                         />
+
                     <android.support.v7.widget.AppCompatTextView
-                        android:background="@drawable/detail_problem_background"
-                        android:layout_weight="1"
-                        android:id="@+id/pollution_textView"
+                        android:id="@+id/technology_textView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/pollution_problem_th"
+                        android:layout_weight="1"
+                        android:background="@drawable/detail_problem_background"
+                        android:drawableTop="@drawable/ic_technology"
+                        android:text="@string/technology_problem_th"
                         android:textAlignment="center"
                         android:textSize="16sp"
-                        android:drawableTop="@drawable/ic_pollution"
-                        app:fontFamily="@font/my_font"
-                        />
+                        app:fontFamily="@font/my_font" />
                 </TableRow>
 
                 <TableRow

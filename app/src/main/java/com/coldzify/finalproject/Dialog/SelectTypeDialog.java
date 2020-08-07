@@ -16,7 +16,7 @@ import com.coldzify.finalproject.ProblemType;
 import com.coldzify.finalproject.R;
 
 public class SelectTypeDialog extends DialogFragment implements View.OnClickListener{
-    private TextView electric,water,pollution,material,clean,security,environment,traffic,building;
+    private TextView electric,water,technology,material,clean,security,environment,traffic,building;
     private onItemClickListener listener;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class SelectTypeDialog extends DialogFragment implements View.OnClickList
         //upload_textView = view.findViewById(R.id.upload_textView);
         electric = view.findViewById(R.id.electric_textView);
         water = view.findViewById(R.id.water_textView);
-        pollution = view.findViewById(R.id.pollution_textView);
+        technology = view.findViewById(R.id.technology_textView);
         material = view.findViewById(R.id.material_textView);
         clean = view.findViewById(R.id.clean_textView);
         security = view.findViewById(R.id.security_textView);
@@ -55,7 +55,7 @@ public class SelectTypeDialog extends DialogFragment implements View.OnClickList
 
         electric.setOnClickListener(this);
         water.setOnClickListener(this);
-        pollution.setOnClickListener(this);
+        technology.setOnClickListener(this);
         material.setOnClickListener(this);
         clean.setOnClickListener(this);
         security.setOnClickListener(this);
@@ -89,8 +89,8 @@ public class SelectTypeDialog extends DialogFragment implements View.OnClickList
             case R.id.water_textView:
                 listener.onItemClick(ProblemType.WATER);
                 break;
-            case R.id.pollution_textView:
-                listener.onItemClick(ProblemType.POLLUTION);
+            case R.id.technology_textView:
+                listener.onItemClick(ProblemType.TECHNOLOGY);
                 break;
             case R.id.material_textView:
                 listener.onItemClick(ProblemType.MATERIAL);
