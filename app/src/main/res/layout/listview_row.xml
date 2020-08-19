@@ -42,9 +42,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_gravity="center"
-                >
+                android:orientation="vertical">
+
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/creator_textView"
                     android:layout_width="wrap_content"
@@ -52,20 +52,19 @@
                     android:layout_gravity="center"
                     android:textColor="@color/color_black"
 
-                    app:fontFamily="@font/my_font"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp"
+                    app:fontFamily="@font/my_font" />
+
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/time_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
 
-
-                    app:fontFamily="@font/my_font"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    app:fontFamily="@font/my_font" />
 
             </LinearLayout>
-
 
 
         </LinearLayout>
@@ -106,19 +105,38 @@
 
             android:orientation="vertical">
 
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/place_textView"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                android:drawableLeft="@drawable/ic_place_red"
-
-                app:fontFamily="@font/my_font"
-                android:textSize="20sp" />
 
 
+                android:orientation="horizontal">
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/place_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@drawable/ic_place_red"
+
+                    app:fontFamily="@font/my_font"
+                    android:textSize="20sp" />
+
+                <android.support.v7.widget.AppCompatTextView
+
+                    android:id="@+id/takecareBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+
+
+
+                    android:lineSpacingExtra="4dp"
+                    android:paddingTop="10dp"
+                    android:textAlignment="gravity"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/my_font" />
+        </LinearLayout>
 
 
             <com.coldzify.finalproject.TickedProgressBarView
@@ -126,23 +144,13 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:indeterminate="false"
+                android:indeterminateOnly="false"
                 android:max="3"
                 android:progress="1"
                 android:progressDrawable="@drawable/progress_horizontal"
-                app:lineWidth="4dp"
+                app:lineWidth="5dp"
                 app:percentWidth="0.7" />
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/takecareBy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:padding="10dp"
-
-                android:lineSpacingExtra="4dp"
-                app:fontFamily="@font/my_font"
-                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout

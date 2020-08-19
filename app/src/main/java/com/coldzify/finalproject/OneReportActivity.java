@@ -105,7 +105,8 @@ public class OneReportActivity extends AppCompatActivity {
                             String room = snapshot.getString("room");
                             Timestamp timestamp = snapshot.getTimestamp("timestamp");
                             String type = snapshot.getString("type");
-                            Report report = new Report(pictures,type,detail,placeCode,room,status,creatorID,timestamp);
+                            String takecareBy = snapshot.getString("takecareBy");
+                            Report report = new Report(pictures,type,detail,placeCode,room,status,creatorID,timestamp,takecareBy);
                             setUserData(creatorID);
                             setReportData(report);
                             setOnClickListener(report,reportID);
@@ -122,7 +123,11 @@ public class OneReportActivity extends AppCompatActivity {
         detail_textView.setText(report.getDetail());
         statusBar.setProgress(report.getStatus()-1);
         place_textView.setText(place);
-        takecareBy.setText("นางสมหญิง");
+        if(report.getTakecareBy()!=null){
+            takecareBy.setText("ผู้รับผิดชอบ: " + report.getTakecareBy());
+        }
+
+
         setImagesAdapter((ArrayList<String>) report.getPictures());
 
     }

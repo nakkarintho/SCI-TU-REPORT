@@ -6,7 +6,7 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.GeoPoint;
 
 
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +28,7 @@ public class Report implements Comparable<Report>{
     public static final int STATUS_IN_PROGRESS = 3;
     public static final int STATUS_FINISHED = 4;
     public Report(){}
+
     public Report(List<String> pictures, String type, String detail,GeoPoint geoPoint, int placeCode, String room, String creatorID) {
         this.pictures = pictures;
         this.type = type;
@@ -35,7 +36,7 @@ public class Report implements Comparable<Report>{
         this.placeCode = placeCode;
         this.room = room;
         this.creatorID = creatorID;
-//        this.takecareBy = takecareBy;
+
 
 
 
@@ -45,6 +46,22 @@ public class Report implements Comparable<Report>{
         //DateFormat dateFormat = DateFormat.getDateInstance().format()
     }
 
+    public Report(List<String> pictures, String type, String detail,GeoPoint geoPoint, int placeCode, String room, String creatorID, String takecareBy) {
+        this.pictures = pictures;
+        this.type = type;
+        this.detail = detail;
+        this.placeCode = placeCode;
+        this.room = room;
+        this.creatorID = creatorID;
+        this.takecareBy = takecareBy;
+
+
+
+        this.status = STATUS_WAITING;
+        this.geoPoint = geoPoint;
+
+        //DateFormat dateFormat = DateFormat.getDateInstance().format()
+    }
     public Report(List<String> pictures, String type, String detail, int placeCode, String room , int status , String creatorID, Timestamp timestamp) {
         this.pictures = pictures;
         this.type = type;
@@ -55,6 +72,18 @@ public class Report implements Comparable<Report>{
         this.status = status;
         this.room = room;
     }
+
+    public Report(ArrayList<String> pictures, String type, String detail, int placeCode, String room, int status, String creatorID, Timestamp timestamp, String takecareBy) {
+        this.pictures = pictures;
+        this.type = type;
+        this.detail = detail;
+        this.placeCode = placeCode;
+        this.creatorID = creatorID;
+        this.timestamp = timestamp;
+        this.status = status;
+        this.room = room;
+    }
+
 
     public List<String> getPictures() {
         return pictures;
@@ -91,6 +120,10 @@ public class Report implements Comparable<Report>{
     public String getReportID() {
         return reportID;
     }
+    public String getTakecareBy() {
+        return takecareBy;
+    }
+
 
 
     public Map<String,Object> toMap(){

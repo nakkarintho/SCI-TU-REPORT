@@ -106,7 +106,10 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
         holder.detail_textView.setText(reports.get(i).getDetail());
         holder.statusBar.setProgress(reports.get(i).getStatus()-1);
         holder.place_textView.setText(place);
-        holder.takecareBy.setText("รับผิดชอบโดย : ");
+
+        if(reports.get(i).getTakecareBy()!=null){
+            holder.takecareBy.setText("ผู้รับผิดชอบ: " + reports.get(i).getTakecareBy());
+        }
         final ArrayList<String> pictures = (ArrayList<String>) reports.get(i).getPictures();
 
         setImagesAdapter(holder.mPager,holder.indicator,pictures);
