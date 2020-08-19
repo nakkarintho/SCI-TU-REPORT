@@ -22,6 +22,7 @@ import com.coldzify.finalproject.dataobject.Report;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -40,14 +41,31 @@ public class ManageStatusDialog extends DialogFragment {
 
     private Button ok_button;
     private int progress;
-    private String reportID;
+    private String reportID,user_name;
     private Spinner spinner;
-
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        db.collection("users").document(mAuth.getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful() && task.getResult() != null){
+                            DocumentSnapshot doc = task.getResult();
+                            if(doc.getString("userType") != null){
+                                String firstname = doc.getString("firstname");
+                                String lastname = doc.getString("lastname");
+                                user_name = firstname +  " "+lastname;
+                            }
+                        }
+                    }
+                });
         if(getArguments() != null){
             progress = getArguments().getInt("progress");
             reportID = getArguments().getString("reportID");
@@ -84,8 +102,8 @@ public class ManageStatusDialog extends DialogFragment {
                     return;
                 }
                 final FirebaseFirestore db = FirebaseFirestore.getInstance();
-                db.collection("reports").document(reportID)
-                        .update("status",spinner.getSelectedItemPosition()+1)
+                DocumentReference ref =  db.collection("reports").document(reportID);
+                ref.update("status",spinner.getSelectedItemPosition()+1)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -96,6 +114,13 @@ public class ManageStatusDialog extends DialogFragment {
                                     Toast.makeText(getContext(),"เกิดข้อผิดพลาด ไมสามารถเปลี่ยนสถานะได้",Toast.LENGTH_LONG).show();
                                 }
                                 dismiss();
+                            }
+                        });
+                ref.update("takecareBy",user_name)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
                             }
                         });
 
