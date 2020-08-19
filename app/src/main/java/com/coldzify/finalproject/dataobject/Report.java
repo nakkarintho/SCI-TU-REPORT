@@ -22,6 +22,7 @@ public class Report implements Comparable<Report>{
     private int status;
     private GeoPoint geoPoint;
     private String reportID;
+    private String takecareBy;
     public static final int STATUS_WAITING = 1;
     public static final int STATUS_ACCEPTED = 2;
     public static final int STATUS_IN_PROGRESS = 3;
@@ -34,6 +35,8 @@ public class Report implements Comparable<Report>{
         this.placeCode = placeCode;
         this.room = room;
         this.creatorID = creatorID;
+//        this.takecareBy = takecareBy;
+
 
 
         this.status = STATUS_WAITING;
@@ -116,7 +119,7 @@ public class Report implements Comparable<Report>{
                 return "รอพิจารณา";
 
             case STATUS_ACCEPTED :
-                return "พิจารณาแล้ว";
+                return "รับเรื่องแล้ว";
 
             case STATUS_IN_PROGRESS :
                 return "กำลังดำเนินการ";

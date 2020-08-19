@@ -119,6 +119,8 @@
                 android:textSize="20sp" />
 
 
+
+
             <com.coldzify.finalproject.TickedProgressBarView
                 android:id="@+id/statusBar"
                 style="?android:attr/progressBarStyleHorizontal"
@@ -130,6 +132,17 @@
                 android:progressDrawable="@drawable/progress_horizontal"
                 app:lineWidth="4dp"
                 app:percentWidth="0.7" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/takecareBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:padding="10dp"
+
+                android:lineSpacingExtra="4dp"
+                app:fontFamily="@font/my_font"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout

@@ -47,7 +47,7 @@ public class OneReportActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseStorage storage;
     private FirebaseAuth mAuth;
-    private TextView time_textView,detail_textView,creator_textView,place_textView;
+    private TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy;
     private ImageView user_imageView,report_setting_imageView;
     private Button subscribe_button,comment_button;
     private ProgressBar statusBar;
@@ -72,6 +72,7 @@ public class OneReportActivity extends AppCompatActivity {
         indicator = findViewById(R.id.indicator);
         report_setting_imageView = findViewById(R.id.report_setting_imageView);
         place_textView = findViewById(R.id.place_textView);
+        takecareBy = findViewById(R.id.takecareBy);
         if(mAuth.getCurrentUser() == null){
             Intent login = new Intent(this,LoginActivity.class);
             startActivity(login);
@@ -121,6 +122,7 @@ public class OneReportActivity extends AppCompatActivity {
         detail_textView.setText(report.getDetail());
         statusBar.setProgress(report.getStatus()-1);
         place_textView.setText(place);
+        takecareBy.setText("นางสมหญิง");
         setImagesAdapter((ArrayList<String>) report.getPictures());
 
     }

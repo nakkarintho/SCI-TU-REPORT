@@ -26,7 +26,7 @@
     <string name="setting_th">ตั้งค่า</string>
     <string name="logout_th">ออกจากระบบ</string>
     <string name="waiting_status_th">รอพิจารณา</string>
-    <string name="accepted_status_th">พิจารณาแล้ว</string>
+    <string name="accepted_status_th">รับเรื่องแล้ว</string>
     <string name="inprogress_status_th">กำลังดำเนินการ</string>
     <string name="finished_status_th">เสร็จสิ้น</string>
     <string name="email">Email</string>

@@ -38,11 +38,12 @@ public class ContactHousekeeperActivity extends AppCompatActivity {
 
         user_imageView = findViewById(R.id.user_imageView);
         room_textView = findViewById(R.id.room_textView);
-        name_textView = findViewById(R.id.name_textView);
         db = FirebaseFirestore.getInstance();
+        name_textView = findViewById(R.id.name_textView);
         storage = FirebaseStorage.getInstance();
         if(getIntent().getExtras() != null){
             housekeeper_id = getIntent().getExtras().getString("housekeeper_id");
+            housekeeper_id = "P4ftGBWKkkQHhCIJBNspqSf4F6q2";
             building = getIntent().getExtras().getString("building");
             room = getIntent().getExtras().getString("room");
             getHousekeeperData();

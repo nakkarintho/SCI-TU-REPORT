@@ -36,7 +36,7 @@
     </string-array>
     <string-array name="report_status">
         <item>รอพิจารณา</item>
-        <item>พิจารณาแล้ว</item>
+        <item>รับเรื่องแล้ว</item>
         <item>กำลังดำเนินการ</item>
         <item>เสร็จสิ้น</item>
 
@@ -52,7 +52,7 @@
         <item>ไม่ระบุ</item>
         <item>ปัญหาไฟฟ้า</item>
         <item>ปัญหาการประปา</item>
-        <item>ปัญหามลพิษ</item>
+        <item>ปัญหาสารสนเทศ</item>
         <item>ปัญหาวัสดุชำรุด</item>
         <item>ปัญหาความสะอาด</item>
         <item>ปัญหาความปลอดภัย</item>

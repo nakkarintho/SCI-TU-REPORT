@@ -106,6 +106,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
         holder.detail_textView.setText(reports.get(i).getDetail());
         holder.statusBar.setProgress(reports.get(i).getStatus()-1);
         holder.place_textView.setText(place);
+        holder.takecareBy.setText("รับผิดชอบโดย : ");
         final ArrayList<String> pictures = (ArrayList<String>) reports.get(i).getPictures();
 
         setImagesAdapter(holder.mPager,holder.indicator,pictures);
@@ -396,7 +397,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         View view;
-        TextView time_textView,detail_textView,creator_textView,place_textView;
+        TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy;
         ImageView user_imageView,report_setting_imageView;
         Button subscribe_button,comment_button;
         ProgressBar statusBar;
@@ -417,6 +418,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
             indicator = view.findViewById(R.id.indicator);
             report_setting_imageView = view.findViewById(R.id.report_setting_imageView);
             place_textView = view.findViewById(R.id.place_textView);
+            takecareBy = view.findViewById(R.id.takecareBy);
         }
     }
 }

@@ -71,12 +71,12 @@
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/detail_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:lineSpacingExtra="4dp"
-                android:textColor="@color/color_black"
-                app:fontFamily="@font/my_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@color/color_black"
+            app:fontFamily="@font/my_font"
                 android:textSize="20sp"/>
 
             <FrameLayout
@@ -107,14 +107,30 @@
 
 
                 <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/place_textView"
+                android:id="@+id/place_textView"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@drawable/ic_place_red"
+                app:fontFamily="@font/my_font"
+                android:textSize="20sp"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/takecareBy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:drawableLeft="@drawable/ic_place_red"
+                    android:padding="10dp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/color_black"
                     app:fontFamily="@font/my_font"
                     android:textSize="20sp"/>
+
+
+
+
+
 
 
                 <com.coldzify.finalproject.TickedProgressBarView
