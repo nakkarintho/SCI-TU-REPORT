@@ -121,5 +121,6 @@
     <string name="add_takecare_room_th">เพิ่มห้องที่ดูแล</string>
     <string name="status_progress_th">สถานะการดำเนินงานของปัญหา</string>
     <string name="comment2_th">ความคิดเห็น</string>
+    <string name="acra_toast_text">sorry, the appication crashed. A report will be send to developers.</string>
 
 </resources>

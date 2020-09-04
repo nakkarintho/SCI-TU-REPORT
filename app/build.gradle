@@ -5,13 +5,18 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.coldzify.finalproject"
-        minSdkVersion 16
+        minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -47,5 +52,9 @@ dependencies {
     implementation 'fr.avianey.com.viewpagerindicator:library:2.4.1.1@aar'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+    def acraVersion = '5.6.1'
+    implementation "ch.acra:acra-http:$acraVersion"
+    implementation "ch.acra:acra-toast:$acraVersion"
+    implementation "ch.acra:acra-limiter:$acraVersion"
+    implementation "ch.acra:acra-advanced-scheduler:$acraVersion"
 }
-
