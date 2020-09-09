@@ -840,26 +840,26 @@ public class ReportActivity extends AppCompatActivity {
             case WATER:
                 str = "ปัญหาการประปา";
                 break;
-            case TECHNOLOGY:
-                str = "ปัญหาสารสนเทศ";
+            case CONDITIONER:
+                str = "ระบบเครื่องปรับอากาศ";
                 break;
             case MATERIAL:
-                str = "ปัญหาวัสดุชำรุด";
+                str = "วัศดุภายในห้อง";
                 break;
-            case CLEAN:
-                str = "ปัญหาความสะอาด";
+            case TECHNOLOGY:
+                str = "สื่อการเรียนการสอน";
                 break;
-            case SECURITY:
-                str = "ปัญหาความปลอดภัย";
+            case INTERNET:
+                str = "ระบบอินเทอร์เน็ต";
                 break;
-            case ENVIRONMENT:
-                str = "ปัญหาสิ่งแวดล้อม";
+            case BUILDING_ENVIRON:
+                str = "อาคารและสิ่งแวดล้อม";
                 break;
-            case TRAFFIC:
-                str = "ปัญหาการจราจร";
+            case CLEAN_SECURITY:
+                str = "ความสะอาดและความปลอดภัย";
                 break;
-            case BUILDING:
-                str = "ปัญหาสิ่งก่อสร้าง";
+            case VEHICLE:
+                str = "เกี่ยวกับยานพาหนะ";
                 break;
 
         }
@@ -874,26 +874,26 @@ public class ReportActivity extends AppCompatActivity {
             case WATER:
                 str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_water);
                 break;
-            case TECHNOLOGY:
-                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_technology);
+            case CONDITIONER:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_conditioner);
                 break;
             case MATERIAL:
                 str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_material);
                 break;
-            case CLEAN:
-                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_clean);
+            case TECHNOLOGY:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_technology);
                 break;
-            case SECURITY:
-                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_security);
+            case INTERNET:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_internet);
                 break;
-            case ENVIRONMENT:
-                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_environment);
+            case BUILDING_ENVIRON:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_building_and_environment);
                 break;
-            case TRAFFIC:
-                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_traffic);
+            case CLEAN_SECURITY:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_clean_security);
                 break;
-            case BUILDING:
-                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_building);
+            case VEHICLE:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_vehicle);
                 break;
         }
         return str;

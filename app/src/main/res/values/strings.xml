@@ -68,13 +68,13 @@
     <string name="detail_th">รายละเอียด</string>
     <string name="change_th"><u>เปลี่ยน</u></string>
     <string name="find_again_th"><u>ค้นหาใหม่</u></string>
-    <string name="technology_problem_th">ปัญหาสารสนเทศ</string>
-    <string name="water_problem_th">ปัญหาการประปา</string>
-    <string name="electric_problem_th">ปัญหาการไฟฟ้า</string>
-    <string name="damaged_material_problem_th">ปัญหาวัสดุชำรุด</string>
-    <string name="clean_problem_th">ปัญหาความสะอาด</string>
-    <string name="security_problem_th">ปัญหาความปลอดภัย</string>
-    <string name="traffic_problem_th">ปัญหาการจราจร</string>
+    <string name="conditioner_problem_th">ระบบเครื่องปรับอากาศ</string>
+    <string name="water_problem_th">ระบบประปา</string>
+    <string name="electric_problem_th">ระบบไฟฟ้า</string>
+    <string name="damaged_material_problem_th">วัสดุภายในห้อง</string>
+    <string name="technology_problem_th">สื่อการเรียนการสอน</string>
+    <string name="internet_problem_th">ระบบอินเทอร์เน็ต</string>
+    <string name="clean_and_security_problem_th">ความสะอาด\nและความปลอดภัย</string>
     <string name="sound_problem_th">ปัญหาเสียง</string>
     <string name="select_problem_type_th">เลือกประเภทปัญหา</string>
     <string name="animal_problem_th">ปัญหาสัตว์</string>
@@ -115,8 +115,9 @@
     <string name="main_checklist">รายการหลัก</string>
     <string name="edit_checklist_th">แก้ไขรายการ</string>
     <string name="continue_th">ดำเนินการต่อ</string>
-    <string name="environment_problem_th">ปัญหาสิ่งแวดล้อม</string>
-    <string name="building_problem_th">ปัญหาสิ่งก่อสร้าง</string>
+    <string name="building_and_environment_problem_th">อาคาร\nและสิ่งแวดล้อม</string>
+
+    <string name="vehicle_problem_th">เกี่ยวกับยานพาหนะ</string>
     <string name="menu_th">เมนู</string>
     <string name="add_takecare_room_th">เพิ่มห้องที่ดูแล</string>
     <string name="status_progress_th">สถานะการดำเนินงานของปัญหา</string>

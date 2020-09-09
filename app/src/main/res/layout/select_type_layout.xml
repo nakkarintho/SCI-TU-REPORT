@@ -65,13 +65,14 @@
                         />
 
                     <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/technology_textView"
+
+                        android:id="@+id/conditioner_textView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/detail_problem_background"
-                        android:drawableTop="@drawable/ic_technology"
-                        android:text="@string/technology_problem_th"
+                        android:drawableTop="@drawable/ic_conditioner"
+                        android:text="@string/conditioner_problem_th"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         app:fontFamily="@font/my_font" />
@@ -95,30 +96,30 @@
                         android:drawableTop="@drawable/ic_material"
                         android:textAlignment="center"
                         />
+
                     <android.support.v7.widget.AppCompatTextView
-                        android:background="@drawable/detail_problem_background"
-                        android:layout_weight="1"
-                        android:id="@+id/clean_textView"
+                        android:id="@+id/technology_textView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/clean_problem_th"
-                        android:textAlignment="center"
-                        app:fontFamily="@font/my_font"
-                        android:textSize="16sp"
-                        android:drawableTop="@drawable/ic_clean"
-                        />
-                    <android.support.v7.widget.AppCompatTextView
-                        android:background="@drawable/detail_problem_background"
                         android:layout_weight="1"
-                        android:id="@+id/security_textView"
+                        android:background="@drawable/detail_problem_background"
+                        android:drawableTop="@drawable/ic_technology"
+                        android:text="@string/technology_problem_th"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/my_font" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/internet_textView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/security_problem_th"
+                        android:layout_weight="1"
+                        android:background="@drawable/detail_problem_background"
+                        android:drawableTop="@drawable/ic_internet"
+                        android:text="@string/internet_problem_th"
                         android:textAlignment="center"
-                        app:fontFamily="@font/my_font"
                         android:textSize="16sp"
-                        android:drawableTop="@drawable/ic_security"
-                        />
+                        app:fontFamily="@font/my_font" />
                 </TableRow>
 
                 <TableRow
@@ -127,43 +128,43 @@
                     android:layout_marginTop="20dp"
                     android:weightSum="3"
                     >
-                    <android.support.v7.widget.AppCompatTextView
-                        android:background="@drawable/detail_problem_background"
-                        android:layout_weight="1"
-                        android:id="@+id/environment_textView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/environment_problem_th"
-                        app:fontFamily="@font/my_font"
-                        android:textSize="16sp"
-                        android:drawableTop="@drawable/ic_environment"
-                        android:textAlignment="center"
-                        />
-                    <android.support.v7.widget.AppCompatTextView
-                        android:background="@drawable/detail_problem_background"
-                        android:layout_weight="1"
-                        android:id="@+id/traffic_textView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/traffic_problem_th"
-                        android:textAlignment="center"
-                        app:fontFamily="@font/my_font"
-                        android:textSize="16sp"
-                        android:drawableTop="@drawable/ic_traffic"
-                        />
-                    <android.support.v7.widget.AppCompatTextView
-                        android:background="@drawable/detail_problem_background"
-                        android:layout_weight="1"
-                        android:id="@+id/building_textView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/building_problem_th"
 
-                        app:fontFamily="@font/my_font"
-                        android:textSize="16sp"
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/building_and_environment_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/detail_problem_background"
+                        android:drawableTop="@drawable/ic_building_and_environment"
+                        android:text="@string/building_and_environment_problem_th"
                         android:textAlignment="center"
-                        android:drawableTop="@drawable/ic_building"
-                        />
+                        android:textSize="16sp"
+                        app:fontFamily="@font/my_font" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/clean_and_security_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/detail_problem_background"
+                        android:drawableTop="@drawable/ic_clean_security"
+                        android:text="@string/clean_and_security_problem_th"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/my_font" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/vehicle_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/detail_problem_background"
+                        android:drawableTop="@drawable/ic_vehicle"
+
+                        android:text="@string/vehicle_problem_th"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/my_font" />
                 </TableRow>
 
 

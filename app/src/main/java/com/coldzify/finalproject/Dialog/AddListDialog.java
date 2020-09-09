@@ -89,25 +89,25 @@ public class AddListDialog extends DialogFragment {
                 type = ProblemType.WATER.name();
                 break;
             case 3:
-                type = ProblemType.TECHNOLOGY.name();
+                type = ProblemType.CONDITIONER.name();
                 break;
             case 4:
                 type = ProblemType.MATERIAL.name();
                 break;
             case 5:
-                type = ProblemType.CLEAN.name();
+                type = ProblemType.TECHNOLOGY.name();
                 break;
             case 6:
-                type = ProblemType.SECURITY.name();
+                type = ProblemType.INTERNET.name();
                 break;
             case 7:
-                type = ProblemType.ENVIRONMENT.name();
+                type = ProblemType.BUILDING_ENVIRON.name();
                 break;
             case 8:
-                type = ProblemType.TRAFFIC.name();
+                type = ProblemType.CLEAN_SECURITY.name();
                 break;
             case 9:
-                type = ProblemType.BUILDING.name();
+                type = ProblemType.VEHICLE.name();
                 break;
             default:
                 type ="";

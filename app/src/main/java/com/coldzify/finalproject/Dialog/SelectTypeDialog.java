@@ -16,7 +16,7 @@ import com.coldzify.finalproject.ProblemType;
 import com.coldzify.finalproject.R;
 
 public class SelectTypeDialog extends DialogFragment implements View.OnClickListener{
-    private TextView electric,water,technology,material,clean,security,environment,traffic,building;
+    private TextView electric,water,conditioner,material,technology,internet,building_environ,clean_security,vehicle;
     private onItemClickListener listener;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,32 +36,32 @@ public class SelectTypeDialog extends DialogFragment implements View.OnClickList
         //upload_textView = view.findViewById(R.id.upload_textView);
         electric = view.findViewById(R.id.electric_textView);
         water = view.findViewById(R.id.water_textView);
-        technology = view.findViewById(R.id.technology_textView);
+        conditioner = view.findViewById(R.id.conditioner_textView);
         material = view.findViewById(R.id.material_textView);
-        clean = view.findViewById(R.id.clean_textView);
-        security = view.findViewById(R.id.security_textView);
-        environment = view.findViewById(R.id.environment_textView);
-        traffic = view.findViewById(R.id.traffic_textView);
-        building = view.findViewById(R.id.building_textView);
+        technology = view.findViewById(R.id.technology_textView);
+        internet = view.findViewById(R.id.internet_textView);
+        building_environ = view.findViewById(R.id.building_and_environment_textView);
+        clean_security = view.findViewById(R.id.clean_and_security_textView);
+        vehicle = view.findViewById(R.id.vehicle_textView);
 
         Drawable water_ic = AppCompatResources.getDrawable(getContext(), R.drawable.ic_water);
         water.setCompoundDrawablesWithIntrinsicBounds(null,water_ic,null,null);
         Drawable material_ic = AppCompatResources.getDrawable(getContext(), R.drawable.ic_material);
         material.setCompoundDrawablesWithIntrinsicBounds(null,material_ic,null,null);
-        Drawable clean_ic = AppCompatResources.getDrawable(getContext(), R.drawable.ic_clean);
-        clean.setCompoundDrawablesWithIntrinsicBounds(null,clean_ic,null,null);
-        Drawable animal_ic = AppCompatResources.getDrawable(getContext(), R.drawable.ic_environment);
-        environment.setCompoundDrawablesWithIntrinsicBounds(null,animal_ic,null,null);
+        Drawable clean_security_ic = AppCompatResources.getDrawable(getContext(), R.drawable.ic_clean_security);
+        clean_security.setCompoundDrawablesWithIntrinsicBounds(null,clean_security_ic,null,null);
+        Drawable building_environ_ic = AppCompatResources.getDrawable(getContext(), R.drawable.ic_building_and_environment);
+        building_environ.setCompoundDrawablesWithIntrinsicBounds(null,building_environ_ic,null,null);
 
         electric.setOnClickListener(this);
         water.setOnClickListener(this);
-        technology.setOnClickListener(this);
+        conditioner.setOnClickListener(this);
         material.setOnClickListener(this);
-        clean.setOnClickListener(this);
-        security.setOnClickListener(this);
-        environment.setOnClickListener(this);
-        traffic.setOnClickListener(this);
-        building.setOnClickListener(this);
+        technology.setOnClickListener(this);
+        internet.setOnClickListener(this);
+        building_environ.setOnClickListener(this);
+        clean_security.setOnClickListener(this);
+        vehicle.setOnClickListener(this);
         builder.setView(view);
         return builder.create();
     }
@@ -89,26 +89,26 @@ public class SelectTypeDialog extends DialogFragment implements View.OnClickList
             case R.id.water_textView:
                 listener.onItemClick(ProblemType.WATER);
                 break;
-            case R.id.technology_textView:
-                listener.onItemClick(ProblemType.TECHNOLOGY);
+            case R.id.conditioner_textView:
+                listener.onItemClick(ProblemType.CONDITIONER);
                 break;
             case R.id.material_textView:
                 listener.onItemClick(ProblemType.MATERIAL);
                 break;
-            case R.id.clean_textView:
-                listener.onItemClick(ProblemType.CLEAN);
+            case R.id.technology_textView:
+                listener.onItemClick(ProblemType.TECHNOLOGY);
                 break;
-            case R.id.security_textView:
-                listener.onItemClick(ProblemType.SECURITY);
+            case R.id.internet_textView:
+                listener.onItemClick(ProblemType.INTERNET);
                 break;
-            case R.id.environment_textView:
-                listener.onItemClick(ProblemType.ENVIRONMENT);
-            break;
-            case R.id.traffic_textView:
-                listener.onItemClick(ProblemType.TRAFFIC);
+            case R.id.building_and_environment_textView:
+                listener.onItemClick(ProblemType.BUILDING_ENVIRON);
                 break;
-            case R.id.building_textView:
-                listener.onItemClick(ProblemType.BUILDING);
+            case R.id.clean_and_security_textView:
+                listener.onItemClick(ProblemType.CLEAN_SECURITY);
+                break;
+            case R.id.vehicle_textView:
+                listener.onItemClick(ProblemType.VEHICLE);
                 break;
         }
     }

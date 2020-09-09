@@ -3,11 +3,11 @@ package com.coldzify.finalproject;
 public enum ProblemType {
     ELECTRICS,
     WATER,
-    TECHNOLOGY,
+    CONDITIONER,
     MATERIAL,
-    CLEAN,
-    SECURITY,
-    ENVIRONMENT,
-    TRAFFIC,
-    BUILDING
+    TECHNOLOGY,
+    INTERNET,
+    BUILDING_ENVIRON,
+    CLEAN_SECURITY,
+    VEHICLE
 }
