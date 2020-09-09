@@ -97,7 +97,7 @@ public class ManageStatusDialog extends DialogFragment {
             public void onClick(View view) {
                 ok_button.setText("กำลัังโหลด...");
                 ok_button.setEnabled(false);
-                if(spinner.getSelectedItemPosition()+1 == progress){
+                if(spinner.getSelectedItemPosition()+1 < progress){
                     dismiss();
                     return;
                 }

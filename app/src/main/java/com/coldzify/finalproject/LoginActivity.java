@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         password_editText = findViewById(R.id.password_editText);
         email_err_textView = findViewById(R.id.email_error_textView);
         password_err_textView = findViewById(R.id.password_error_textView);
-//        login_button = findViewById(R.id.login_button);
+        //login_button = findViewById(R.id.login_button);
         //hideProgressBar();
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();

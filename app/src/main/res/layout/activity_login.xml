@@ -1,64 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp"
-    android:orientation="vertical"
     android:background="@drawable/background_login"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".LoginActivity">
-
 
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:src="@drawable/red_logo"
-        />
+        android:layout_marginTop="10dp"
+        android:src="@drawable/red_logo" />
+
     <android.support.v7.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:text="@string/app_name"
         android:textColor="@color/color_text_login"
-        app:fontFamily="@font/my_font"
         android:textSize="24sp"
-        />
+        app:fontFamily="@font/my_font" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        >
+        android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/email_th"
                 android:textColor="@color/color_text_login"
-                app:fontFamily="@font/my_font"
                 android:textSize="20sp"
-                />
+                app:fontFamily="@font/my_font" />
+
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/email_error_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*กรอกข้อมูลไม่ครบถ้วน"
-                app:fontFamily="@font/my_font"
-                android:textSize="16sp"
-
-                android:textColor="@android:color/holo_red_dark"
                 android:layout_gravity="end"
+                android:text="*กรอกข้อมูลไม่ครบถ้วน"
+                android:textColor="@android:color/holo_red_dark"
+
+                android:textSize="16sp"
                 android:visibility="invisible"
-                />
+                app:fontFamily="@font/my_font" />
         </FrameLayout>
 
         <android.support.v7.widget.AppCompatEditText
@@ -66,11 +65,11 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
 
+            android:backgroundTint="@color/color_text_login"
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
-            app:fontFamily="@font/my_font"
             android:textSize="20sp"
-            android:backgroundTint="@color/color_text_login"
+            app:fontFamily="@font/my_font"
 
             />
 
@@ -118,6 +117,7 @@
 
                 />
         </LinearLayout>
+
         <android.support.v7.widget.AppCompatButton
             android:layout_width="280dp"
             android:layout_height="wrap_content"
@@ -129,60 +129,30 @@
             android:textColor="@color/color_text_login"
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/button_marginTop_login"
-            >
+            android:layout_marginTop="@dimen/button_marginTop_login">
+
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/not_member_th"
                 android:textColor="@color/white"
-                app:fontFamily="@font/my_font"
                 android:textSize="16sp"
-                />
+                app:fontFamily="@font/my_font" />
+
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:onClick="onClickSignUp"
                 android:text="@string/register_th"
                 android:textColor="@color/color_text_login"
-                app:fontFamily="@font/my_font"
-                android:textSize="16sp"
-                android:onClick="onClickSignUp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/button_marginTop_login"
-            android:gravity="center"
-            android:weightSum="12">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="4"
-                android:background="@color/white" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="หรือเข้าสู่ระบบด้วย"
-                android:textColor="@color/white"
                 android:textSize="16sp"
                 app:fontFamily="@font/my_font" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="4"
-                android:background="@color/white" />
-
         </LinearLayout>
     </LinearLayout>
 
@@ -194,10 +164,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp" />-->
-
-
-
-
 
 
 </LinearLayout>
