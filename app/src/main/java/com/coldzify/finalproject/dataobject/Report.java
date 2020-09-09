@@ -71,6 +71,7 @@ public class Report implements Comparable<Report>{
         this.timestamp = timestamp;
         this.status = status;
         this.room = room;
+        this.takecareBy = takecareBy;
     }
 
     public Report(ArrayList<String> pictures, String type, String detail, int placeCode, String room, int status, String creatorID, Timestamp timestamp, String takecareBy) {
@@ -82,6 +83,7 @@ public class Report implements Comparable<Report>{
         this.timestamp = timestamp;
         this.status = status;
         this.room = room;
+        this.takecareBy = takecareBy;
     }
 
 

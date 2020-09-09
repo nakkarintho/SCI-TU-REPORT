@@ -20,6 +20,8 @@ import com.coldzify.finalproject.R;
 import com.coldzify.finalproject.dataobject.Notifications;
 import com.coldzify.finalproject.dataobject.Report;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -96,7 +98,7 @@ public class ManageStatusDialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 ok_button.setText("กำลัังโหลด...");
-                ok_button.setEnabled(false);
+                 ok_button.setEnabled(false);
                 if(spinner.getSelectedItemPosition()+1 < progress){
                     dismiss();
                     return;
@@ -116,16 +118,22 @@ public class ManageStatusDialog extends DialogFragment {
                                 dismiss();
                             }
                         });
-                ref.update("takecareBy",user_name)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                ref.update("takecareBy",user_name);
+                Map<String, Object> docData = new HashMap<>();
+                docData.put("staffname", user_name);
+                docData.put("date", new Timestamp(new Date()));
+                ref.collection("takecareBy").add(docData).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                    }
+                })
+                        .addOnFailureListener(new OnFailureListener() {
                             @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
                             }
                         });
-
-
-
             }
         });
 
