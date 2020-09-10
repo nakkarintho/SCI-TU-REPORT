@@ -97,9 +97,9 @@ public class ManageStatusDialog extends DialogFragment {
         ok_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ok_button.setText("กำลัังโหลด...");
+                ok_button.setText("กำลังโหลด...");
                  ok_button.setEnabled(false);
-                if(spinner.getSelectedItemPosition()+1 < progress){
+                if(spinner.getSelectedItemPosition()+1 <= progress){
                     dismiss();
                     return;
                 }
