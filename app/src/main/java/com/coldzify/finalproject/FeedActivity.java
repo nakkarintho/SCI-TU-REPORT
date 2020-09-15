@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -50,7 +51,7 @@ public class FeedActivity extends AppCompatActivity {
     private Profile profile;
     private Handler handler;
     private Runnable run;
-    private Spinner filter_feed;
+    private Spinner spinner;
     private boolean isGetReportFinish = false;
 
 
@@ -59,7 +60,7 @@ public class FeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
-        Spinner spinner = (Spinner) findViewById(R.id.filter_feed);
+         spinner = (Spinner) findViewById(R.id.filter_feed);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.filter_feed, R.layout.font_spinner);
@@ -67,6 +68,20 @@ public class FeedActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.font_spinner);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                filterReport(position);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
         init();
         getReports();
         getTokenId();
@@ -119,8 +134,8 @@ public class FeedActivity extends AppCompatActivity {
     }
 
     private void getReports(){
-
         reports = new ArrayList<>();
+
         db.collection("reports")
                 .orderBy("timestamp", Query.Direction.DESCENDING)
                 .get()
@@ -146,7 +161,42 @@ public class FeedActivity extends AppCompatActivity {
                     }
                 });
 
+
+
     }
+
+    private void filterReport(int position){
+        reports = new ArrayList<>();
+        if(position==1){
+            db.collection("reports")
+                    .orderBy("timestamp", Query.Direction.DESCENDING)
+                    .get()
+                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful() && task.getResult() != null) {
+                                reportID = new ArrayList<>();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    Report report = document.toObject(Report.class);
+                                    reports.add(report);
+                                    reportID.add(document.getId());
+                                }
+
+                                isGetReportFinish = true;
+                                Log.d(TAG, "Fetch report is done");
+
+                            } else {
+                                Log.w(TAG, "Error : ", task.getException());
+                            }
+                        }
+                    });}
+
+            else if(position==2){
+
+            }
+        }
+
+
+
     private void refresh(){
         shimmerFrameLayout.setVisibility(View.VISIBLE);
         shimmerFrameLayout.startShimmer();
