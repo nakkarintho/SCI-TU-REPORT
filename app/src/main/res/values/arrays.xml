@@ -46,8 +46,16 @@
         <item>บร.3</item>
         <item>บร.4</item>
         <item>บร.5</item>
-
     </string-array>
+
+    <string-array name="filter_feed">
+        <item>โปรดเลือกตัวกรอง</item>
+        <item>รอพิจารณา</item>
+        <item>รับเรื่องแล้ว</item>
+        <item>กำลังดำเนินการ</item>
+        <item>เสร็จสิ้น</item>
+    </string-array>
+
     <string-array name="problemType">
         <item>ไม่ระบุ</item>
         <item>ปัญหาไฟฟ้า</item>

@@ -4,13 +4,14 @@ package com.coldzify.finalproject;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 
 import com.coldzify.finalproject.adapter.ReportListAdapter;
@@ -28,6 +29,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.storage.FirebaseStorage;
+
 
 
 import java.util.ArrayList;
@@ -48,6 +50,7 @@ public class FeedActivity extends AppCompatActivity {
     private Profile profile;
     private Handler handler;
     private Runnable run;
+    private Spinner filter_feed;
     private boolean isGetReportFinish = false;
 
 
@@ -56,6 +59,14 @@ public class FeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
+        Spinner spinner = (Spinner) findViewById(R.id.filter_feed);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.filter_feed, R.layout.font_spinner);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(R.layout.font_spinner);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
         init();
         getReports();
         getTokenId();
@@ -93,6 +104,9 @@ public class FeedActivity extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swiperefresh);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+
         recyclerView.setHasFixedSize(true);
         shimmerFrameLayout = findViewById(R.id.shimmerFrameLayout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -184,5 +198,8 @@ public class FeedActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
 
+    }
 }

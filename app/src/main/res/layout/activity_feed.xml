@@ -8,13 +8,7 @@
 
     tools:context=".FeedActivity">
 
-    <com.coldzify.finalproject.TitleBarView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title_name="@string/all_problem_in_faculty"
-        app:icon_pic="@drawable/ic_menugrid"
-        />
-   <!-- <LinearLayout
+    <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color_titleBar_bg"
@@ -51,6 +45,19 @@
             android:drawablePadding="5dp"
             />
     </LinearLayout>-->
+
+    <com.coldzify.finalproject.TitleBarView
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        app:icon_pic="@drawable/ic_menugrid"
+        app:title_name="@string/all_problem_in_faculty">
+
+    </com.coldzify.finalproject.TitleBarView>
+
+    <Spinner
+        android:id="@+id/filter_feed"
+        android:layout_width="match_parent"
+        android:layout_height="49dp" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerFrameLayout"
