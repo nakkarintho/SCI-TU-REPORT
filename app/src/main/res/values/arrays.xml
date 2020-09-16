@@ -49,7 +49,7 @@
     </string-array>
 
     <string-array name="filter_feed">
-        <item>โปรดเลือกตัวกรอง</item>
+        <item>สถานะทั้งหมด</item>
         <item>รอพิจารณา</item>
         <item>รับเรื่องแล้ว</item>
         <item>กำลังดำเนินการ</item>

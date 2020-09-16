@@ -128,6 +128,7 @@ public class FeedActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 refresh();
+
             }
         });
 
@@ -159,6 +160,7 @@ public class FeedActivity extends AppCompatActivity {
                         }
 
                     }
+
                 });
 
 
@@ -167,8 +169,13 @@ public class FeedActivity extends AppCompatActivity {
 
     private void filterReport(int position){
         reports = new ArrayList<>();
-        if(position==1){
+            if(position==0){
+            getReports();
+        }
+
+            Log.i(TAG, ""+position);
             db.collection("reports")
+                    .whereEqualTo("status", position)
                     .orderBy("timestamp", Query.Direction.DESCENDING)
                     .get()
                     .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
@@ -188,12 +195,15 @@ public class FeedActivity extends AppCompatActivity {
                                 Log.w(TAG, "Error : ", task.getException());
                             }
                         }
-                    });}
 
-            else if(position==2){
 
-            }
+                    });
+            refreshFilter();
+
         }
+
+
+
 
 
 
@@ -201,8 +211,17 @@ public class FeedActivity extends AppCompatActivity {
         shimmerFrameLayout.setVisibility(View.VISIBLE);
         shimmerFrameLayout.startShimmer();
         isGetReportFinish = false;
-
+        spinner.setSelection(0);
         getReports();
+        handler.postDelayed(run, 100);
+    }
+
+    private void refreshFilter(){
+        shimmerFrameLayout.setVisibility(View.VISIBLE);
+        shimmerFrameLayout.startShimmer();
+        isGetReportFinish = false;
+
+
 
         handler.postDelayed(run, 100);
     }
