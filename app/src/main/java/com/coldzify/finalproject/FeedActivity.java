@@ -70,16 +70,16 @@ public class FeedActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                filterReport(position);
+                @Override
+                public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                    getFilterReport(position);
 
-            }
+                }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
-            }
+                @Override
+                public void onNothingSelected(AdapterView<?> parentView) {
+                    // your code here
+                }
 
         });
         init();
@@ -167,39 +167,40 @@ public class FeedActivity extends AppCompatActivity {
 
     }
 
-    private void filterReport(int position){
+    private void getFilterReport(int position){
         reports = new ArrayList<>();
             if(position==0){
             getReports();
         }
 
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("status", position)
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
+           else{
+                Log.i(TAG, ""+position);
+                db.collection("reports")
+                        .whereEqualTo("status", position)
+                        .orderBy("timestamp", Query.Direction.DESCENDING)
+                        .get()
+                        .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful() && task.getResult() != null) {
+                                    reportID = new ArrayList<>();
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        Report report = document.toObject(Report.class);
+                                        reports.add(report);
+                                        reportID.add(document.getId());
+                                    }
+
+                                    isGetReportFinish = true;
+                                    Log.d(TAG, "Fetch report is done");
+
+                                } else {
+                                    Log.w(TAG, "Error : ", task.getException());
                                 }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
                             }
-                        }
 
 
-                    });
+                        });
+            }
             refreshFilter();
-
         }
 
 
@@ -211,8 +212,8 @@ public class FeedActivity extends AppCompatActivity {
         shimmerFrameLayout.setVisibility(View.VISIBLE);
         shimmerFrameLayout.startShimmer();
         isGetReportFinish = false;
-        spinner.setSelection(0);
-        getReports();
+        getFilterReport(spinner.getSelectedItemPosition());
+//        getReports();
         handler.postDelayed(run, 100);
     }
 
@@ -220,7 +221,7 @@ public class FeedActivity extends AppCompatActivity {
         shimmerFrameLayout.setVisibility(View.VISIBLE);
         shimmerFrameLayout.startShimmer();
         isGetReportFinish = false;
-
+//        getFilterReport(spinner.getSelectedItemPosition());
 
 
         handler.postDelayed(run, 100);
