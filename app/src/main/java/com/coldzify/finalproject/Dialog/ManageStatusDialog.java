@@ -11,14 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.SeekBar;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.coldzify.finalproject.R;
-import com.coldzify.finalproject.dataobject.Notifications;
-import com.coldzify.finalproject.dataobject.Report;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,12 +23,8 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.WriteBatch;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -118,10 +110,12 @@ public class ManageStatusDialog extends DialogFragment {
                                 dismiss();
                             }
                         });
+                Date d = new Date();
                 ref.update("takecareBy",user_name);
+                ref.update("lastModified", new Timestamp(d));
                 Map<String, Object> docData = new HashMap<>();
                 docData.put("staffname", user_name);
-                docData.put("date", new Timestamp(new Date()));
+                docData.put("date", new Timestamp(d));
                 ref.collection("takecareBy").add(docData).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
