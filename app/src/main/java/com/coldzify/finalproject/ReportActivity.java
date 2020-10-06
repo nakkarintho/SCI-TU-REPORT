@@ -48,6 +48,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
 import com.coldzify.finalproject.Dialog.DuplicateReportDialog;
 import com.coldzify.finalproject.Dialog.SelectTypeDialog;
 import com.coldzify.finalproject.Dialog.UploadProgressDialog;
@@ -71,6 +73,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -78,6 +81,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
@@ -98,9 +102,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Locale;
 import java.util.Map;
 
@@ -113,7 +120,7 @@ public class ReportActivity extends AppCompatActivity {
     private UploadProgressDialog dialog;
 
     private FirebaseFirestore db;
-
+    private DocumentReference dr;
     private LocationManager locationManager;
     private LocationRequest mLocationRequest;
     private FusedLocationProviderClient fusedLocationClient;
@@ -141,6 +148,9 @@ public class ReportActivity extends AppCompatActivity {
     private ProblemType problemType;
     private ArrayList<Report> reports;
     private LinearLayout room_layout;
+    private List<String> lists = new ArrayList<>();;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,11 +168,12 @@ public class ReportActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
 
-        room_autoComplete = findViewById(R.id.room_autoComplete);
-        String[] arr = getResources().getStringArray(R.array.br2_room);
+      /*  room_autoComplete = findViewById(R.id.room_autoComplete);
+        String[] arr = getResources().getStringArray(R.array.test);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,arr);
-        room_autoComplete.setAdapter(adapter);
+        room_autoComplete.setAdapter(adapter); */
+
 
 
         detail_editText = findViewById(R.id.detail_editText);
@@ -213,6 +224,7 @@ public class ReportActivity extends AppCompatActivity {
         mLocationRequest.setInterval(7 * 1000); // 7 secs
         mLocationRequest.setFastestInterval(4 * 1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
     }
 
 
@@ -339,6 +351,7 @@ public class ReportActivity extends AppCompatActivity {
     LocationCallback mLocationCallback = new LocationCallback() {
         @Override
         public void onLocationResult(LocationResult locationResult) {
+            lists.clear();
             List<Location> locationList = locationResult.getLocations();
             if (locationList.size() > 0) {
                 //The last location in the list is the newest
@@ -360,6 +373,26 @@ public class ReportActivity extends AppCompatActivity {
                 currentLocation = location;
                 checkDuplicateReport(location);
 
+
+                FirebaseFirestore.getInstance().collection("buildings").document(place).collection("rooms").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            List<String> list = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                list.add(document.getId());
+                            }
+                            Log.d(TAG, "Junior : " + list.toString());
+                            InsertAutoComplete(list);
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+                room_autoComplete = findViewById(R.id.room_autoComplete);
+                final ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,lists);
+                room_autoComplete.setAdapter(adapter);
             }
         }
     };
@@ -1008,4 +1041,10 @@ public class ReportActivity extends AppCompatActivity {
         //Toast.makeText(this,"size : "+imagesPath.size(),Toast.LENGTH_LONG).show();
 
     }
+
+    private void InsertAutoComplete(List<String> list){
+        lists.addAll(list);
+        return;
+    }
+
 }

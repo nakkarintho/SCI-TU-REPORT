@@ -102,7 +102,7 @@
     <string name="all_problem_in_faculty">ปัญหาในคณะทั้งหมด</string>
     <string name="officer_th">เจ้าหน้าที่</string>
     <string name="normal_user_th">ผู้ใช้ทั่วไป</string>
-    <string name="room2_th">ห้อง :</string>
+    <string name="room2_th">ชื่อห้องหรือชื่อสถานที่ :</string>
     <string name="report_success_th">แจ้งปัญหาเสร็จสิ้น</string>
     <string name="change_status_th">เปลี่ยนสถานะ</string>
     <string name="building_th">ตึกเรียน</string>

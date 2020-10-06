@@ -1,39 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="br1_room">
+        <item>โถงอาคาร</item>
+        <item>ห้อง 101</item>
+        <item>ห้อง 102</item>
+        <item>ห้อง 103</item>
+        <item>ห้อง 104</item>
+        <item>ห้อง 105</item>
+    </string-array>
 
     <string-array name="br2_room">
         <item>ห้องสมุด</item>
-        <item>ห้อง 101</item>
-        <item>ห้อง 102</item>
-        <item>ห้อง 103</item>
+        <item>ลานจอดรถ</item>
+        <item>ศาลา</item>
+        <item>วงเวียน</item>
         <item>ห้อง 201</item>
         <item>ห้อง 202</item>
         <item>ห้อง 203</item>
+        <item>ห้อง 204</item>
+        <item>ห้อง 205</item>
     </string-array>
+
     <string-array name="br3_room">
-        <item>ห้อง 101</item>
-        <item>ห้อง 102</item>
-        <item>ห้อง 103</item>
-        <item>ห้อง 201</item>
-        <item>ห้อง 202</item>
-        <item>ห้อง 203</item>
-    </string-array>
-    <string-array name="br4_room">
-        <item>ห้อง 101</item>
-        <item>ห้อง 102</item>
-        <item>ห้อง 103</item>
-        <item>ห้อง 201</item>
-        <item>ห้อง 202</item>
-        <item>ห้อง 203</item>
-    </string-array>
-    <string-array name="br5_room">
-        <item>ห้อง 101</item>
-        <item>ห้อง 102</item>
-        <item>ห้อง 103</item>
-        <item>ห้อง 201</item>
+        <item>ห้อง 301</item>
         <item>ห้อง 302</item>
         <item>ห้อง 303</item>
+        <item>ห้อง 304</item>
+        <item>ห้อง 305</item>
     </string-array>
+
+    <string-array name="br4_room">
+        <item>ห้อง 401</item>
+        <item>ห้อง 402</item>
+        <item>ห้อง 403</item>
+        <item>ห้อง 404</item>
+        <item>ห้อง 405</item>
+    </string-array>
+
+    <string-array name="br5_room">
+        <item>ห้อง 501</item>
+        <item>ห้อง 502</item>
+        <item>ห้อง 503</item>
+        <item>ห้อง 504</item>
+        <item>ห้อง 505</item>
+    </string-array>
+
+
+
+
     <string-array name="report_status">
         <item>รอพิจารณา</item>
         <item>รับเรื่องแล้ว</item>
