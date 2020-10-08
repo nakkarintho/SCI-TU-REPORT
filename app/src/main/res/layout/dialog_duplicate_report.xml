@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="พบปัญหาที่คล้ายกัน"
+            android:text="ปัญหาที่มีคนแจ้งเข้ามาแล้ว"
             android:textColor="@color/color_titleBar_bg"
             android:textSize="28sp"
             android:textStyle="bold"

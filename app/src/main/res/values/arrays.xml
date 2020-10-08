@@ -49,7 +49,7 @@
 
 
     <string-array name="report_status">
-        <item>รอพิจารณา</item>
+        <item>เริ่มต้น</item>
         <item>รับเรื่องแล้ว</item>
         <item>กำลังดำเนินการ</item>
         <item>เสร็จสิ้น</item>
@@ -64,7 +64,7 @@
 
     <string-array name="filter_feed">
         <item>สถานะทั้งหมด</item>
-        <item>รอพิจารณา</item>
+        <item>เริ่มต้น</item>
         <item>รับเรื่องแล้ว</item>
         <item>กำลังดำเนินการ</item>
         <item>เสร็จสิ้น</item>
