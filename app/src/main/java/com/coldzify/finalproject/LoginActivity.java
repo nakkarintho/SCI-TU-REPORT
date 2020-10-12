@@ -45,6 +45,8 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -55,6 +57,7 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
@@ -66,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseStorage storage;
     private FirebaseFirestore db;
     private static final String TAG = "LoginActivity";
-    private String id,first_name,last_name,gender,birthday,email;
+    private String id,first_name,last_name,gender,birthday,email,checkType;
     private FirestoreController fCon = new FirestoreController();
     private Button login_button;
     private ProgressDialog dialog;
@@ -140,11 +143,47 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void goNextActivity(){
-        Intent profileIntent = new Intent(LoginActivity.this,ReportActivity.class);
-        startActivity(profileIntent);
-        //profileIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
+        FirebaseFirestore.getInstance().collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                String email= email_editText.getText().toString();
+                if (task.isSuccessful()) {
+                   // List<String> list = new ArrayList<>();
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        if(email.equals(document.getString("email"))){
+                            checkType = document.getString("userType");
+                        }
+                        //list.add(document.getString("userType"));
+                    }
+                    Log.d(TAG, "Complete Type : " + checkType);
+
+                    //profileIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                } else {
+                    Log.d(TAG, "Error getting documents: ", task.getException());
+                }
+
+                if(checkType.equals("normal")){
+                    Intent profileIntent = new Intent(LoginActivity.this,ReportActivity.class);
+                    startActivity(profileIntent);
+                    finish();
+                }
+                else if(checkType.equals("housekeeper")){
+                    Intent profileIntent = new Intent(LoginActivity.this,ChecklistActivity.class);
+                    startActivity(profileIntent);
+                    finish();
+                }
+                else if(checkType.equals("staff")){
+                    Intent profileIntent = new Intent(LoginActivity.this,FeedActivity.class);
+                    startActivity(profileIntent);
+                    finish();
+                }
+
+            }
+        });
+
     }
+
     public void onClickLogin(View v){
 
             login();
