@@ -30,6 +30,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -48,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
     private ProgressDialog dialog;
     private Calendar myCalendar;
     private DatePickerDialog.OnDateSetListener date;
+    private String checkType;
 
 
     @Override
@@ -156,10 +159,49 @@ public class SignUpActivity extends AppCompatActivity {
                         Log.d(TAG, "User : "+user.getFirstname()+ " successfully written!");
                         dialog.dismiss();
                         Toast.makeText(getApplicationContext(),"สมัครสมาชิกเรียบร้อยแล้ว",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SignUpActivity.this,ReportActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                        finish();
+                        FirebaseFirestore.getInstance().collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                String email= email_editText.getText().toString();
+                                if (task.isSuccessful()) {
+                                    // List<String> list = new ArrayList<>();
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        if(email.equals(document.getString("email"))){
+                                            checkType = document.getString("userType");
+                                        }
+                                        //list.add(document.getString("userType"));
+                                    }
+                                    Log.d(TAG, "Complete Type : " + checkType);
+
+                                    //profileIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                                } else {
+                                    Log.d(TAG, "Error getting documents: ", task.getException());
+                                }
+
+                                if(checkType.equals("normal")){
+                                    Intent intent = new Intent(SignUpActivity.this,ReportActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                                else if(checkType.equals("housekeeper")){
+                                    Intent intent = new Intent(SignUpActivity.this,ChecklistActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                                else if(checkType.equals("staff")){
+                                    Intent intent = new Intent(SignUpActivity.this,FeedActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                            }
+                        });
+
+
                         //System.out.println("Success adding id :"+uid);
 
                     }

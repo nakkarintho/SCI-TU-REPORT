@@ -382,7 +382,7 @@ public class ReportActivity extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 list.add(document.getId());
                             }
-                            Log.d(TAG, "Junior : " + list.toString());
+                            Log.d(TAG, "Complete Location : " + list.toString());
                             InsertAutoComplete(list);
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
@@ -394,6 +394,7 @@ public class ReportActivity extends AppCompatActivity {
                 final ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,lists);
                 room_autoComplete.setAdapter(adapter);
             }
+
         }
     };
 
