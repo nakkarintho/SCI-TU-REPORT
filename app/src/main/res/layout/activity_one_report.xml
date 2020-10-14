@@ -107,7 +107,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
 
 
                     android:orientation="horizontal">
@@ -126,7 +126,7 @@
                     <android.support.v7.widget.AppCompatTextView
 
                         android:id="@+id/takecareBy"
-                        android:layout_width="match_parent"
+                        android:layout_width="286dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
 
@@ -136,8 +136,22 @@
                         android:textAlignment="gravity"
                         android:textSize="20sp"
                         app:fontFamily="@font/my_font" />
+
                 </LinearLayout>
 
+
+                <android.support.v7.widget.AppCompatTextView
+
+                    android:id="@+id/dateFinish_editText"
+                    android:layout_width="349dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="32dp"
+                    android:lineSpacingExtra="4dp"
+
+                    android:textAlignment="gravity"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/my_font" />
 
                 <com.coldzify.finalproject.TickedProgressBarView
                     android:id="@+id/statusBar"

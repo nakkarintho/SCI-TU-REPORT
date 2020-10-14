@@ -23,6 +23,7 @@ public class Report implements Comparable<Report>{
     private GeoPoint geoPoint;
     private String reportID;
     private String takecareBy;
+    private String dateFinish;
     public static final int STATUS_WAITING = 1;
     public static final int STATUS_ACCEPTED = 2;
     public static final int STATUS_IN_PROGRESS = 3;
@@ -46,7 +47,7 @@ public class Report implements Comparable<Report>{
         //DateFormat dateFormat = DateFormat.getDateInstance().format()
     }
 
-    public Report(List<String> pictures, String type, String detail,GeoPoint geoPoint, int placeCode, String room, String creatorID, String takecareBy) {
+    public Report(List<String> pictures, String type, String detail,GeoPoint geoPoint, int placeCode, String room, String creatorID, String takecareBy, String dateFinish) {
         this.pictures = pictures;
         this.type = type;
         this.detail = detail;
@@ -54,6 +55,7 @@ public class Report implements Comparable<Report>{
         this.room = room;
         this.creatorID = creatorID;
         this.takecareBy = takecareBy;
+        this.dateFinish = dateFinish;
 
 
 
@@ -72,9 +74,11 @@ public class Report implements Comparable<Report>{
         this.status = status;
         this.room = room;
         this.takecareBy = takecareBy;
+        this.dateFinish = dateFinish;
+
     }
 
-    public Report(ArrayList<String> pictures, String type, String detail, int placeCode, String room, int status, String creatorID, Timestamp timestamp, String takecareBy) {
+    public Report(ArrayList<String> pictures, String type, String detail, int placeCode, String room, int status, String creatorID, Timestamp timestamp, String takecareBy, String dateFinish) {
         this.pictures = pictures;
         this.type = type;
         this.detail = detail;
@@ -84,6 +88,8 @@ public class Report implements Comparable<Report>{
         this.status = status;
         this.room = room;
         this.takecareBy = takecareBy;
+        this.dateFinish = dateFinish;
+
     }
 
 
@@ -125,6 +131,10 @@ public class Report implements Comparable<Report>{
     public String getTakecareBy() {
         return takecareBy;
     }
+    public String getDateFinish() {
+        return dateFinish;
+    }
+
 
 
 
@@ -151,7 +161,7 @@ public class Report implements Comparable<Report>{
     public static String statusCodeToString(int code){
         switch (code){
             case STATUS_WAITING:
-                return "รอพิจารณา";
+                return "เริ่มต้น";
 
             case STATUS_ACCEPTED :
                 return "รับเรื่องแล้ว";

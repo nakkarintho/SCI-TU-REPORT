@@ -49,7 +49,7 @@ public class OneReportActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseStorage storage;
     private FirebaseAuth mAuth;
-    private TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy;
+    private TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy,dateFinish;
     private ImageView user_imageView,report_setting_imageView;
     private Button subscribe_button,comment_button;
     private ProgressBar statusBar;
@@ -75,6 +75,7 @@ public class OneReportActivity extends AppCompatActivity {
         report_setting_imageView = findViewById(R.id.report_setting_imageView);
         place_textView = findViewById(R.id.place_textView);
         takecareBy = findViewById(R.id.takecareBy);
+        dateFinish = findViewById(R.id.dateFinish_editText);
         if(mAuth.getCurrentUser() == null){
             Intent login = new Intent(this,LoginActivity.class);
             startActivity(login);
@@ -108,7 +109,8 @@ public class OneReportActivity extends AppCompatActivity {
                             Timestamp timestamp = snapshot.getTimestamp("timestamp");
                             String type = snapshot.getString("type");
                             String takecareBy = snapshot.getString("takecareBy");
-                            Report report = new Report(pictures,type,detail,placeCode,room,status,creatorID,timestamp,takecareBy);
+                            String dateFinish = snapshot.getString("dateFinish");
+                            Report report = new Report(pictures,type,detail,placeCode,room,status,creatorID,timestamp,takecareBy,dateFinish);
                             setUserData(creatorID);
                             setReportData(report);
                             setOnClickListener(report,reportID);
@@ -127,6 +129,9 @@ public class OneReportActivity extends AppCompatActivity {
         place_textView.setText(place);
         if(report.getTakecareBy()!=null){
             takecareBy.setText("ผู้รับผิดชอบ: " + report.getTakecareBy());
+        }
+        if(report.getDateFinish()!=null){
+            dateFinish.setText("คาดว่าจะเสร็จภายใน: " + report.getDateFinish());
         }
 
 

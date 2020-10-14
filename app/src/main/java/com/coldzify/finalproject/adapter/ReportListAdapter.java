@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -107,9 +109,14 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
         holder.statusBar.setProgress(reports.get(i).getStatus()-1);
         holder.place_textView.setText(place);
 
+
         if(reports.get(i).getTakecareBy()!=null){
             holder.takecareBy.setText("ผู้รับผิดชอบ: " + reports.get(i).getTakecareBy());
         }
+//        if(reports.get(i).getDateFinish()!=null){
+//            holder.dateFinish.setText("คาดว่าจะเสร็จภายใน: "+reports.get(i).getDateFinish());
+//        }
+
         final ArrayList<String> pictures = (ArrayList<String>) reports.get(i).getPictures();
 
         setImagesAdapter(holder.mPager,holder.indicator,pictures);
@@ -400,7 +407,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         View view;
-        TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy;
+        TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy, dateFinish;
         ImageView user_imageView,report_setting_imageView;
         Button subscribe_button,comment_button;
         ProgressBar statusBar;
@@ -422,6 +429,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
             report_setting_imageView = view.findViewById(R.id.report_setting_imageView);
             place_textView = view.findViewById(R.id.place_textView);
             takecareBy = view.findViewById(R.id.takecareBy);
+            dateFinish = view.findViewById(R.id.dateFinish_editText);
         }
     }
 }

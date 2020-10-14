@@ -44,6 +44,7 @@
     <string name="lastname_th">นามสกุล</string>
     <string name="register_th">สมัครสมาชิก</string>
     <string name="birthdate_th">วันเกิด</string>
+    <string name="date_finish_th">วันที่คาดว่าจะเสร็จสิ้น</string>
     <string name="duplicate_email_th">มีผู้ใช้อีเมลนี้ในระบบแล้ว</string>
     <string name="home_icon">Home Icon</string>
     <string name="delete_image">delete image</string>
