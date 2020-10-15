@@ -81,18 +81,18 @@
         <item>เกี่ยวกับยานพาหนะ</item>
     </string-array>
 
-<!--    <string-array name="filter_feed2">-->
-<!--        <item>ประเภทปัญหาทั้งหมด</item>-->
-<!--        <item>ระบบไฟฟ้า</item>-->
-<!--        <item>ระบบประปา</item>-->
-<!--        <item>ระบบเครื่องปรับอากาศ</item>-->
-<!--        <item>วัสดุภายในห้อง</item>-->
-<!--        <item>สื่อการเรียนการสอน</item>-->
-<!--        <item>ระบบอินเทอร์เน็ต</item>-->
-<!--        <item>อาคารและสิ่งแวดล้อม</item>-->
-<!--        <item>ความสะอาดและความปลอดภัย</item>-->
-<!--        <item>เกี่ยวกับยานพาหนะ</item>-->
-<!--    </string-array>-->
+    <string-array name="filter_feed2">
+        <item>ประเภทปัญหาทั้งหมด</item>
+        <item>ระบบไฟฟ้า</item>
+        <item>ระบบประปา</item>
+        <item>ระบบเครื่องปรับอากาศ</item>
+        <item>วัสดุภายในห้อง</item>
+        <item>สื่อการเรียนการสอน</item>
+        <item>ระบบอินเทอร์เน็ต</item>
+        <item>อาคารและสิ่งแวดล้อม</item>
+        <item>ความสะอาดและความปลอดภัย</item>
+        <item>เกี่ยวกับยานพาหนะ</item>
+    </string-array>
 
     <string-array name="problemType">
         <item>ไม่ระบุ</item>

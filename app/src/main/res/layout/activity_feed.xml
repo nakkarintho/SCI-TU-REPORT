@@ -59,6 +59,11 @@
         android:layout_width="match_parent"
         android:layout_height="49dp" />
 
+    <Spinner
+        android:id="@+id/filter_feed2"
+        android:layout_width="match_parent"
+        android:layout_height="49dp" />
+
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerFrameLayout"
         android:layout_width="wrap_content"

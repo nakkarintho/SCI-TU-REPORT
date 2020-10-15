@@ -27,6 +27,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 
+import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 
@@ -551,6 +552,10 @@ public class ReportActivity extends AppCompatActivity {
                 float distance = LocationHandle.distance(user_location,report_location);
                 ProblemType report_type = ProblemType.valueOf(report.getType());
                 Log.d(TAG,"distance : "+distance+" type1 "+problemType+" type2 "+report_type);
+                
+
+
+
                 if(distance < 15 && problemType != null && problemType == report_type) {
                     //Toast.makeText(this,"close location",Toast.LENGTH_SHORT).show();
 
