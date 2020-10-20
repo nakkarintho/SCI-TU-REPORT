@@ -435,34 +435,34 @@ public class FeedActivity extends AppCompatActivity {
 //                    });
 //        }
 //
-//        else{
-//            Log.i(TAG, ""+position);
-//            db.collection("reports")
-//                    .whereEqualTo("status", position)
-//                    .orderBy("timestamp", Query.Direction.DESCENDING)
-//                    .get()
-//                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-//                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                            if (task.isSuccessful() && task.getResult() != null) {
-//                                reportID = new ArrayList<>();
-//                                for (QueryDocumentSnapshot document : task.getResult()) {
-//                                    Report report = document.toObject(Report.class);
-//                                    reports.add(report);
-//                                    reportID.add(document.getId());
-//                                }
-//
-//                                isGetReportFinish = true;
-//                                Log.d(TAG, "Fetch report is done");
-//
-//                            } else {
-//                                Log.w(TAG, "Error : ", task.getException());
-//                            }
-//                        }
-//
-//
-//                    });
-//        }
-//        refreshFilter();
+        else{
+            Log.i(TAG, ""+position);
+            db.collection("reports")
+                    .whereEqualTo("status", position)
+                    .orderBy("timestamp", Query.Direction.DESCENDING)
+                    .get()
+                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful() && task.getResult() != null) {
+                                reportID = new ArrayList<>();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    Report report = document.toObject(Report.class);
+                                    reports.add(report);
+                                    reportID.add(document.getId());
+                                }
+
+                                isGetReportFinish = true;
+                                Log.d(TAG, "Fetch report is done");
+
+                            } else {
+                                Log.w(TAG, "Error : ", task.getException());
+                            }
+                        }
+
+
+                    });
+        }
+        refreshFilter();
     }
 
     private void getTypeReport(int position){

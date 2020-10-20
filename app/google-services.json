@@ -1,34 +1,79 @@
+// Test version
+//{
+//  "project_info": {
+//"project_number": "128835871976",
+//"firebase_url": "https://scitu-reports.firebaseio.com",
+//"project_id": "scitu-reports",
+//"storage_bucket": "scitu-reports.appspot.com"
+//},
+//"client": [
+//{
+//"client_info": {
+//"mobilesdk_app_id": "1:128835871976:android:9a053d0e01626a5fae555d",
+//"android_client_info": {
+//"package_name": "com.coldzify.finalproject"
+//}
+//},
+//"oauth_client": [
+//{
+//"client_id": "128835871976-45rc3pje88j46hpbkm9106eiti86pkud.apps.googleusercontent.com",
+//"client_type": 3
+//}
+//],
+//"api_key": [
+//{
+//"current_key": "AIzaSyCoByMibU9MQFtZamD5ngIyjDTGcbTbSnI"
+//}
+//],
+//"services": {
+//"appinvite_service": {
+//"other_platform_oauth_client": [
+//{
+//"client_id": "128835871976-45rc3pje88j46hpbkm9106eiti86pkud.apps.googleusercontent.com",
+//"client_type": 3
+//}
+//]
+//}
+//}
+//}
+//],
+//"configuration_version": "1"
+//}
+
+// Launch version
+
+
 {
   "project_info": {
-    "project_number": "128835871976",
-    "firebase_url": "https://scitu-reports.firebaseio.com",
-    "project_id": "scitu-reports",
-    "storage_bucket": "scitu-reports.appspot.com"
+    "project_number": "806977119780",
+    "firebase_url": "https://tusci-report.firebaseio.com",
+    "project_id": "tusci-report",
+    "storage_bucket": "tusci-report.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:128835871976:android:9a053d0e01626a5fae555d",
+        "mobilesdk_app_id": "1:806977119780:android:63b74efc9a1b22ee3d5ab1",
         "android_client_info": {
           "package_name": "com.coldzify.finalproject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "128835871976-45rc3pje88j46hpbkm9106eiti86pkud.apps.googleusercontent.com",
+          "client_id": "806977119780-ml3a9g1bljm4i3op2g57lg856sm621ne.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCoByMibU9MQFtZamD5ngIyjDTGcbTbSnI"
+          "current_key": "AIzaSyCfGzs9EqauPwwVfEhbd5m4VSg0bMvL5CQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "128835871976-45rc3pje88j46hpbkm9106eiti86pkud.apps.googleusercontent.com",
+              "client_id": "806977119780-ml3a9g1bljm4i3op2g57lg856sm621ne.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
