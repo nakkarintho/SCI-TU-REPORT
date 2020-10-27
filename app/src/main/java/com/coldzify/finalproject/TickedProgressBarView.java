@@ -15,7 +15,7 @@ public class TickedProgressBarView extends ProgressBar {
     private static final float DEFAULT_lineWidth = 10.0f;
     private float lineWidth;
 
-    private int textSize = 12;
+    private int textSize = 17;
     private Paint mTickPaint,textPaint;
     private Paint backgroundCirclePaint,progressLinePaint,backgroundLinePaint;
     private float INDICATOR_RADIUS = 5f;

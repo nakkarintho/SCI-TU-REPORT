@@ -23,7 +23,7 @@ public class Report implements Comparable<Report>{
     private GeoPoint geoPoint;
     private String reportID;
     private String takecareBy;
-    private String dateFinish;
+    private String dateFinish ;
     public static final int STATUS_WAITING = 1;
     public static final int STATUS_ACCEPTED = 2;
     public static final int STATUS_IN_PROGRESS = 3;

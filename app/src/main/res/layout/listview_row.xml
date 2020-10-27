@@ -107,10 +107,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
 
 
                 android:orientation="horizontal">
+
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/place_textView"
                     android:layout_width="wrap_content"
@@ -119,16 +120,15 @@
                     android:layout_marginLeft="5dp"
                     android:drawableLeft="@drawable/ic_place_red"
 
-                    app:fontFamily="@font/my_font"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    app:fontFamily="@font/my_font" />
 
                 <android.support.v7.widget.AppCompatTextView
 
                     android:id="@+id/takecareBy"
-                    android:layout_width="match_parent"
+                    android:layout_width="289dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-
 
 
                     android:lineSpacingExtra="4dp"
@@ -136,20 +136,33 @@
                     android:textAlignment="gravity"
                     android:textSize="20sp"
                     app:fontFamily="@font/my_font" />
-        </LinearLayout>
 
+            </LinearLayout>
+
+
+            <android.support.v7.widget.AppCompatTextView
+
+                android:id="@+id/dateFinish_editText"
+                android:layout_width="349dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="32dp"
+                android:lineSpacingExtra="4dp"
+                android:textAlignment="gravity"
+                android:textSize="20sp"
+                app:fontFamily="@font/my_font" />
 
             <com.coldzify.finalproject.TickedProgressBarView
                 android:id="@+id/statusBar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:indeterminateOnly="false"
                 android:max="3"
                 android:progress="1"
                 android:progressDrawable="@drawable/progress_horizontal"
                 app:lineWidth="5dp"
-                app:percentWidth="0.7" />
+                app:percentWidth="0.8" />
 
         </LinearLayout>
 

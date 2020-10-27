@@ -102,7 +102,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -148,7 +147,6 @@
                     android:layout_gravity="left"
                     android:layout_marginLeft="32dp"
                     android:lineSpacingExtra="4dp"
-
                     android:textAlignment="gravity"
                     android:textSize="20sp"
                     app:fontFamily="@font/my_font" />
@@ -163,7 +161,7 @@
                     android:progress="1"
                     android:progressDrawable="@drawable/progress_horizontal"
                     app:lineWidth="5dp"
-                    app:percentWidth="0.7" />
+                    app:percentWidth="0.8" />
             </LinearLayout>
 
             <LinearLayout

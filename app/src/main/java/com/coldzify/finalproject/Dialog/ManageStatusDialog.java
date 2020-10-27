@@ -50,7 +50,7 @@ public class ManageStatusDialog extends DialogFragment {
     private Spinner spinner;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private EditText dateFinish_editText;
+    private TextView dateFinish_editText;
     private String dateFinish;
     private Calendar myCalendar;
     private DatePickerDialog.OnDateSetListener date;

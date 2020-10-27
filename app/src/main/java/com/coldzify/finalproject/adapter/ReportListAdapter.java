@@ -113,9 +113,10 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
         if(reports.get(i).getTakecareBy()!=null){
             holder.takecareBy.setText("ผู้รับผิดชอบ: " + reports.get(i).getTakecareBy());
         }
-//        if(reports.get(i).getDateFinish()!=null){
-//            holder.dateFinish.setText("คาดว่าจะเสร็จภายใน: "+reports.get(i).getDateFinish());
-//        }
+//        Log.w(TAG,reports.get(i).getDateFinish());
+        if(reports.get(i).getDateFinish()!=null){
+            holder.dateFinish_editText.setText("คาดว่าจะเสร็จภายใน: "+reports.get(i).getDateFinish());
+        }
 
         final ArrayList<String> pictures = (ArrayList<String>) reports.get(i).getPictures();
 
@@ -407,7 +408,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         View view;
-        TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy, dateFinish;
+        TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy, dateFinish_editText;
         ImageView user_imageView,report_setting_imageView;
         Button subscribe_button,comment_button;
         ProgressBar statusBar;
@@ -429,7 +430,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
             report_setting_imageView = view.findViewById(R.id.report_setting_imageView);
             place_textView = view.findViewById(R.id.place_textView);
             takecareBy = view.findViewById(R.id.takecareBy);
-            dateFinish = view.findViewById(R.id.dateFinish_editText);
+            dateFinish_editText = view.findViewById(R.id.dateFinish_editText);
         }
     }
 }
