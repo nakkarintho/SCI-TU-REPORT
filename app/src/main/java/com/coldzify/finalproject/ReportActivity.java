@@ -39,6 +39,7 @@ import android.support.v7.content.res.AppCompatResources;
 import android.util.Log;
 import android.view.View;
 
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -71,6 +72,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
@@ -226,6 +228,14 @@ public class ReportActivity extends AppCompatActivity {
         mLocationRequest.setFastestInterval(4 * 1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
+        room_autoComplete = (AutoCompleteTextView)findViewById(R.id.room_autoComplete);
+        room_autoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                checkDuplicate();
+            }
+        });
+
     }
 
 
@@ -375,7 +385,7 @@ public class ReportActivity extends AppCompatActivity {
                 checkDuplicateReport(location);
 
 
-                FirebaseFirestore.getInstance().collection("buildings").document(place).collection("rooms").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                db.collection("buildings").document(place).collection("rooms").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
@@ -551,10 +561,7 @@ public class ReportActivity extends AppCompatActivity {
                 LatLng report_location = new LatLng(geoPoint.getLatitude(),geoPoint.getLongitude());
                 float distance = LocationHandle.distance(user_location,report_location);
                 ProblemType report_type = ProblemType.valueOf(report.getType());
-                Log.d(TAG,"distance : "+distance+" type1 "+problemType+" type2 "+report_type);
-                
-
-
+                Log.d(TAG,"distance : " + distance + " type1 " + problemType + " type2 " + report_type);
 
                 if(distance < 15 && problemType != null && problemType == report_type) {
                     //Toast.makeText(this,"close location",Toast.LENGTH_SHORT).show();
@@ -570,9 +577,10 @@ public class ReportActivity extends AppCompatActivity {
         if(indexMin != -1){
             DuplicateReportDialog duplicateReportDialog = new DuplicateReportDialog();
             Bundle bundle = new Bundle();
+            bundle.putString("Type",problemType.toString());
             bundle.putString("reportID",reports.get(indexMin).getReportID());
             duplicateReportDialog.setArguments(bundle);
-            duplicateReportDialog.show(getSupportFragmentManager(),"DuplicateReportDialog");
+            //duplicateReportDialog.show(getSupportFragmentManager(),"DuplicateReportDialog");
         }
 
     }
@@ -1048,8 +1056,49 @@ public class ReportActivity extends AppCompatActivity {
 
     }
 
-    private void InsertAutoComplete(List<String> list){
+    public void InsertAutoComplete(List<String> list){
         lists.addAll(list);
+        return;
+    }
+
+    public void checkDuplicate(){
+        db.collection("reports")
+                .get()
+                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Report report = document.toObject(Report.class);
+                                String room = room_autoComplete.getText().toString();
+                                if(report.getType().equals(problemType.toString()) && report.getRoom().equals(room)) {
+                                   /* Toast.makeText(getApplicationContext(),"พบปัญหาที่มีคนแจ้งเข้ามาแล้ว",Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(ReportActivity.this,FeedDuplicateActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                    intent.putExtra("problemType",problemType.toString());
+                                    intent.putExtra("room",room);
+                                    Log.d("FOUND ITEM","problemType : " + problemType.toString() + "  ,  rOOM" + room);
+                                    startActivity(intent);
+                                    finish(); */
+                                    DuplicateReportDialog duplicateReportDialog = new DuplicateReportDialog();
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("Type",problemType.toString());
+                                    bundle.putString("reportID",report.getReportID());
+                                    duplicateReportDialog.setArguments(bundle);
+                                    duplicateReportDialog.show(getSupportFragmentManager(),"DuplicateReportDialog");
+                                }
+                            }
+                            Log.d(TAG,"Fetch report is done");
+                        }
+                        else{
+                            Log.w(TAG,"Error : ",task.getException());
+                        }
+
+                    }
+
+                });
+
         return;
     }
 

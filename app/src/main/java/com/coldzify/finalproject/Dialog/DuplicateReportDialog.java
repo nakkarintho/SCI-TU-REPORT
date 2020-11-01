@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -49,6 +50,7 @@ public class DuplicateReportDialog extends DialogFragment {
     private ImageView user_imageView,report_imageView;
     private Button continue_button,goReport_button;
     private ProgressBar progressBar;
+    private String test;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,7 @@ public class DuplicateReportDialog extends DialogFragment {
         if(getArguments() != null){
             //checklist_name = getArguments().getString("checklist_name");
             report_ID = getArguments().getString("reportID");
+            test = getArguments().getString("Type");
         }
 
 
@@ -117,7 +120,11 @@ public class DuplicateReportDialog extends DialogFragment {
                 });
 
 
+
     }
+
+
+
     private void getCreatorData(String uid){
         db.collection("users").document(uid)
                 .get()

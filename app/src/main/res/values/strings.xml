@@ -101,6 +101,7 @@
     <string name="add_th">เพิ่ม</string>
     <string name="room_caretaker_th">ผู้ดูแลห้องเรียน</string>
     <string name="all_problem_in_faculty">ปัญหาในคณะทั้งหมด</string>
+    <string name="all_problem_duplicate_in_faculty">ปัญหาที่มีคนแจ้งเข้ามาแล้ว</string>
     <string name="officer_th">เจ้าหน้าที่</string>
     <string name="normal_user_th">ผู้ใช้ทั่วไป</string>
     <string name="room2_th">ชื่อห้องหรือชื่อสถานที่ :</string>
