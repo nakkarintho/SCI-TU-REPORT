@@ -129,6 +129,9 @@
             android:name=".FeedActivity"
             android:launchMode="singleInstance" />
         <activity
+            android:name=".FeedDuplicateActivity"
+            android:launchMode="singleInstance" />
+        <activity
             android:name=".ReportActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:launchMode="singleInstance"
