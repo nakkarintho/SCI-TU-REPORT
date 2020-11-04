@@ -29,48 +29,49 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:weightSum="10"
+            android:baselineAligned="false"
             android:gravity="top|center"
-            android:baselineAligned="false">
+            android:weightSum="10">
+
+
             <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_weight="9"
-                android:background="@color/color_titleBar_bg"
+                android:background="@color/white_bg">
 
-                >
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_picture"
-                    android:contentDescription="@string/report_picture_icon" />
+                    android:contentDescription="@string/report_picture_icon"
+                    android:src="@drawable/ic_picture" />
+
                 <android.support.v4.view.ViewPager
 
                     android:id="@+id/image_pager"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-
-                    />
+                    android:backgroundTint="#AAAAAA" />
 
                 <ImageView
                     android:id="@+id/delete_imageView"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="end"
-                    android:src="@drawable/ic_close_image"
-                    android:visibility="invisible"
+                    android:contentDescription="@string/delete_image"
                     android:onClick="onDeleteImageItem"
-                    android:contentDescription="@string/delete_image" />
+                    android:src="@drawable/ic_close_image"
+                    android:visibility="invisible" />
+
                 <com.viewpagerindicator.CirclePageIndicator
                     android:id="@+id/indicator"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:radius="6dp"
                     android:layout_gravity="bottom|center"
                     android:layout_marginBottom="10dp"
-                    />
+                    app:radius="6dp" />
 
             </FrameLayout>
         </LinearLayout>

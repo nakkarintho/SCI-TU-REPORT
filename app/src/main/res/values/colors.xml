@@ -15,6 +15,7 @@
     <color name="white">#FFFFFF</color>
     <color name="color_progress_status">#fec18d</color>
     <color name="color_titleBar_bg">#7E0F0B</color>
+    <color name="white_bg">#FFFFFF</color>
     <color name="statusBar_color">#972B27</color>
     <color name="statusBar_second_color">#ABABAB</color>
     <color name="color_text_login">#FE5E58</color>
