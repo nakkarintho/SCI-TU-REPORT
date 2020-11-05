@@ -1,8 +1,10 @@
 package com.coldzify.finalproject.adapter;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,21 +12,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.request.RequestOptions;
+import com.coldzify.finalproject.Dialog.DuplicateReportDialog;
 import com.coldzify.finalproject.GlideApp;
+import com.coldzify.finalproject.LocationHandle;
 import com.coldzify.finalproject.OneReportActivity;
 import com.coldzify.finalproject.R;
 import com.coldzify.finalproject.dataobject.Notifications;
+import com.coldzify.finalproject.dataobject.Report;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class NotificationListAdapter extends RecyclerView.Adapter<NotificationListAdapter.MyViewHolder>{
@@ -32,6 +40,7 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
     //private ArrayList<String> notis_ID;
     private FirebaseFirestore db;
     private FirebaseStorage  storage;
+    private String checkanstype;
 
     public NotificationListAdapter(ArrayList<Notifications> notis) {
         this.notis = notis;
@@ -60,14 +69,115 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
         holder.message_textView.setText(message);
         holder.time_textView.setText(getTimeAgo(timestamp));
 
+
         String commenter = notis.get(index).getCommenter();
-        if(commenter == null || commenter.equals("")){
-            holder.message_textView.setText(message);
-            holder.time_textView.setText(getTimeAgo(timestamp));
-            GlideApp.with(holder.view)
-                    .load(R.drawable.ic_logo_red)
-                    .into(holder.noti_imageView);
+
+        db.collection("reports").document(notis.get(index).getReportID())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful() && task.getResult() != null){
+                            Report report = task.getResult().toObject(Report.class);
+                            if(report != null){
+                                checkanstype = report.getType();
+                                Log.d("typenaja",checkanstype);
+
+                            }
+
+                        }
+                    }
+                });
+
+        if(commenter == null || commenter.equals("")) {
+            db.collection("reports").document(notis.get(index).getReportID())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if(task.isSuccessful() && task.getResult() != null){
+                                Report report = task.getResult().toObject(Report.class);
+                                if(report != null){
+                                    checkanstype = report.getType();
+                                    if(checkanstype.equals("ELECTRICS")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_electrics)
+                                                .into(holder.noti_imageView);
+                                    }
+                                    else if(checkanstype.equals("WATER")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_water)
+                                                .into(holder.noti_imageView);
+                                    }
+                                    else if(checkanstype.equals("CONDITIONER")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_conditioner)
+                                                .into(holder.noti_imageView);
+                                    }
+                                    else if(checkanstype.equals("MATERIAL")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_material)
+                                                .into(holder.noti_imageView);
+                                    }
+                                    else if(checkanstype.equals("TECHNOLOGY")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_technology)
+                                                .into(holder.noti_imageView);
+                                    }
+                                    else if(checkanstype.equals("INTERNET")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_internet)
+                                                .into(holder.noti_imageView);
+                                    }
+                                    else if(checkanstype.equals("BUILDING_ENVIRON")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_building_and_environment)
+                                                .into(holder.noti_imageView);
+                                    }
+                                    else if(checkanstype.equals("CLEAN_SECURITY")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_clean_security)
+                                                .into(holder.noti_imageView);
+                                    }
+                                    else if(checkanstype.equals("VEHICLE")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_vehicle)
+                                                .into(holder.noti_imageView);
+                                    }
+                                    else{
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_logo_red)
+                                                .into(holder.noti_imageView);
+                                    }
+
+                                }
+
+                            }
+                        }
+                    });
+
         }
+
         else{
             db.collection("users").document(commenter)
                     .get()
