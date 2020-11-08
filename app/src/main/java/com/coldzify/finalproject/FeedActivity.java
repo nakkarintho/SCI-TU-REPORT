@@ -1,6 +1,7 @@
 package com.coldzify.finalproject;
 
 
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -171,6 +172,7 @@ public class FeedActivity extends AppCompatActivity {
                             reportID = new ArrayList<>();
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Report report = document.toObject(Report.class);
+                                Log.w(TAG,"66666666"+report.getDateFinish());
                                 reports.add(report);
                                 reportID.add(document.getId());
                             }
