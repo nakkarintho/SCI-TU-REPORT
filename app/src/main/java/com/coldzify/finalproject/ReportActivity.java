@@ -715,6 +715,7 @@ public class ReportActivity extends AppCompatActivity {
             Map<String , Object> map = report.toMap();
             map.put("timestamp", FieldValue.serverTimestamp());
             map.put("reportID",reportID);
+            map.put("lastModified",new Timestamp(new Date()));
             ref.set(map)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
