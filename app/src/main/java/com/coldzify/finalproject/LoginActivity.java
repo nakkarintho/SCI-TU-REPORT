@@ -164,12 +164,12 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if(checkType.equals("normal")){
-                    Intent profileIntent = new Intent(LoginActivity.this,ReportActivity.class);
+                    Intent profileIntent = new Intent(LoginActivity.this,FeedActivity.class);
                     startActivity(profileIntent);
                     finish();
                 }
                 else if(checkType.equals("housekeeper")){
-                    Intent profileIntent = new Intent(LoginActivity.this,ChecklistActivity.class);
+                    Intent profileIntent = new Intent(LoginActivity.this,FeedActivity.class);
                     startActivity(profileIntent);
                     finish();
                 }
