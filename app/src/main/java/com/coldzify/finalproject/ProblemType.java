@@ -9,5 +9,6 @@ public enum ProblemType {
     INTERNET,
     BUILDING_ENVIRON,
     CLEAN_SECURITY,
-    VEHICLE
+    TELEPHONE,
+    INTERNET_WIRING,
 }

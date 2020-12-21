@@ -89,9 +89,10 @@
         <item>วัสดุภายในห้อง</item>
         <item>สื่อการเรียนการสอน</item>
         <item>ระบบอินเทอร์เน็ต</item>
+        <item>งานเดินสายระบบอินเทอร์เน็ต</item>
         <item>อาคารและสิ่งแวดล้อม</item>
         <item>ความสะอาดและความปลอดภัย</item>
-        <item>เกี่ยวกับยานพาหนะ</item>
+        <item>งานเดินสายโทรศัพท์</item>
     </string-array>
 
     <string-array name="problemType">

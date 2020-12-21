@@ -119,7 +119,8 @@
     <string name="continue_th">ดำเนินการต่อ</string>
     <string name="building_and_environment_problem_th">อาคาร\nและสิ่งแวดล้อม</string>
 
-    <string name="vehicle_problem_th">เกี่ยวกับยานพาหนะ</string>
+    <string name="telephone_problem_th">งานเดินสายโทรศัพท์</string>
+    <string name="internet_wiring_problem_th">งานเดินสายระบบอินเทอร์เน็ต</string>
     <string name="menu_th">เมนู</string>
     <string name="add_takecare_room_th">เพิ่มห้องที่ดูแล</string>
     <string name="status_progress_th">สถานะการดำเนินงานของปัญหา</string>

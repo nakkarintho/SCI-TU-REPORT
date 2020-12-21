@@ -107,7 +107,10 @@ public class AddListDialog extends DialogFragment {
                 type = ProblemType.CLEAN_SECURITY.name();
                 break;
             case 9:
-                type = ProblemType.VEHICLE.name();
+                type = ProblemType.TELEPHONE.name();
+                break;
+            case 10:
+                type = ProblemType.INTERNET_WIRING.name();
                 break;
             default:
                 type ="";

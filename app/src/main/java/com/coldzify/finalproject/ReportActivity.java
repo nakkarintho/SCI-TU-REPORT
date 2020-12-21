@@ -906,8 +906,11 @@ public class ReportActivity extends AppCompatActivity {
             case CLEAN_SECURITY:
                 str = "ความสะอาดและความปลอดภัย";
                 break;
-            case VEHICLE:
-                str = "เกี่ยวกับยานพาหนะ";
+            case TELEPHONE:
+                str = "งานเดินสายโทรศัพท์";
+                break;
+            case INTERNET_WIRING:
+                str = "งานเดินสายระบบอินเทอร์เน็ต";
                 break;
 
         }
@@ -940,8 +943,11 @@ public class ReportActivity extends AppCompatActivity {
             case CLEAN_SECURITY:
                 str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_clean_security);
                 break;
-            case VEHICLE:
-                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_vehicle);
+            case TELEPHONE:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_telephone);
+                break;
+            case INTERNET_WIRING:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_internet_wiring);
                 break;
         }
         return str;
