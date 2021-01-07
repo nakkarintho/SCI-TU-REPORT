@@ -36,6 +36,7 @@ import android.support.v7.app.AlertDialog;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.content.res.AppCompatResources;
+import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 
@@ -205,6 +206,60 @@ public class ReportActivity extends AppCompatActivity {
             @Override
             public void onItemClick(ProblemType type) {
                 problemType = type;
+                AppCompatButton choice1 = (AppCompatButton)findViewById(R.id.choice1);
+                AppCompatButton choice2 = (AppCompatButton)findViewById(R.id.choice2);
+                AppCompatButton choice3 = (AppCompatButton)findViewById(R.id.choice3);
+
+                switch (String.valueOf(type)){
+
+                    case "ELECTRICS":
+                        choice1.setText("ไฟฟ้า1");
+                        choice2.setText("ไฟฟ้า2");
+                        choice3.setText("ไฟฟ้า3");
+                        break;
+                    case "WATER":
+                        choice1.setText("ประปา1");
+                        choice2.setText("ประปา2");
+                        choice3.setText("ประปา3");
+                        break;
+                    case "CONDITIONER":
+                        choice1.setText("แอร์1");
+                        choice2.setText("แอร์2");
+                        choice3.setText("แอร์3");
+                        break;
+                    case "MATERIAL":
+                        choice1.setText("วัสดุ1");
+                        choice2.setText("วัสดุ2");
+                        choice3.setText("วัสดุ3");
+                        break;
+                    case "TECHNOLOGY":
+                        choice1.setText("สื่อการเรียน1");
+                        choice2.setText("สื่อการเรียน2");
+                        choice3.setText("สื่อการเรียน3");
+                        break;
+                    case "INTERNET":
+                        choice1.setText("ไอที1");
+                        choice2.setText("ไอที2");
+                        choice3.setText("ไอที3");
+                        break;
+                    case "BUILDING_ENVIRON":
+                        choice1.setText("อาคาร1");
+                        choice2.setText("อาคาร2");
+                        choice3.setText("อาคาร3");
+                        break;
+                    case "CLEAN_SECURITY":
+                        choice1.setText("ความสะอาด1");
+                        choice2.setText("ความสะอาด2");
+                        choice3.setText("ความสะอาด3");
+                        break;
+                    case "TELEPHONE":
+                        choice1.setText("โทรศัพท์1");
+                        choice2.setText("โทรศัพท์2");
+                        choice3.setText("โทรศัพท์3");
+                        break;
+
+                }
+
                 problem_type_textView.setText(toThaiString(type));
                 select_type_imageView.setImageDrawable(problemTypeToDrawable(type));
                 change_type_textView.setVisibility(View.VISIBLE);
@@ -815,7 +870,7 @@ public class ReportActivity extends AppCompatActivity {
 
     public void onClickShortcutText(View view){
         Button b = (Button)view;
-        detail_editText.append(b.getText());
+        detail_editText.append(" " + b.getText());
     }
     public void onDeleteImageItem(View view) {
         if (imagesPath.size() != 0 && adapter != null) {

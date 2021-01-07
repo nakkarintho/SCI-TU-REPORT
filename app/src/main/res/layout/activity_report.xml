@@ -296,40 +296,43 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             >
+
             <android.support.v7.widget.AppCompatButton
+                android:id="@+id/choice1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:backgroundTint="@color/color_titleBar_bg"
-                android:textColor="@color/white"
-                android:text="ห้องน้ำชำรุด"
-                app:fontFamily="@font/my_font"
-                android:textSize="16sp"
                 android:onClick="onClickShortcutText"
-                />
+                android:text="ตัวเลือก 1"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:fontFamily="@font/my_font" />
+
             <android.support.v7.widget.AppCompatButton
+                android:id="@+id/choice2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:backgroundTint="@color/color_titleBar_bg"
-                android:textColor="@color/white"
-                android:text="อุปกรณ์การสอนชำรุด"
-                app:fontFamily="@font/my_font"
-                android:textSize="16sp"
                 android:onClick="onClickShortcutText"
-                />
+                android:text="ตัวเลือก 2"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:fontFamily="@font/my_font" />
+
             <android.support.v7.widget.AppCompatButton
+                android:id="@+id/choice3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                app:backgroundTint="@color/color_titleBar_bg"
+                android:onClick="onClickShortcutText"
+                android:text="ตัวเลือก 3"
                 android:textColor="@color/white"
-                android:text="ห้องน้ำสกปรก"
-                app:fontFamily="@font/my_font"
 
                 android:textSize="16sp"
-                android:onClick="onClickShortcutText"
-                />
+                app:backgroundTint="@color/color_titleBar_bg"
+                app:fontFamily="@font/my_font" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

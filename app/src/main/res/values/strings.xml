@@ -74,7 +74,7 @@
     <string name="electric_problem_th">ระบบไฟฟ้า</string>
     <string name="damaged_material_problem_th">วัสดุภายในห้อง</string>
     <string name="technology_problem_th">สื่อการเรียนการสอน</string>
-    <string name="internet_problem_th">ไอทีและอินเตอร์เน็ต</string>
+    <string name="internet_problem_th">ไอทีและอินเทอร์เน็ต</string>
     <string name="clean_and_security_problem_th">ความสะอาด\nและความปลอดภัย</string>
     <string name="sound_problem_th">ปัญหาเสียง</string>
     <string name="select_problem_type_th">เลือกประเภทปัญหา</string>
