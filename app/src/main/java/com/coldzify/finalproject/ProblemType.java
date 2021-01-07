@@ -10,5 +10,5 @@ public enum ProblemType {
     BUILDING_ENVIRON,
     CLEAN_SECURITY,
     TELEPHONE,
-    INTERNET_WIRING,
+//    INTERNET_WIRING,
 }

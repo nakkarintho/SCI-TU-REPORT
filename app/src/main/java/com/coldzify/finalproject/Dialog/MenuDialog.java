@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.coldzify.finalproject.ChecklistActivity;
+import com.coldzify.finalproject.FinishActivity;
 import com.coldzify.finalproject.OneChecklistActivity;
 import com.coldzify.finalproject.SearchHousekeeperActivity;
 import com.coldzify.finalproject.FeedActivity;
@@ -97,8 +98,13 @@ public class MenuDialog extends DialogFragment {
 
         menu.add(getString(R.string.view_profile_th));
         drawables.add(R.drawable.ic_profile);
+
         menu.add(getString(R.string.all_problem_in_faculty));
         drawables.add(R.drawable.ic_allreport_icon);
+
+        menu.add(getString(R.string.finish_problem_in_faculty));
+        drawables.add(R.drawable.ic_finishreport_icon);
+
         if(userType.equals("housekeeper")){
             menu.add(getString(R.string.check_list_th));
             drawables.add(R.drawable.ic_report_status);
@@ -179,6 +185,7 @@ public class MenuDialog extends DialogFragment {
                 //String report_menu = getString(R.string.report_problem2_th);
                 String profile_menu = getString(R.string.view_profile_th);
                 String all_problem_menu = getString(R.string.all_problem_in_faculty);
+                String finish_problem_menu = getString(R.string.finish_problem_in_faculty);
                 String check_list_menu = getString(R.string.check_list_th);
                 String housekeeper_menu = getString(R.string.contact_housekeeper_th);
                 String setting_menu = getString(R.string.setting_th);
@@ -193,6 +200,12 @@ public class MenuDialog extends DialogFragment {
                 else if(text.equals(all_problem_menu)){
                     dismiss();
                     Intent intent = new Intent(getContext(), FeedActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                }
+                else if(text.equals(finish_problem_menu)){
+                    dismiss();
+                    Intent intent = new Intent(getContext(), FinishActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                 }

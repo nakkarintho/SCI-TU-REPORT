@@ -583,33 +583,33 @@ public class FeedDuplicateActivity extends AppCompatActivity {
                     });
         }
 
+//        else if (position ==7){
+//            Log.i(TAG, ""+position);
+//            db.collection("reports")
+//                    .whereEqualTo("type", "INTERNET_WIRING")
+//                    .orderBy("timestamp", Query.Direction.DESCENDING)
+//                    .get()
+//                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+//                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                            if (task.isSuccessful() && task.getResult() != null) {
+//                                reportID = new ArrayList<>();
+//                                for (QueryDocumentSnapshot document : task.getResult()) {
+//                                    Report report = document.toObject(Report.class);
+//                                    reports.add(report);
+//                                    reportID.add(document.getId());
+//                                }
+//
+//                                isGetReportFinish = true;
+//                                Log.d(TAG, "Fetch report is done");
+//
+//                            } else {
+//                                Log.w(TAG, "Error : ", task.getException());
+//                            }
+//                        }
+//                    });
+//        }
+
         else if (position ==7){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "INTERNET_WIRING")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-
-        else if (position ==8){
             Log.i(TAG, ""+position);
             db.collection("reports")
                     .whereEqualTo("type", "BUILDING_ENVIRON")
@@ -634,7 +634,7 @@ public class FeedDuplicateActivity extends AppCompatActivity {
                         }
                     });
         }
-        else if (position ==9){
+        else if (position ==8){
             Log.i(TAG, ""+position);
             db.collection("reports")
                     .whereEqualTo("type", "CLEAN_SECURITY")
@@ -660,7 +660,7 @@ public class FeedDuplicateActivity extends AppCompatActivity {
                     });
         }
 
-        else if (position ==10){
+        else if (position ==9){
             Log.i(TAG, ""+position);
             db.collection("reports")
                     .whereEqualTo("type", "TELEPHONE")

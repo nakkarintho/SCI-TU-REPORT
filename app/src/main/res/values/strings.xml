@@ -74,7 +74,7 @@
     <string name="electric_problem_th">ระบบไฟฟ้า</string>
     <string name="damaged_material_problem_th">วัสดุภายในห้อง</string>
     <string name="technology_problem_th">สื่อการเรียนการสอน</string>
-    <string name="internet_problem_th">ระบบอินเทอร์เน็ต</string>
+    <string name="internet_problem_th">ไอทีและอินเตอร์เน็ต</string>
     <string name="clean_and_security_problem_th">ความสะอาด\nและความปลอดภัย</string>
     <string name="sound_problem_th">ปัญหาเสียง</string>
     <string name="select_problem_type_th">เลือกประเภทปัญหา</string>
@@ -100,7 +100,8 @@
     <string name="cancel_th">ยกเลิก</string>
     <string name="add_th">เพิ่ม</string>
     <string name="room_caretaker_th">ผู้ดูแลห้องเรียน</string>
-    <string name="all_problem_in_faculty">ปัญหาในคณะทั้งหมด</string>
+    <string name="all_problem_in_faculty">ปัญหารอดำเนินการ</string>
+    <string name="finish_problem_in_faculty">ปัญหาที่แก้ไขเสร็จสิ้น</string>
     <string name="all_problem_duplicate_in_faculty">ปัญหาที่มีคนแจ้งเข้ามาแล้ว</string>
     <string name="officer_th">เจ้าหน้าที่</string>
     <string name="normal_user_th">ผู้ใช้ทั่วไป</string>
@@ -119,8 +120,8 @@
     <string name="continue_th">ดำเนินการต่อ</string>
     <string name="building_and_environment_problem_th">อาคาร\nและสิ่งแวดล้อม</string>
 
-    <string name="telephone_problem_th">งานเดินสายโทรศัพท์</string>
-    <string name="internet_wiring_problem_th">งานเดินสายระบบอินเทอร์เน็ต</string>
+    <string name="telephone_problem_th">ระบบโทรศัพท์</string>
+<!--    <string name="internet_wiring_problem_th">งานเดินสายระบบอินเทอร์เน็ต</string>-->
     <string name="menu_th">เมนู</string>
     <string name="add_takecare_room_th">เพิ่มห้องที่ดูแล</string>
     <string name="status_progress_th">สถานะการดำเนินงานของปัญหา</string>

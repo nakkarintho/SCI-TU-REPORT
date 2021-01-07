@@ -909,9 +909,9 @@ public class ReportActivity extends AppCompatActivity {
             case TELEPHONE:
                 str = "งานเดินสายโทรศัพท์";
                 break;
-            case INTERNET_WIRING:
-                str = "งานเดินสายระบบอินเทอร์เน็ต";
-                break;
+//            case INTERNET_WIRING:
+//                str = "งานเดินสายระบบอินเทอร์เน็ต";
+//                break;
 
         }
         return str;
@@ -946,9 +946,9 @@ public class ReportActivity extends AppCompatActivity {
             case TELEPHONE:
                 str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_telephone);
                 break;
-            case INTERNET_WIRING:
-                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_internet_wiring);
-                break;
+//            case INTERNET_WIRING:
+//                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_internet_wiring);
+//                break;
         }
         return str;
     }
