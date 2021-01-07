@@ -509,7 +509,7 @@ public class FinishActivity extends AppCompatActivity {
         shimmerFrameLayout.startShimmer();
         isGetReportFinish = false;
 //        getStatusReport(spinner.getSelectedItemPosition());
-//        getReports();
+        getReports();
         handler.postDelayed(run, 100);
     }
 
