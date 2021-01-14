@@ -213,49 +213,49 @@ public class ReportActivity extends AppCompatActivity {
                 switch (String.valueOf(type)){
 
                     case "ELECTRICS":
-                        choice1.setText("ไฟฟ้า1");
-                        choice2.setText("ไฟฟ้า2");
-                        choice3.setText("ไฟฟ้า3");
+                        choice1.setText("ไฟดับ");
+                        choice2.setText("ไฟเสีย");
+                        choice3.setText("ไฟรั่ว");
                         break;
                     case "WATER":
-                        choice1.setText("ประปา1");
-                        choice2.setText("ประปา2");
-                        choice3.setText("ประปา3");
+                        choice1.setText("น้ำไม่ไหล");
+                        choice2.setText("น้ำรั่ว");
+                        choice3.setText("น้ำซึม");
                         break;
                     case "CONDITIONER":
-                        choice1.setText("แอร์1");
-                        choice2.setText("แอร์2");
-                        choice3.setText("แอร์3");
+                        choice1.setText("แอร์เสีย");
+                        choice2.setText("แอร์เสียงดัง");
+                        choice3.setText("แอร์ไม่เย็น");
                         break;
                     case "MATERIAL":
-                        choice1.setText("วัสดุ1");
-                        choice2.setText("วัสดุ2");
-                        choice3.setText("วัสดุ3");
+                        choice1.setText("โต๊ะพัง");
+                        choice2.setText("เก้าอี้ชำรุด");
+                        choice3.setText("เก้าอี้ขาหัก");
                         break;
                     case "TECHNOLOGY":
-                        choice1.setText("สื่อการเรียน1");
-                        choice2.setText("สื่อการเรียน2");
-                        choice3.setText("สื่อการเรียน3");
+                        choice1.setText("โปรเจกเตอร์เสีย");
+                        choice2.setText("โปรเจกเตอร์เปิดไม่ติด");
+                        choice3.setText("ไมค์เสีย");
                         break;
                     case "INTERNET":
-                        choice1.setText("ไอที1");
-                        choice2.setText("ไอที2");
-                        choice3.setText("ไอที3");
+                        choice1.setText("เน็ตใช้ไม่ได้");
+                        choice2.setText("เน็ตช้า");
+                        choice3.setText("งานเดินสายระบบอินเทอร์เน็ต");
                         break;
                     case "BUILDING_ENVIRON":
-                        choice1.setText("อาคาร1");
-                        choice2.setText("อาคาร2");
-                        choice3.setText("อาคาร3");
+                        choice1.setText("ประตูห้องชำรุด");
+                        choice2.setText("พื้นห้องชำรุด");
+                        choice3.setText("กระจกแตก");
                         break;
                     case "CLEAN_SECURITY":
-                        choice1.setText("ความสะอาด1");
-                        choice2.setText("ความสะอาด2");
-                        choice3.setText("ความสะอาด3");
+                        choice1.setText("ห้องสกปรก");
+                        choice2.setText("เจอหนูในห้อง");
+                        choice3.setText("ห้องไม่สะอาด");
                         break;
                     case "TELEPHONE":
-                        choice1.setText("โทรศัพท์1");
-                        choice2.setText("โทรศัพท์2");
-                        choice3.setText("โทรศัพท์3");
+                        choice1.setText("โทรศัพท์เสีย");
+                        choice2.setText("โทรศัพท์ใช้ไม่ได้");
+                        choice3.setText("โทรศัพท์โทรไม่ติด");
                         break;
 
                 }
