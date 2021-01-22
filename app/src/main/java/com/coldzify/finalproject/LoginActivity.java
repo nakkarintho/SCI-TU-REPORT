@@ -309,7 +309,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 String picName = taskSnapshot.getMetadata().getName();
-                final UserProfile user = new UserProfile(mAuth.getUid(),first_name,last_name,email,birthday,picName,"normal");
+                final UserProfile user = new UserProfile(mAuth.getUid(),first_name,last_name,email,picName,"normal","test");
                 addUser(user);
             }
         });
@@ -341,7 +341,7 @@ public class LoginActivity extends AppCompatActivity {
     private void login(){
         showProgressDialog();
         LoginManager.getInstance().logInWithReadPermissions(this,Arrays.asList(
-                "public_profile","user_gender","user_birthday","email"));
+                "public_profile","user_gender","email"));
     }
 
     private void showProgressDialog(){

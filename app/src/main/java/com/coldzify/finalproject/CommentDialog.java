@@ -81,8 +81,9 @@ public class CommentDialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 String text = comment_editText.getText().toString();
+                String imagefilename = "test.jpg";
                 if(text.length() != 0){
-                    addComment(new Comment(reportID,text,mAuth.getUid()));
+                    addComment(new Comment(reportID,text,imagefilename,mAuth.getUid()));
                     comment_editText.setText("");
                 }
             }

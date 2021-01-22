@@ -28,7 +28,7 @@ public class ProfileFragment extends Fragment {
 
     private TextView name_textView;
     private TextView email_textView;
-    private TextView birthdate_textView;
+    //private TextView birthdate_textView;
 
 
     public ProfileFragment() {
@@ -55,7 +55,7 @@ public class ProfileFragment extends Fragment {
 
         name_textView = view.findViewById(R.id.name_textView);
         email_textView = view.findViewById(R.id.email_textView);
-        birthdate_textView = view.findViewById(R.id.birthdate_textView);
+       // birthdate_textView = view.findViewById(R.id.birthdate_textView);
         getDataProfile(uid);
         return view;
     }
@@ -68,14 +68,14 @@ public class ProfileFragment extends Fragment {
                         if (task.isSuccessful() && task.getResult() != null) {
                             String firstname =task.getResult().getString("firstname");
                             String lastname =task.getResult().getString("lastname");
-                            String birthday =task.getResult().getString("birthday");
+                           // String birthday =task.getResult().getString("birthday");
 
                             String email =task.getResult().getString("email");
                             String name = firstname+" "+lastname;
                             //String pic = task.getResult().getString("picture");
                             name_textView.setText(name);
                             email_textView.setText(email);
-                            birthdate_textView.setText(birthday);
+                       //     birthdate_textView.setText(birthday);
                             /*StorageReference userImageRef = storage.getReference().child("images/")
                                     .child("users/"+pic);
                             GlideApp.with(ProfileFragment.this)

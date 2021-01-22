@@ -42,8 +42,8 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private EditText email_editText,password_editText,firstName_editText,lastName_editText
-            ,birthdate_editText,confirm_password_editText;
-    private TextView firstName_err_textView,lastName_err_textView,birthdate_err_textView,email_err_textView
+            ,confirm_password_editText;
+    private TextView firstName_err_textView,lastName_err_textView,email_err_textView
             ,password_err_textView,confirm_password_err_textView;
     private RadioButton normal_radio,staff_radio;
 
@@ -62,14 +62,12 @@ public class SignUpActivity extends AppCompatActivity {
         confirm_password_editText = findViewById(R.id.confirmPassword_editText);
         firstName_editText = findViewById(R.id.firstname_editText);
         lastName_editText = findViewById(R.id.lastname_editText);
-        birthdate_editText = findViewById(R.id.birthdate_editText);
         normal_radio = findViewById(R.id.normal_radio);
         staff_radio = findViewById(R.id.staff_radio);
         //female_radio_button = findViewById(R.id.female_radioButton);
 
         firstName_err_textView = findViewById(R.id.firstname_error_textView);
         lastName_err_textView = findViewById(R.id.lastname_error_textView);
-        birthdate_err_textView = findViewById(R.id.birthdate_error_textView);
         email_err_textView = findViewById(R.id.email_error_textView);
         password_err_textView = findViewById(R.id.password_error_textView);
         confirm_password_err_textView = findViewById(R.id.confirmPassword_error_textView);
@@ -77,32 +75,6 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         dialog = new ProgressDialog();
-        myCalendar = Calendar.getInstance();
-        date = new DatePickerDialog.OnDateSetListener() {
-
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
-                // TODO Auto-generated method stub
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, monthOfYear);
-                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                String myFormat = "dd/MM/yyyy"; //In which you need put here
-                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
-                birthdate_editText.setText(sdf.format(myCalendar.getTime()));
-            }
-
-        };
-
-        birthdate_editText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new DatePickerDialog(SignUpActivity.this, date, myCalendar
-                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
 
     }
 
@@ -121,18 +93,25 @@ public class SignUpActivity extends AppCompatActivity {
                             String first_name = firstName_editText.getText().toString();
                             String last_name = lastName_editText.getText().toString();
                             String userType;
-                            if(staff_radio.isChecked())
-                                userType ="staff";
-                            else if(normal_radio.isChecked())
+                            String role;
+                            if(staff_radio.isChecked()){
+                                //userType ="staff";
                                 userType = "normal";
-                            else
-                                userType ="housekeeper";
+                                role = "tustaff";}
+
+                            else if(normal_radio.isChecked()){
+                                //userType = "normal";
+                                userType = "normal";
+                                role = "student";}
+                            else{
+                                //userType ="housekeeper";
+                                userType = "normal";
+                                role = "others";}
 
 
-                            String birthdate = birthdate_editText.getText().toString();
                             String email = email_editText.getText().toString();
                             UserProfile user = new UserProfile(currentUser.getUid(),first_name,last_name
-                                    ,email,birthdate,"user_default.jpg",userType);
+                                    ,email,"user_default.jpg",userType,role);
                             addUser(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -231,7 +210,6 @@ public class SignUpActivity extends AppCompatActivity {
         clearErrorText();
         String first_name = firstName_editText.getText().toString();
         String last_name = lastName_editText.getText().toString();
-        String birthdate = birthdate_editText.getText().toString();
         String email = email_editText.getText().toString();
         String password = password_editText.getText().toString();
         String confirm_password = confirm_password_editText.getText().toString();
@@ -241,10 +219,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
         if(last_name.length() == 0){
             lastName_err_textView.setVisibility(View.VISIBLE);
-            return false;
-        }
-        if(birthdate.length() == 0){
-            birthdate_err_textView.setVisibility(View.VISIBLE);
             return false;
         }
         if(!isValidEmail(email)){
@@ -265,7 +239,6 @@ public class SignUpActivity extends AppCompatActivity {
     private void clearErrorText(){
         firstName_err_textView.setVisibility(View.INVISIBLE);
         lastName_err_textView.setVisibility(View.INVISIBLE);
-        birthdate_err_textView.setVisibility(View.INVISIBLE);
         email_err_textView.setVisibility(View.INVISIBLE);
         password_err_textView.setVisibility(View.INVISIBLE);
         confirm_password_err_textView.setVisibility(View.INVISIBLE);

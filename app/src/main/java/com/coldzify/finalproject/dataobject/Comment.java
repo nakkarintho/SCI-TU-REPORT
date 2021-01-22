@@ -10,20 +10,23 @@ public class Comment implements Comparable<Comment>{
     private String reportID;
     private String comment;
     private String commenter;
+    private String imagefilename;
     private Timestamp timestamp;
 
     public Comment(){}
-    public Comment(String reportID, String comment, String commenter) {
+    public Comment(String reportID, String comment, String imagefilename, String commenter) {
         this.reportID = reportID;
         this.comment = comment;
+        this.imagefilename = imagefilename;
         this.commenter = commenter;
         this.timestamp = new Timestamp(new Date());
 
     }
 
-    public Comment(String reportID, String comment, String commenter, Timestamp timestamp) {
+    public Comment(String reportID, String comment, String imagefilename, String commenter, Timestamp timestamp) {
         this.reportID = reportID;
         this.comment = comment;
+        this.imagefilename = imagefilename;
         this.commenter = commenter;
         this.timestamp = timestamp;
     }
@@ -40,6 +43,8 @@ public class Comment implements Comparable<Comment>{
         return commenter;
     }
 
+    public String getImagefilename() { return imagefilename; }
+
     public Timestamp getTimestamp() {
         return timestamp;
     }
@@ -49,6 +54,7 @@ public class Comment implements Comparable<Comment>{
         return "Comment{" +
                 "reportID='" + reportID + '\'' +
                 ", comment='" + comment + '\'' +
+                ", imagefilename=" + imagefilename +
                 ", commenter='" + commenter + '\'' +
                 ", timestamp=" + timestamp +
                 '}';

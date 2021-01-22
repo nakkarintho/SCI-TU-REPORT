@@ -48,6 +48,7 @@
             android:layout_height="1dp"
             android:background="@color/placeholder_background"
             />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,32 +56,49 @@
 
 
             >
+
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/comment_editText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:fontFamily="@font/my_font"
-                android:inputType="text"
                 android:hint="@string/type_message_th"
-                />
+                android:inputType="text"
+                app:fontFamily="@font/my_font" />
+
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/comment_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_marginLeft="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="@string/comment_th"
-                app:fontFamily="@font/my_font"
-
-                android:textSize="16sp"
-                android:textColor="@color/white"
                 android:background="@drawable/red_round_button"
                 android:onClick="onClickAddComment"
-                />
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+
+                android:text="@string/comment_th"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:fontFamily="@font/my_font" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnChoose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Image" />
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Image" />
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
 
 
     </LinearLayout>

@@ -128,4 +128,8 @@
     <string name="comment2_th">ความคิดเห็น</string>
     <string name="acra_toast_text">sorry, the appication crashed. A report will be send to developers.</string>
 
+    <string name="student_th">นักศึกษา</string>
+    <string name="tustaff_th">บุคลากร</string>
+    <string name="others_th">อื่นๆ</string>
+
 </resources>

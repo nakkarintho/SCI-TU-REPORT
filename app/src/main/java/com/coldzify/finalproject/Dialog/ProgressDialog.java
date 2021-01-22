@@ -50,4 +50,6 @@ public class ProgressDialog extends DialogFragment {
     }
 
 
+    public void show() {
+    }
 }

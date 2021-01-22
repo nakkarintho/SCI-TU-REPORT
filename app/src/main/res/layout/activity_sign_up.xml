@@ -157,55 +157,6 @@
                 />
         </RadioGroup>-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/edittext_margin_top"
-            android:layout_gravity="center_horizontal"
-            >
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/birthdate_th"
-                    app:fontFamily="@font/my_font"
-                    android:textSize="20sp"
-                    android:textColor="@color/color_text_login"
-                    />
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/birthdate_error_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="*กรุณาเลือกวันเกิด"
-                    app:fontFamily="@font/my_font"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:layout_gravity="end"
-                    android:visibility="invisible"
-                    />
-            </FrameLayout>
-
-            <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/birthdate_editText"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/edittext_padding"
-                android:focusableInTouchMode="false"
-                android:drawableRight="@drawable/ic_calendar"
-                android:clickable="true"
-                app:backgroundTint="@color/color_text_login"
-                android:inputType="date"
-                app:fontFamily="@font/my_font"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-
-
-                android:focusable="true" />
-        </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -354,40 +305,40 @@
             android:orientation="horizontal"
             android:gravity="center"
             >
+
             <android.support.v7.widget.AppCompatRadioButton
                 android:id="@+id/normal_radio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/normal_user_th"
                 android:checked="true"
-                app:fontFamily="@font/my_font"
-                android:textSize="16sp"
+                android:text="@string/student_th"
                 android:textColor="@color/color_text_login"
-
+                android:textSize="16sp"
                 app:buttonTint="@color/white"
-                />
+
+                app:fontFamily="@font/my_font" />
+
             <android.support.v7.widget.AppCompatRadioButton
                 android:id="@+id/staff_radio"
-                android:layout_marginLeft="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/officer_th"
-                app:fontFamily="@font/my_font"
-                android:textSize="16sp"
+                android:layout_marginLeft="12dp"
+                android:text="@string/tustaff_th"
                 android:textColor="@color/color_text_login"
+                android:textSize="16sp"
+                app:buttonTint="@color/white"
 
-                app:buttonTint="@color/white"
-                />
+                app:fontFamily="@font/my_font" />
+
             <android.support.v7.widget.AppCompatRadioButton
-                android:layout_marginLeft="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/room_caretaker_th"
-                app:fontFamily="@font/my_font"
-                android:textSize="16sp"
+                android:layout_marginLeft="12dp"
+                android:text="@string/others_th"
                 android:textColor="@color/color_text_login"
+                android:textSize="16sp"
                 app:buttonTint="@color/white"
-                />
+                app:fontFamily="@font/my_font" />
         </RadioGroup>
 
 
