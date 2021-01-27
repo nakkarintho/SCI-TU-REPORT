@@ -80,10 +80,6 @@ public class LoginActivity extends AppCompatActivity {
     private TextView email_err_textView, password_err_textView;
     private String m_Text = "";
 
-
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    private String DummyEmail;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,15 +94,6 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         accessToken = AccessToken.getCurrentAccessToken();
         isLoggedIn = accessToken != null && !accessToken.isExpired();
-
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() == null) {
-                }
-            }
-        };
 
         if (mAuth.getCurrentUser() != null) {
             goNextActivity();
@@ -454,10 +441,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void onClickResetPass(View view) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Reset Password");
         builder.setMessage("Please Input Your Email");
-        mAuth = FirebaseAuth.getInstance();
 
 // Set up the input
         final EditText input = new EditText(this);
@@ -469,23 +456,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 m_Text = input.getText().toString();
-                DummyEmail = m_Text;
-                Log.d("email", m_Text);
+                Log.d("Email Reset : ",m_Text);
+                mAuth.sendPasswordResetEmail(m_Text).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(LoginActivity.this, "Password send to your Email", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(LoginActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                        }
 
-//                mAuth.sendPasswordResetEmail(DummyEmail)
-//                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<Void> task) {
-//                                if (task.isSuccessful()) {
-//                                    Toast.makeText(LoginActivity.this, "Check email to reset your password!", Toast.LENGTH_SHORT).show();
-//                                } else {
-//                                    Toast.makeText(LoginActivity.this, "Fail to send reset password email!", Toast.LENGTH_SHORT).show();
-//                                }
-                            }
-                        });
-//            }});
-
+                    }
+                });
+            }
+        });
         builder.show();
 
     }
 }
+
