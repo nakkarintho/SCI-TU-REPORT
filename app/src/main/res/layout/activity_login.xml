@@ -131,29 +131,39 @@
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
 
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/resetpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:onClick="onClickResetPass"
+            android:text="@string/resetpass"
+            android:textColor="#fcdc04"
+            android:textSize="16sp"
+            app:fontFamily="@font/my_font" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:onClick="onClickSignUp"
+            android:text="@string/register_th"
+            android:textColor="#fcdc04"
+            android:textSize="16sp"
+            app:fontFamily="@font/my_font" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/button_marginTop_login">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/not_member_th"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:fontFamily="@font/my_font" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:onClick="onClickSignUp"
-                android:text="@string/register_th"
-                android:textColor="#fcdc04"
-                android:textSize="16sp"
-                app:fontFamily="@font/my_font" />
         </LinearLayout>
     </LinearLayout>
 

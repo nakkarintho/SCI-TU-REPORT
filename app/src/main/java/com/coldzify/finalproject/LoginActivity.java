@@ -2,12 +2,15 @@ package com.coldzify.finalproject;
 
 import android.annotation.SuppressLint;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -69,17 +72,23 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseStorage storage;
     private FirebaseFirestore db;
     private static final String TAG = "LoginActivity";
-    private String id,first_name,last_name,gender,birthday,email,checkType;
+    private String id, first_name, last_name, gender, birthday, email, checkType;
     private FirestoreController fCon = new FirestoreController();
     private Button login_button;
     private ProgressDialog dialog;
-    private EditText email_editText,password_editText;
-    private TextView email_err_textView,password_err_textView;
+    private EditText email_editText, password_editText;
+    private TextView email_err_textView, password_err_textView;
+    private String m_Text = "";
+
+
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private String DummyEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        email_editText= findViewById(R.id.email_editText);
+        email_editText = findViewById(R.id.email_editText);
         password_editText = findViewById(R.id.password_editText);
         email_err_textView = findViewById(R.id.email_error_textView);
         password_err_textView = findViewById(R.id.password_error_textView);
@@ -89,9 +98,20 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         accessToken = AccessToken.getCurrentAccessToken();
         isLoggedIn = accessToken != null && !accessToken.isExpired();
-        if (mAuth.getCurrentUser() != null){
+
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if (firebaseAuth.getCurrentUser() == null) {
+                }
+            }
+        };
+
+        if (mAuth.getCurrentUser() != null) {
             goNextActivity();
         }
+
 
         //profilePictureView =  findViewById(R.id.friendProfilePicture);
         callbackManager = CallbackManager.Factory.create();
@@ -142,15 +162,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public void goNextActivity(){
+    public void goNextActivity() {
         FirebaseFirestore.getInstance().collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                String email= email_editText.getText().toString();
+                String email = email_editText.getText().toString();
                 if (task.isSuccessful()) {
-                   // List<String> list = new ArrayList<>();
+                    // List<String> list = new ArrayList<>();
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        if(email.equals(document.getString("email"))){
+                        if (email.equals(document.getString("email"))) {
                             checkType = document.getString("userType");
                         }
                         //list.add(document.getString("userType"));
@@ -163,18 +183,16 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d(TAG, "Error getting documents: ", task.getException());
                 }
 
-                if(checkType.equals("normal")){
-                    Intent profileIntent = new Intent(LoginActivity.this,FeedActivity.class);
+                if (checkType.equals("normal")) {
+                    Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
                     startActivity(profileIntent);
                     finish();
-                }
-                else if(checkType.equals("housekeeper")){
-                    Intent profileIntent = new Intent(LoginActivity.this,FeedActivity.class);
+                } else if (checkType.equals("housekeeper")) {
+                    Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
                     startActivity(profileIntent);
                     finish();
-                }
-                else if(checkType.equals("staff")){
-                    Intent profileIntent = new Intent(LoginActivity.this,FeedActivity.class);
+                } else if (checkType.equals("staff")) {
+                    Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
                     startActivity(profileIntent);
                     finish();
                 }
@@ -184,9 +202,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void onClickLogin(View v){
+    public void onClickLogin(View v) {
 
-            login();
+        login();
 
 
     }
@@ -206,13 +224,15 @@ public class LoginActivity extends AppCompatActivity {
                             final String uid = mAuth.getUid();
                             fCon.checkDuplicateUser(uid, new FirestoreCallBack() {
                                 @Override
-                                public void onQueryListComplete(ArrayList<?> list) { }
+                                public void onQueryListComplete(ArrayList<?> list) {
+                                }
+
                                 @Override
                                 public void onCheckDuplicateComplete(boolean isDuplicate) {
-                                    if(!isDuplicate){
+                                    if (!isDuplicate) {
                                         //Toast.makeText(getApplicationContext(),"aaa",Toast.LENGTH_SHORT).show();
                                         getDataProfile();
-                                    }else{
+                                    } else {
                                         dialog.dismiss();
                                         goNextActivity();
                                     }
@@ -232,15 +252,16 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-    public void getDataProfile(){
-        GraphRequest request =  GraphRequest.newMeRequest(
+
+    public void getDataProfile() {
+        GraphRequest request = GraphRequest.newMeRequest(
                 AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
 
                         if (response.getError() != null) {
                             dialog.dismiss();
-                            Toast.makeText(getBaseContext(),response.getError().getErrorMessage(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getBaseContext(), response.getError().getErrorMessage(), Toast.LENGTH_LONG).show();
                         } else {
 
                             id = object.optString("id");
@@ -248,7 +269,7 @@ public class LoginActivity extends AppCompatActivity {
                             last_name = object.optString("last_name");
                             gender = object.optString("gender");
                             birthday = object.optString("birthday");
-                            email =response.getJSONObject().optString("email");
+                            email = response.getJSONObject().optString("email");
 
                             String urlPic;
                             try {
@@ -268,15 +289,16 @@ public class LoginActivity extends AppCompatActivity {
         request.setParameters(parameters);
         request.executeAsync();
     }
+
     @SuppressLint("CheckResult")
-    private void downloadUserPicture(String url){
+    private void downloadUserPicture(String url) {
         GlideApp.with(this)
                 .asBitmap()
                 .load(url)
                 .listener(new RequestListener<Bitmap>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
-                        Log.w(TAG,"Error: ",e);
+                        Log.w(TAG, "Error: ", e);
                         dialog.dismiss();
                         return false;
                     }
@@ -291,10 +313,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-    private void uploadUserPicture(Bitmap bitmap){
-        String fileName = "user_"+id+".jpg";
+
+    private void uploadUserPicture(Bitmap bitmap) {
+        String fileName = "user_" + id + ".jpg";
         storage = FirebaseStorage.getInstance();
-        StorageReference imageRef = storage.getReference().child("images/").child("users/"+fileName);
+        StorageReference imageRef = storage.getReference().child("images/").child("users/" + fileName);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] data = baos.toByteArray();
@@ -303,24 +326,25 @@ public class LoginActivity extends AppCompatActivity {
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                Log.w(TAG,"Error: ",exception);
+                Log.w(TAG, "Error: ", exception);
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 String picName = taskSnapshot.getMetadata().getName();
-                final UserProfile user = new UserProfile(mAuth.getUid(),first_name,last_name,email,picName,"normal","test");
+                final UserProfile user = new UserProfile(mAuth.getUid(), first_name, last_name, email, picName, "normal", "test");
                 addUser(user);
             }
         });
     }
-    private void addUser(final UserProfile user){
+
+    private void addUser(final UserProfile user) {
         db.collection("users").document(user.getUid())
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "User : "+user.getFirstname()+ " successfully written!");
+                        Log.d(TAG, "User : " + user.getFirstname() + " successfully written!");
                         dialog.dismiss();
                         goNextActivity();
                         //System.out.println("Success adding id :"+uid);
@@ -338,30 +362,30 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void login(){
+    private void login() {
         showProgressDialog();
-        LoginManager.getInstance().logInWithReadPermissions(this,Arrays.asList(
-                "public_profile","user_gender","email"));
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList(
+                "public_profile", "user_gender", "email"));
     }
 
-    private void showProgressDialog(){
+    private void showProgressDialog() {
         dialog = new ProgressDialog();
         dialog.show(getSupportFragmentManager(), "Progress");
 
     }
 
-    public void onLoginWithEmail(View view){
-        String email= email_editText.getText().toString();
+    public void onLoginWithEmail(View view) {
+        String email = email_editText.getText().toString();
         String password = password_editText.getText().toString();
         showProgressDialog();
-        if(validateForm()){
-            signIn(email,password);
-        }
-        else{
+        if (validateForm()) {
+            signIn(email, password);
+        } else {
             dialog.dismiss();
         }
     }
-    private void signIn(String email,String password){
+
+    private void signIn(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -377,13 +401,11 @@ public class LoginActivity extends AppCompatActivity {
 
                             Log.w(TAG, "loginUserWithEmail:failure", task.getException());
 
-                            if(task.getException() instanceof FirebaseAuthInvalidCredentialsException){
+                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 password_err_textView.setVisibility(View.VISIBLE);
-                            }
-                            else if(task.getException() instanceof FirebaseNetworkException){
-                                Toast.makeText(getApplicationContext(),"ไม่สามารถเชื่อมมต่อได้",Toast.LENGTH_LONG).show();
-                            }
-                            else{
+                            } else if (task.getException() instanceof FirebaseNetworkException) {
+                                Toast.makeText(getApplicationContext(), "ไม่สามารถเชื่อมมต่อได้", Toast.LENGTH_LONG).show();
+                            } else {
                                 email_err_textView.setVisibility(View.VISIBLE);
                             }
 
@@ -393,37 +415,63 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-    private boolean validateForm(){
+
+    private boolean validateForm() {
         clearErrorText();
 
         String email = email_editText.getText().toString();
         String password = password_editText.getText().toString();
 
 
-        if(!isValidEmail(email)){
+        if (!isValidEmail(email)) {
             email_err_textView.setVisibility(View.VISIBLE);
 
             return false;
         }
-        if(password.length() == 0 ){
+        if (password.length() == 0) {
             password_err_textView.setVisibility(View.VISIBLE);
             return false;
         }
 
-        return  true;
+        return true;
     }
-    private void clearErrorText(){
+
+    private void clearErrorText() {
         email_err_textView.setVisibility(View.INVISIBLE);
         password_err_textView.setVisibility(View.INVISIBLE);
 
     }
+
     public static boolean isValidEmail(CharSequence target) {
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
-    public void onClickSignUp(View view){
-        Intent intent = new Intent(this,SignUpActivity.class);
+
+    public void onClickSignUp(View view) {
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
 
     }
 
+    public void onClickResetPass(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Reset Password");
+        builder.setMessage("Please Input Your Email");
+
+// Set up the input
+        final EditText input = new EditText(this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        builder.setView(input);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text = input.getText().toString();
+                DummyEmail = m_Text;
+                Log.d("email", m_Text);
+            }
+        });
+        builder.show();
+
+    }
 }

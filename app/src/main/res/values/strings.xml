@@ -131,5 +131,6 @@
     <string name="student_th">นักศึกษา</string>
     <string name="tustaff_th">บุคลากร</string>
     <string name="others_th">อื่นๆ</string>
+    <string name="resetpass">ลืมรหัสผ่าน</string>
 
 </resources>
