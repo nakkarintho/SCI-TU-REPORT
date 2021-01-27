@@ -33,28 +33,45 @@
              />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:text="@string/role_th"
+            android:textSize="24sp"
+            app:fontFamily="@font/my_font" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/userType_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            app:fontFamily="@font/my_font" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
+
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="@string/email_th"
-            app:fontFamily="@font/my_font"
             android:textSize="24sp"
-            />
+            app:fontFamily="@font/my_font" />
+
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/email_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fontFamily="@font/my_font"
             android:textSize="24sp"
-             />
+            app:fontFamily="@font/my_font" />
     </LinearLayout>
-
 
 
 

@@ -452,10 +452,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
     public void onClickResetPass(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Reset Password");
         builder.setMessage("Please Input Your Email");
+        mAuth = FirebaseAuth.getInstance();
 
 // Set up the input
         final EditText input = new EditText(this);
@@ -469,8 +471,20 @@ public class LoginActivity extends AppCompatActivity {
                 m_Text = input.getText().toString();
                 DummyEmail = m_Text;
                 Log.d("email", m_Text);
-            }
-        });
+
+//                mAuth.sendPasswordResetEmail(DummyEmail)
+//                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<Void> task) {
+//                                if (task.isSuccessful()) {
+//                                    Toast.makeText(LoginActivity.this, "Check email to reset your password!", Toast.LENGTH_SHORT).show();
+//                                } else {
+//                                    Toast.makeText(LoginActivity.this, "Fail to send reset password email!", Toast.LENGTH_SHORT).show();
+//                                }
+                            }
+                        });
+//            }});
+
         builder.show();
 
     }

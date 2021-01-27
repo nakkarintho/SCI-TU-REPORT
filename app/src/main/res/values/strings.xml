@@ -107,6 +107,8 @@
     <string name="normal_user_th">ผู้ใช้ทั่วไป</string>
     <string name="room2_th">ชื่อห้องหรือชื่อสถานที่ :</string>
     <string name="report_success_th">แจ้งปัญหาเสร็จสิ้น</string>
+    <string name="role_th">บทบาทผู้ใช้</string>
+    <string name="userType_th">ประเภทผู้ใช้</string>
     <string name="change_status_th">เปลี่ยนสถานะ</string>
     <string name="building_th">ตึกเรียน</string>
     <string name="search_housekeeper_th">ค้นหาผู้ดูแลห้องเรียน</string>
