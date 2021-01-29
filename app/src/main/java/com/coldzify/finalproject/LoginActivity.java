@@ -457,8 +457,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 m_Text = input.getText().toString();
                 Log.d("Email Reset : ",m_Text);
+
                 if(m_Text.equals("")){
-                       m_Text = "a";
+                    m_Text = "a";
                 }
 
 
