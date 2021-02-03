@@ -26,7 +26,9 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.coldzify.finalproject.Dialog.DuplicateReportDialog;
 import com.coldzify.finalproject.Dialog.ProgressDialog;
+import com.coldzify.finalproject.dataobject.Report;
 import com.coldzify.finalproject.dataobject.UserProfile;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -47,9 +49,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.auth.User;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -60,7 +64,9 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
@@ -78,7 +84,8 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog dialog;
     private EditText email_editText, password_editText;
     private TextView email_err_textView, password_err_textView;
-    private String m_Text = "";
+    private String email_resetpass = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,7 +189,20 @@ public class LoginActivity extends AppCompatActivity {
                     Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
                     startActivity(profileIntent);
                     finish();
+                } else if (checkType.equals("admin")) {
+                Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
+                startActivity(profileIntent);
+                finish();
+                } else if (checkType.equals("manager")) {
+                    Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
+                    startActivity(profileIntent);
+                    finish();
+                }else if (checkType.equals("ceo")) {
+                    Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
+                    startActivity(profileIntent);
+                    finish();
                 }
+
 
             }
         });
@@ -455,15 +475,15 @@ public class LoginActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                m_Text = input.getText().toString();
-                Log.d("Email Reset : ",m_Text);
+                email_resetpass = input.getText().toString();
+                Log.d("Email Reset : ",email_resetpass);
 
-                if(m_Text.equals("")){
-                    m_Text = "a";
+                if(email_resetpass.equals("")){
+                    email_resetpass = "a";
                 }
 
 
-                mAuth.sendPasswordResetEmail(m_Text).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mAuth.sendPasswordResetEmail(email_resetpass).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
@@ -480,5 +500,12 @@ public class LoginActivity extends AppCompatActivity {
         builder.show();
 
     }
+
+
+
 }
+
+
+
+
 

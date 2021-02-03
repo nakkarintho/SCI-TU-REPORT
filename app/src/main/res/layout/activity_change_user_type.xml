@@ -70,16 +70,15 @@
     </LinearLayout>
 
     <android.support.v7.widget.AppCompatButton
-        android:layout_marginTop="40dp"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/save_th"
-        app:fontFamily="@font/my_font"
-        android:textSize="20sp"
-        android:textColor="@color/white"
+        android:layout_marginTop="40dp"
         android:background="@drawable/red_round_button"
-        android:onClick="onClickChange"
-        />
+        android:onClick="onClickChangePermission"
+        android:text="@string/save_th"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:fontFamily="@font/my_font" />
 
 </LinearLayout>

@@ -1,93 +1,123 @@
 package com.coldzify.finalproject;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.coldzify.finalproject.dataobject.UserProfile;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EditUserTypeActivity extends AppCompatActivity {
     private Spinner userType_spinner;
     private AutoCompleteTextView email_autoComplete;
-    private ArrayList<String> room_br2,room_br3,room_br4,room_br5;
-    private ArrayAdapter<String>userType_adapter,br2_adapter,br3_adapter,br4_adapter,br5_adapter;
+    private ArrayAdapter<String>userType_adapter;
+    private FirebaseFirestore db;
+    private String docpath = "";
+    private String email_addpermission = "";
+    private String userType = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_user_type);
+        db = FirebaseFirestore.getInstance();
         userType_spinner = findViewById(R.id.userType_spinner);
-//
         email_autoComplete = findViewById(R.id.email_autoComplete);
         String[] arr = getResources().getStringArray(R.array.userType);
-//        room_br2 = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.br2_room)));
-//        room_br3 = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.br3_room)));
-//        room_br4 = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.br4_room)));
-//        room_br5 = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.br5_room)));
         userType_adapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line,arr);
-//        br2_adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,room_br2);
-//        br3_adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,room_br3);
-//        br4_adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,room_br4);
-//        br5_adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,room_br5);
-//
         userType_spinner.setAdapter(userType_adapter);
-//        email_autoComplete.setAdapter(br2_adapter);
-//
-//        building_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                switch (i){
-//                    case 0:
-//                        room_autoComplete.setAdapter(br2_adapter);
-//                        break;
-//                    case 1:
-//                        room_autoComplete.setAdapter(br3_adapter);
-//                        break;
-//                    case 2:
-//                        room_autoComplete.setAdapter(br4_adapter);
-//                        break;
-//                    case 3:
-//                        room_autoComplete.setAdapter(br5_adapter);
-//                        break;
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
-//
-//    }
-//    private boolean queryInList(String text,ArrayList<String> list){
-//        return list.contains(text);
-//    }
-//    public void onClickChange(View view){
-//            String text_room = room_autoComplete.getText().toString();
-//            String building = building_spinner.getSelectedItem().toString();
-//            //Toast.makeText(this,building+" "+text_room,Toast.LENGTH_SHORT).show();
-//            if (text_room.equals("ห้อง 101")) {
-//                Intent intent = new Intent(SearchHousekeeperActivity.this, ContactHousekeeperActivity.class);
-//                intent.putExtra("housekeeper_id", housekeeper_101);
-//                intent.putExtra("building", building);
-//                intent.putExtra("room", text_room);
-//                startActivity(intent);
-//            } else if (text_room.equals("ห้อง 102")) {
-//                Intent intent = new Intent(SearchHousekeeperActivity.this, ContactHousekeeperActivity.class);
-//                intent.putExtra("housekeeper_id", housekeeper_102);
-//                intent.putExtra("building", building);
-//                intent.putExtra("room", text_room);
-//                startActivity(intent);
-//            }
-//        }
+    }
+
+    public void onClickChangePermission(View view){
+        email_addpermission = email_autoComplete.getText().toString();
+        userType =  userType_spinner.getSelectedItem().toString();
+        if(userType.equals("ผู้ใช้ทั่วไป")){
+            userType = "normal";
+        }
+        else if(userType.equals("ผู้ดูแลห้องเรียน")){
+            userType = "housekeeper";
+        }
+        else if(userType.equals("เจ้าหน้าที่")){
+            userType = "staff";
+        }
+        else if(userType.equals("หัวหน้างาน")){
+            userType = "manager";
+        }
+        else if(userType.equals("ผู้บริหาร")){
+            userType = "ceo";
+        }
+
+
+        db.collection("users")
+                .get()
+                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                UserProfile user = document.toObject(UserProfile.class);
+                                if (user.getEmail().equals(email_addpermission)) {
+                                    docpath = document.getId();
+                                    Log.d("tag", "Have Email In Systems");
+                                    break;
+                                } else {
+                                    docpath = "";
+                                }
+                            }
+                            if (docpath.equals("")) {
+                                Log.w("tag", "Error Not Have This Email In Systems : ", task.getException());
+                                Toast.makeText(EditUserTypeActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                            } else {
+                                final DocumentReference docRef = db.collection("users").document(docpath);
+                                Map<String, Object> map = new HashMap<>();
+                                map.put("userType", userType);
+                                docRef.update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d("tag", "Update Permission Success");
+                                        Toast.makeText(EditUserTypeActivity.this, "ระบบได้แก้ไขสิทธื์ของผู้ใช้ดังกล่าวเรียบร้อย", Toast.LENGTH_LONG).show();
+                                    }
+                                })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.e("tag", "Failure : Not Have This Email In System", e);
+                                                Toast.makeText(EditUserTypeActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+
+                            }
+                        }
+                        else{
+                            Log.w("tag","Error Not Have This Email In Systems : ",task.getException());
+                            Toast.makeText(EditUserTypeActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                });
+
+
     }
 
 }
