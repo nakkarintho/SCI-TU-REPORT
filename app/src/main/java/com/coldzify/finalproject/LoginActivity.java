@@ -443,8 +443,8 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickResetPass(View view) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Reset Password");
-        builder.setMessage("Please Input Your Email");
+        builder.setTitle("รีเซ็ตรหัสผ่าน");
+        builder.setMessage("กรุณาใส่ที่อยู่อีเมลเพื่อรีเซ็ตรหัสผ่าน");
 
 // Set up the input
         final EditText input = new EditText(this);
@@ -457,11 +457,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 m_Text = input.getText().toString();
                 Log.d("Email Reset : ",m_Text);
+
+                if(m_Text.equals("")){
+                    m_Text = "a";
+                }
+
+
                 mAuth.sendPasswordResetEmail(m_Text).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this, "Password send to your Email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "ระบบได้ส่งคำขอการรีเซ็ตรหัสผ่านไปยังอีเมลของคุณแล้ว", Toast.LENGTH_LONG).show();
                         }
                         else{
                             Toast.makeText(LoginActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
