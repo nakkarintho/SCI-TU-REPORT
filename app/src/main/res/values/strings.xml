@@ -78,6 +78,7 @@
     <string name="clean_and_security_problem_th">ความสะอาด\nและความปลอดภัย</string>
     <string name="sound_problem_th">ปัญหาเสียง</string>
     <string name="select_problem_type_th">เลือกประเภทปัญหา</string>
+    <string name="select_user_type_th">เลือกประเภทผู้ใช้</string>
     <string name="animal_problem_th">ปัญหาสัตว์</string>
     <string name="report_picture_icon">Report picture icon</string>
     <string name="room_th">ห้อง</string>
@@ -119,6 +120,7 @@
     <string name="save_th">บันทึก</string>
     <string name="main_checklist">รายการหลัก</string>
     <string name="edit_checklist_th">แก้ไขรายการ</string>
+    <string name="edit_user_type_th">แก้ไขบทบาทผู้ใช้</string>
     <string name="continue_th">ดำเนินการต่อ</string>
     <string name="building_and_environment_problem_th">อาคาร\nและสิ่งแวดล้อม</string>
 

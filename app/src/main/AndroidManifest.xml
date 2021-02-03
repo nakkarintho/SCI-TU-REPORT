@@ -36,6 +36,7 @@
             android:resource="@color/color_titleBar_bg" />
 
         <activity android:name=".ChecklistActivity"></activity>
+        <activity android:name=".EditUserTypeActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".ContactHousekeeperActivity" />
         <activity android:name=".SearchHousekeeperActivity" />

@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.coldzify.finalproject.ChecklistActivity;
+import com.coldzify.finalproject.EditUserTypeActivity;
 import com.coldzify.finalproject.FinishActivity;
 import com.coldzify.finalproject.OneChecklistActivity;
 import com.coldzify.finalproject.SearchHousekeeperActivity;
@@ -111,6 +112,12 @@ public class MenuDialog extends DialogFragment {
         }
         menu.add(getString(R.string.contact_housekeeper_th));
         drawables.add(R.drawable.ic_housekeeper);
+
+        if(userType.equals("admin")){
+            menu.add(getString(R.string.edit_user_type_th));
+            drawables.add(R.drawable.ic_edit_user_type);
+        }
+
         menu.add(getString(R.string.setting_th));
         drawables.add(R.drawable.ic_settings);
         menu.add(getString(R.string.logout_th));
@@ -188,6 +195,7 @@ public class MenuDialog extends DialogFragment {
                 String finish_problem_menu = getString(R.string.finish_problem_in_faculty);
                 String check_list_menu = getString(R.string.check_list_th);
                 String housekeeper_menu = getString(R.string.contact_housekeeper_th);
+                String edit_userType_menu = getString(R.string.edit_user_type_th);
                 String setting_menu = getString(R.string.setting_th);
                 //String logout_menu = getString(R.string.logout_th);
                 if(text.equals(profile_menu)){
@@ -218,6 +226,12 @@ public class MenuDialog extends DialogFragment {
                 else if(text.equals(housekeeper_menu)){
                     dismiss();
                     Intent intent = new Intent(getContext(), SearchHousekeeperActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                }
+                else if(text.equals(edit_userType_menu)){
+                    dismiss();
+                    Intent intent = new Intent(getContext(), EditUserTypeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                 }

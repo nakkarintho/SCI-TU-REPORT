@@ -48,6 +48,7 @@
         <item name="android:maxHeight">20dip</item>
     </style>
     <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/my_font</item>
     </style>
 
