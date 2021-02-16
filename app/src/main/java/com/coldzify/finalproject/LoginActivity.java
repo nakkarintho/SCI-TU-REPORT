@@ -165,9 +165,9 @@ public class LoginActivity extends AppCompatActivity {
                     // List<String> list = new ArrayList<>();
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         if (email.equals(document.getString("email"))) {
-                            checkType = document.getString("userType");
+                            checkType = document.getString("role");
                         }
-                        //list.add(document.getString("userType"));
+                        //list.add(document.getString("role"));
                     }
                     Log.d(TAG, "Complete Type : " + checkType);
 

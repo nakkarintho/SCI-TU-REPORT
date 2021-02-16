@@ -92,26 +92,26 @@ public class SignUpActivity extends AppCompatActivity {
                             FirebaseUser currentUser = mAuth.getCurrentUser();
                             String first_name = firstName_editText.getText().toString();
                             String last_name = lastName_editText.getText().toString();
-                            String userType;
                             String role;
+                            String userType;
                             if(staff_radio.isChecked()){
-                                //userType ="staff";
-                                userType = "normal";
-                                role = "tustaff";}
+                                //role ="staff";
+                                role = "normal";
+                                userType = "tustaff";}
 
                             else if(normal_radio.isChecked()){
-                                //userType = "normal";
-                                userType = "normal";
-                                role = "student";}
+                                //role = "normal";
+                                role = "normal";
+                                userType = "student";}
                             else{
-                                //userType ="housekeeper";
-                                userType = "normal";
-                                role = "others";}
+                                //role ="housekeeper";
+                                role = "normal";
+                                userType = "others";}
 
 
                             String email = email_editText.getText().toString();
                             UserProfile user = new UserProfile(currentUser.getUid(),first_name,last_name
-                                    ,email,"user_default.jpg",userType,role);
+                                    ,email,"user_default.jpg",role,userType);
                             addUser(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -146,9 +146,9 @@ public class SignUpActivity extends AppCompatActivity {
                                     // List<String> list = new ArrayList<>();
                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                         if(email.equals(document.getString("email"))){
-                                            checkType = document.getString("userType");
+                                            checkType = document.getString("role");
                                         }
-                                        //list.add(document.getString("userType"));
+                                        //list.add(document.getString("role"));
                                     }
                                     Log.d(TAG, "Complete Type : " + checkType);
 

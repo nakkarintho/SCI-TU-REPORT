@@ -45,7 +45,7 @@ import java.util.concurrent.TimeUnit;
 
 public class OneReportActivity extends AppCompatActivity {
     private final String TAG = "OneReportActivity";
-    private String userType = "normal";
+    private String role = "normal";
     private FirebaseFirestore db;
     private FirebaseStorage storage;
     private FirebaseAuth mAuth;
@@ -88,7 +88,7 @@ public class OneReportActivity extends AppCompatActivity {
             //Toast.makeText(this,reportID,Toast.LENGTH_SHORT).show();
             checkSubscribe(uid,reportID);
             getReportData(reportID);
-            getUserType();
+            getrole();
         }
     }
 
@@ -295,7 +295,7 @@ public class OneReportActivity extends AppCompatActivity {
                 PopupMenu popup = new PopupMenu(OneReportActivity.this, report_setting_imageView);
                 //Inflating the Popup using xml file
                 int menu = R.menu.report_menu;
-                if(userType!=null &&userType.equals("normal"))
+                if(role!=null &&role.equals("normal"))
                     menu = R.menu.report_menu_normal;
                 popup.getMenuInflater()
                         .inflate(menu, popup.getMenu());
@@ -322,7 +322,7 @@ public class OneReportActivity extends AppCompatActivity {
         });
 
     }
-    private void getUserType(){
+    private void getrole(){
         if(mAuth.getUid() == null)
             return;
         db.collection("users").document(mAuth.getUid())
@@ -331,7 +331,7 @@ public class OneReportActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(task.isSuccessful() && task.getResult()!=null){
-                            userType = task.getResult().getString("userType");
+                            role = task.getResult().getString("role");
                         }
                     }
                 });

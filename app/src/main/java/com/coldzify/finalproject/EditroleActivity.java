@@ -27,44 +27,44 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditUserTypeActivity extends AppCompatActivity {
-    private Spinner userType_spinner;
+public class EditroleActivity extends AppCompatActivity {
+    private Spinner role_spinner;
     private AutoCompleteTextView email_autoComplete;
-    private ArrayAdapter<String>userType_adapter;
+    private ArrayAdapter<String>role_adapter;
     private FirebaseFirestore db;
     private String docpath = "";
     private String email_addpermission = "";
-    private String userType = "";
+    private String role = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_user_type);
         db = FirebaseFirestore.getInstance();
-        userType_spinner = findViewById(R.id.userType_spinner);
+        role_spinner = findViewById(R.id.role_spinner);
         email_autoComplete = findViewById(R.id.email_autoComplete);
-        String[] arr = getResources().getStringArray(R.array.userType);
-        userType_adapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line,arr);
-        userType_spinner.setAdapter(userType_adapter);
+        String[] arr = getResources().getStringArray(R.array.role);
+        role_adapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line,arr);
+        role_spinner.setAdapter(role_adapter);
     }
 
     public void onClickChangePermission(View view){
         email_addpermission = email_autoComplete.getText().toString();
-        userType =  userType_spinner.getSelectedItem().toString();
-        if(userType.equals("ผู้ใช้ทั่วไป")){
-            userType = "normal";
+        role =  role_spinner.getSelectedItem().toString();
+        if(role.equals("ผู้ใช้ทั่วไป")){
+            role = "normal";
         }
-        else if(userType.equals("ผู้ดูแลห้องเรียน")){
-            userType = "housekeeper";
+        else if(role.equals("ผู้ดูแลห้องเรียน")){
+            role = "housekeeper";
         }
-        else if(userType.equals("เจ้าหน้าที่")){
-            userType = "staff";
+        else if(role.equals("เจ้าหน้าที่")){
+            role = "staff";
         }
-        else if(userType.equals("หัวหน้างาน")){
-            userType = "manager";
+        else if(role.equals("หัวหน้างาน")){
+            role = "manager";
         }
-        else if(userType.equals("ผู้บริหาร")){
-            userType = "ceo";
+        else if(role.equals("ผู้บริหาร")){
+            role = "ceo";
         }
 
 
@@ -86,23 +86,23 @@ public class EditUserTypeActivity extends AppCompatActivity {
                             }
                             if (docpath.equals("")) {
                                 Log.w("tag", "Error Not Have This Email In Systems : ", task.getException());
-                                Toast.makeText(EditUserTypeActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                                Toast.makeText(EditroleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
                             } else {
                                 final DocumentReference docRef = db.collection("users").document(docpath);
                                 Map<String, Object> map = new HashMap<>();
-                                map.put("userType", userType);
+                                map.put("role", role);
                                 docRef.update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         Log.d("tag", "Update Permission Success");
-                                        Toast.makeText(EditUserTypeActivity.this, "ระบบได้แก้ไขสิทธื์ของผู้ใช้ดังกล่าวเรียบร้อย", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(EditroleActivity.this, "ระบบได้แก้ไขสิทธื์ของผู้ใช้ดังกล่าวเรียบร้อย", Toast.LENGTH_LONG).show();
                                     }
                                 })
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
                                                 Log.e("tag", "Failure : Not Have This Email In System", e);
-                                                Toast.makeText(EditUserTypeActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(EditroleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
                                             }
                                         });
 
@@ -110,7 +110,7 @@ public class EditUserTypeActivity extends AppCompatActivity {
                         }
                         else{
                             Log.w("tag","Error Not Have This Email In Systems : ",task.getException());
-                            Toast.makeText(EditUserTypeActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                            Toast.makeText(EditroleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
                         }
 
                     }

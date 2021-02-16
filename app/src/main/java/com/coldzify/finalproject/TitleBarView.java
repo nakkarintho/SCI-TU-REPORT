@@ -35,7 +35,7 @@ public class TitleBarView extends FrameLayout {
     private String title;
     private MenuDialog dialog;
     private int icon;
-    private String userType = "normal",user_name;
+    private String role = "normal",user_name;
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
     public TitleBarView(Context context) {
@@ -87,7 +87,7 @@ public class TitleBarView extends FrameLayout {
                 if(!dialog.isVisible()){
                     FragmentActivity fragment = (FragmentActivity)getContext();
                     Bundle bundle = new Bundle();
-                    bundle.putString("userType", userType);
+                    bundle.putString("role", role);
                     bundle.putString("user_name",user_name);
                     dialog.setArguments(bundle);
                     dialog.show(fragment.getSupportFragmentManager(),"Menu");
@@ -162,8 +162,8 @@ public class TitleBarView extends FrameLayout {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(task.isSuccessful() && task.getResult() != null){
                             DocumentSnapshot doc = task.getResult();
-                            if(doc.getString("userType") != null){
-                                userType = doc.getString("userType");
+                            if(doc.getString("role") != null){
+                                role = doc.getString("role");
                                 String firstname = doc.getString("firstname");
                                 String lastname = doc.getString("lastname");
                                 user_name = firstname +  " "+lastname;

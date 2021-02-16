@@ -69,7 +69,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
     private Context context;
     private FirebaseFirestore db;
     private FragmentManager fm;
-    private String userType="normal";
+    private String role="normal";
 
     public ReportListAdapter(Context context, FragmentManager fm, ArrayList<Report> reports, ArrayList<String> reportsID) {
         this.reports = reports;
@@ -84,7 +84,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                 .setPersistenceEnabled(true)
                 .build();
         db.setFirestoreSettings(settings);
-        getUserType();
+        getrole();
 
     }
 
@@ -197,7 +197,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                 PopupMenu popup = new PopupMenu(holder.view.getContext(), holder.report_setting_imageView);
                 //Inflating the Popup using xml file
                 int menu = R.menu.report_menu;
-                if(userType!=null &&userType.equals("normal"))
+                if(role!=null &&role.equals("normal"))
                     menu = R.menu.report_menu_normal;
                 popup.getMenuInflater()
                         .inflate(menu, popup.getMenu());
@@ -353,7 +353,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                     }
                 });
     }
-    private void getUserType(){
+    private void getrole(){
         if(mAuth.getUid() == null)
             return;
         db.collection("users").document(mAuth.getUid())
@@ -362,7 +362,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(task.isSuccessful() && task.getResult()!=null){
-                            userType = task.getResult().getString("userType");
+                            role = task.getResult().getString("role");
                         }
                     }
                 });

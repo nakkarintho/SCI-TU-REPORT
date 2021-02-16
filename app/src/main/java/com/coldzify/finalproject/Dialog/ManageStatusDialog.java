@@ -67,7 +67,7 @@ public class ManageStatusDialog extends DialogFragment {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(task.isSuccessful() && task.getResult() != null){
                             DocumentSnapshot doc = task.getResult();
-                            if(doc.getString("userType") != null){
+                            if(doc.getString("role") != null){
                                 String firstname = doc.getString("firstname");
                                 String lastname = doc.getString("lastname");
                                 user_name = firstname +  " "+lastname;

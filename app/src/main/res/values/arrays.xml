@@ -108,7 +108,7 @@
         <item>ปัญหาสิ่งก่อสร้าง</item>
     </string-array>
 
-    <string-array name="userType">
+    <string-array name="role">
         <item>ผู้ใช้ทั่วไป</item>
         <item>ผู้ดูแลห้องเรียน</item>
         <item>เจ้าหน้าที่</item>

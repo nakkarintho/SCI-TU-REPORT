@@ -23,7 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.coldzify.finalproject.ChecklistActivity;
-import com.coldzify.finalproject.EditUserTypeActivity;
+import com.coldzify.finalproject.EditroleActivity;
 import com.coldzify.finalproject.FinishActivity;
 import com.coldzify.finalproject.OneChecklistActivity;
 import com.coldzify.finalproject.SearchHousekeeperActivity;
@@ -39,14 +39,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 
 public class MenuDialog extends DialogFragment {
-    private String userType = "normal";
+    private String role = "normal";
     private String user_name;
     private RecyclerView recyclerView;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null){
-            userType = getArguments().getString("userType");
+            role = getArguments().getString("role");
             user_name = getArguments().getString("user_name");
         }
 
@@ -106,14 +106,14 @@ public class MenuDialog extends DialogFragment {
         menu.add(getString(R.string.finish_problem_in_faculty));
         drawables.add(R.drawable.ic_finishreport_icon);
 
-        if(userType.equals("housekeeper")){
+        if(role.equals("housekeeper")){
             menu.add(getString(R.string.check_list_th));
             drawables.add(R.drawable.ic_report_status);
         }
         menu.add(getString(R.string.contact_housekeeper_th));
         drawables.add(R.drawable.ic_housekeeper);
 
-        if(userType.equals("admin")){
+        if(role.equals("admin")){
             menu.add(getString(R.string.edit_user_type_th));
             drawables.add(R.drawable.ic_edit_user_type);
         }
@@ -195,7 +195,7 @@ public class MenuDialog extends DialogFragment {
                 String finish_problem_menu = getString(R.string.finish_problem_in_faculty);
                 String check_list_menu = getString(R.string.check_list_th);
                 String housekeeper_menu = getString(R.string.contact_housekeeper_th);
-                String edit_userType_menu = getString(R.string.edit_user_type_th);
+                String edit_role_menu = getString(R.string.edit_user_type_th);
                 String setting_menu = getString(R.string.setting_th);
                 //String logout_menu = getString(R.string.logout_th);
                 if(text.equals(profile_menu)){
@@ -229,9 +229,9 @@ public class MenuDialog extends DialogFragment {
                     intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                 }
-                else if(text.equals(edit_userType_menu)){
+                else if(text.equals(edit_role_menu)){
                     dismiss();
-                    Intent intent = new Intent(getContext(), EditUserTypeActivity.class);
+                    Intent intent = new Intent(getContext(), EditroleActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                 }
