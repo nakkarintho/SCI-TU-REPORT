@@ -177,27 +177,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d(TAG, "Error getting documents: ", task.getException());
                 }
 
-                if (checkType.equals("normal")) {
-                    Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
-                    startActivity(profileIntent);
-                    finish();
-                } else if (checkType.equals("housekeeper")) {
-                    Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
-                    startActivity(profileIntent);
-                    finish();
-                } else if (checkType.equals("staff")) {
-                    Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
-                    startActivity(profileIntent);
-                    finish();
-                } else if (checkType.equals("admin")) {
-                Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
-                startActivity(profileIntent);
-                finish();
-                } else if (checkType.equals("manager")) {
-                    Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
-                    startActivity(profileIntent);
-                    finish();
-                }else if (checkType.equals("ceo")) {
+                if (!checkType.equals("")) {
                     Intent profileIntent = new Intent(LoginActivity.this, FeedActivity.class);
                     startActivity(profileIntent);
                     finish();
@@ -292,7 +272,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "first_name,last_name,gender,email,birthday,picture.type(normal)");
+        parameters.putString("fields", "first_name,last_name,gender,email,birthday,picture.type(ผู้ใช้ทั่วไป)");
         request.setParameters(parameters);
         request.executeAsync();
     }
@@ -339,7 +319,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 String picName = taskSnapshot.getMetadata().getName();
-                final UserProfile user = new UserProfile(mAuth.getUid(), first_name, last_name, email, picName, "normal", "test");
+                final UserProfile user = new UserProfile(mAuth.getUid(), first_name, last_name, email, picName, "ผู้ใช้ทั่วไป", "test");
                 addUser(user);
             }
         });

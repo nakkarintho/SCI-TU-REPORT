@@ -94,24 +94,18 @@ public class SignUpActivity extends AppCompatActivity {
                             String last_name = lastName_editText.getText().toString();
                             String role;
                             String userType;
+                            role = "ผู้ใช้ทั่วไป";
                             if(staff_radio.isChecked()){
-                                //role ="staff";
-                                role = "normal";
-                                userType = "tustaff";}
+                                userType = "บุคลากร";}
 
                             else if(normal_radio.isChecked()){
-                                //role = "normal";
-                                role = "normal";
-                                userType = "student";}
+                                userType = "นักศึกษา";}
                             else{
-                                //role ="housekeeper";
-                                role = "normal";
-                                userType = "others";}
+                                userType = "อื่นๆ";}
 
 
                             String email = email_editText.getText().toString();
-                            UserProfile user = new UserProfile(currentUser.getUid(),first_name,last_name
-                                    ,email,"user_default.jpg",role,userType);
+                            UserProfile user = new UserProfile(currentUser.getUid(),first_name,last_name,email,"user_default.jpg",role,userType);
                             addUser(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -158,19 +152,19 @@ public class SignUpActivity extends AppCompatActivity {
                                     Log.d(TAG, "Error getting documents: ", task.getException());
                                 }
 
-                                if(checkType.equals("normal")){
+                                if(checkType.equals("ผู้ใช้ทั่วไป")){
                                     Intent intent = new Intent(SignUpActivity.this,ReportActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                     finish();
                                 }
-                                else if(checkType.equals("housekeeper")){
+                                else if(checkType.equals("ผู้ดูแลห้องเรียน")){
                                     Intent intent = new Intent(SignUpActivity.this,ChecklistActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                     finish();
                                 }
-                                else if(checkType.equals("staff")){
+                                else if(checkType.equals("เจ้าหน้าที่")){
                                     Intent intent = new Intent(SignUpActivity.this,FeedActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);

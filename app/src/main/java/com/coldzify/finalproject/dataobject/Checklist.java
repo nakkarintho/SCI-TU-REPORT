@@ -39,7 +39,7 @@ public class Checklist {
     public Map<String,Object> toMap(){
         Map<String,Object> map = new HashMap<>();
         map.put("listName",listName);
-        map.put("housekeeper",housekeeper);
+        map.put("ผู้ดูแลห้องเรียน",housekeeper);
         //map.put("timestamp", FieldValue.serverTimestamp());
 
         return  map;

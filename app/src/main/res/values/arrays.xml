@@ -46,8 +46,6 @@
     </string-array>
 
 
-
-
     <string-array name="report_status">
         <item>เริ่มต้น</item>
         <item>รับเรื่องแล้ว</item>
@@ -67,18 +65,6 @@
         <item>เริ่มต้น</item>
         <item>รับเรื่องแล้ว</item>
         <item>กำลังดำเนินการ</item>
-<!--        <item>เสร็จสิ้น</item>-->
-<!--        <item> </item>-->
-<!--        <item>ประเภทปัญหาทั้งหมด</item>-->
-<!--        <item>ระบบไฟฟ้า</item>-->
-<!--        <item>ระบบประปา</item>-->
-<!--        <item>ระบบเครื่องปรับอากาศ</item>-->
-<!--        <item>วัสดุภายในห้อง</item>-->
-<!--        <item>สื่อการเรียนการสอน</item>-->
-<!--        <item>ระบบอินเทอร์เน็ต</item>-->
-<!--        <item>อาคารและสิ่งแวดล้อม</item>-->
-<!--        <item>ความสะอาดและความปลอดภัย</item>-->
-<!--        <item>เกี่ยวกับยานพาหนะ</item>-->
     </string-array>
 
     <string-array name="filter_feed2">
@@ -89,7 +75,6 @@
         <item>วัสดุภายในห้อง</item>
         <item>สื่อการเรียนการสอน</item>
         <item>ไอทีและอินเตอร์เน็ต</item>
-<!--        <item>งานเดินสายระบบอินเทอร์เน็ต</item>-->
         <item>อาคารและสิ่งแวดล้อม</item>
         <item>ความสะอาดและความปลอดภัย</item>
         <item>ระบบโทรศัพท์</item>
@@ -114,6 +99,61 @@
         <item>เจ้าหน้าที่</item>
         <item>หัวหน้างาน</item>
         <item>ผู้บริหาร</item>
+        <item>ผู้ดูแลระบบ</item>
+    </string-array>
+
+    <string-array name="ELECTRICS_desc">
+        <item>ไฟดับ</item>
+        <item>ไฟเสีย</item>
+        <item>ไฟรั่ว</item>
+    </string-array>
+
+    <string-array name="WATER_desc">
+        <item>น้ำไม่ไหล</item>
+        <item>น้ำรั่ว</item>
+        <item>น้ำซึม</item>
+    </string-array>
+
+    <string-array name="CONDITIONER_desc">
+        <item>แอร์เสีย</item>
+        <item>แอร์เสียงดัง</item>
+        <item>แอร์ไม่เย็น</item>
+    </string-array>
+
+    <string-array name="MATERIAL_desc">
+        <item>โต๊ะพัง</item>
+        <item>เก้าอี้ชำรุด</item>
+        <item>เก้าอี้ขาหัก</item>
+    </string-array>
+
+    <string-array name="TECHNOLOGY_desc">
+        <item>โปรเจกเตอร์เสีย</item>
+        <item>โปรเจกเตอร์เปิดไม่ติด</item>
+        <item>ไมค์เสีย</item>
+    </string-array>
+
+    <string-array name="INTERNET_desc">
+        <item>เน็ตใช้ไม่ได้</item>
+        <item>เน็ตช้า</item>
+        <item>งานเดินสายระบบอินเทอร์เน็ต</item>
+    </string-array>
+
+    <string-array name="BUILDING_ENVIRON_desc">
+        <item>ประตูห้องชำรุด</item>
+        <item>พื้นห้องชำรุด</item>
+        <item>กระจกแตก</item>
+    </string-array>
+
+    <string-array name="CLEAN_SECURITY_desc">
+        <item>ห้องสกปรก</item>
+        <item>เจอหนูในห้อง</item>
+        <item>ห้องไม่สะอาด</item>
+    </string-array>
+
+    <string-array name="TELEPHONE_desc">
+        <item>โทรศัพท์เสีย</item>
+        <item>โทรศัพท์ใช้ไม่ได้</item>
+        <item>โทรศัพท์โทรไม่ติด</item>
     </string-array>
 
 </resources>

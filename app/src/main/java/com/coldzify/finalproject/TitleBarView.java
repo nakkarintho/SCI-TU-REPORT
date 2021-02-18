@@ -35,7 +35,7 @@ public class TitleBarView extends FrameLayout {
     private String title;
     private MenuDialog dialog;
     private int icon;
-    private String role = "normal",user_name;
+    private String role = "ผู้ใช้ทั่วไป",user_name,uid;
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
     public TitleBarView(Context context) {
@@ -77,7 +77,7 @@ public class TitleBarView extends FrameLayout {
         typedArray.recycle();
     }
     private void setupView() {
-        getIsHouseKeeper();
+        getIsUsers();
         getNewNoti();
         title_textView.setText(title);
         //menu_imageView.setImageResource(icon);
@@ -89,6 +89,7 @@ public class TitleBarView extends FrameLayout {
                     Bundle bundle = new Bundle();
                     bundle.putString("role", role);
                     bundle.putString("user_name",user_name);
+                    bundle.putString("uid",uid);
                     dialog.setArguments(bundle);
                     dialog.show(fragment.getSupportFragmentManager(),"Menu");
                 }
@@ -152,7 +153,7 @@ public class TitleBarView extends FrameLayout {
 
 
     }
-    private void getIsHouseKeeper(){
+    private void getIsUsers(){
         if(mAuth.getUid() == null)
             return;
         db.collection("users").document(mAuth.getUid())
@@ -167,6 +168,7 @@ public class TitleBarView extends FrameLayout {
                                 String firstname = doc.getString("firstname");
                                 String lastname = doc.getString("lastname");
                                 user_name = firstname +  " "+lastname;
+                                uid = doc.getString("uid");
                             }
 
                         }

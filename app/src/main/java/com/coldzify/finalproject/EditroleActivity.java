@@ -51,22 +51,6 @@ public class EditroleActivity extends AppCompatActivity {
     public void onClickChangePermission(View view){
         email_addpermission = email_autoComplete.getText().toString();
         role =  role_spinner.getSelectedItem().toString();
-        if(role.equals("ผู้ใช้ทั่วไป")){
-            role = "normal";
-        }
-        else if(role.equals("ผู้ดูแลห้องเรียน")){
-            role = "housekeeper";
-        }
-        else if(role.equals("เจ้าหน้าที่")){
-            role = "staff";
-        }
-        else if(role.equals("หัวหน้างาน")){
-            role = "manager";
-        }
-        else if(role.equals("ผู้บริหาร")){
-            role = "ceo";
-        }
-
 
         db.collection("users")
                 .get()

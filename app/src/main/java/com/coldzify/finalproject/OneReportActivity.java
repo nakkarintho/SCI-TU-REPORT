@@ -45,7 +45,7 @@ import java.util.concurrent.TimeUnit;
 
 public class OneReportActivity extends AppCompatActivity {
     private final String TAG = "OneReportActivity";
-    private String role = "normal";
+    private String role = "ผู้ใช้ทั่วไป";
     private FirebaseFirestore db;
     private FirebaseStorage storage;
     private FirebaseAuth mAuth;
@@ -295,7 +295,7 @@ public class OneReportActivity extends AppCompatActivity {
                 PopupMenu popup = new PopupMenu(OneReportActivity.this, report_setting_imageView);
                 //Inflating the Popup using xml file
                 int menu = R.menu.report_menu;
-                if(role!=null &&role.equals("normal"))
+                if(role!=null &&role.equals("ผู้ใช้ทั่วไป"))
                     menu = R.menu.report_menu_normal;
                 popup.getMenuInflater()
                         .inflate(menu, popup.getMenu());

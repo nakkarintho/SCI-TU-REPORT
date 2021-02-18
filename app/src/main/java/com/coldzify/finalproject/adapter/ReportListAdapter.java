@@ -69,7 +69,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
     private Context context;
     private FirebaseFirestore db;
     private FragmentManager fm;
-    private String role="normal";
+    private String role="ผู้ใช้ทั่วไป";
 
     public ReportListAdapter(Context context, FragmentManager fm, ArrayList<Report> reports, ArrayList<String> reportsID) {
         this.reports = reports;
@@ -197,7 +197,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                 PopupMenu popup = new PopupMenu(holder.view.getContext(), holder.report_setting_imageView);
                 //Inflating the Popup using xml file
                 int menu = R.menu.report_menu;
-                if(role!=null &&role.equals("normal"))
+                if(role!=null &&role.equals("ผู้ใช้ทั่วไป"))
                     menu = R.menu.report_menu_normal;
                 popup.getMenuInflater()
                         .inflate(menu, popup.getMenu());

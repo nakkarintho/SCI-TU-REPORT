@@ -42,7 +42,7 @@ public class ContactHousekeeperActivity extends AppCompatActivity {
         name_textView = findViewById(R.id.name_textView);
         storage = FirebaseStorage.getInstance();
         if(getIntent().getExtras() != null){
-            housekeeper_id = getIntent().getExtras().getString("housekeeper_id");
+            housekeeper_id = getIntent().getExtras().getString("ผู้ดูแลห้องเรียน_id");
             housekeeper_id = "P4ftGBWKkkQHhCIJBNspqSf4F6q2";
             building = getIntent().getExtras().getString("building");
             room = getIntent().getExtras().getString("room");

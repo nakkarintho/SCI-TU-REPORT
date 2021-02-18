@@ -110,7 +110,7 @@ public class ChecklistActivity extends AppCompatActivity {
 
     private void getChecklist(){
 
-        db.collection("checklists").whereEqualTo("housekeeper",mAuth.getUid())
+        db.collection("checklists").whereEqualTo("ผู้ดูแลห้องเรียน",mAuth.getUid())
                 .orderBy("timestamp", Query.Direction.ASCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override

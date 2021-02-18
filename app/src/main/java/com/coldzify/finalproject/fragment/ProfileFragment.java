@@ -24,12 +24,9 @@ public class ProfileFragment extends Fragment {
     private final String TAG = "ProfileFragment";
     private String uid;
     private FirebaseFirestore db;
-
-
     private TextView name_textView;
     private TextView email_textView;
     private TextView userType_textView;
-    //private TextView birthdate_textView;
 
 
     public ProfileFragment() {
@@ -48,16 +45,12 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
         name_textView = view.findViewById(R.id.name_textView);
         email_textView = view.findViewById(R.id.email_textView);
         userType_textView = view.findViewById(R.id.userType_textView);
-       // birthdate_textView = view.findViewById(R.id.birthdate_textView);
         getDataProfile(uid);
         return view;
     }
@@ -68,45 +61,12 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful() && task.getResult() != null) {
-                            String firstname =task.getResult().getString("firstname");
-                            String lastname =task.getResult().getString("lastname");
-                           // String birthday =task.getResult().getString("birthday");
-
-                            String email =task.getResult().getString("email");
+                            String name = task.getResult().getString("firstname") +" "+ task.getResult().getString("lastname");
                             String userType =task.getResult().getString("userType");
-                            String name = firstname+" "+lastname;
-
-
-
-                            //String pic = task.getResult().getString("picture");
+                            String email =task.getResult().getString("email");
                             name_textView.setText(name);
                             email_textView.setText(email);
-
-                            if(userType.matches("normal")){
-                                userType_textView.setText("ผู้ใช้ทั่วไป");
-                            }
-
-                            else if(userType.matches("housekeeper")){
-                                userType_textView.setText("แม่บ้าน");
-                            }
-
-                            else if(userType.matches("staff")){
-                                userType_textView.setText("เจ้าหน้าที่");
-                            }
-                            else{
-                                userType_textView.setText("-");
-                            }
-
-
-
-                       //     birthdate_textView.setText(birthday);
-                            /*StorageReference userImageRef = storage.getReference().child("images/")
-                                    .child("users/"+pic);
-                            GlideApp.with(ProfileFragment.this)
-                                    .load(userImageRef)
-                                    .apply(RequestOptions.circleCropTransform())
-                                    .into(profilePic);*/
-
+                            userType_textView.setText(userType);
                         }
                         else{
                             Log.d(TAG,"error",task.getException());
