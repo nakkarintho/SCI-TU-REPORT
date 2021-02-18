@@ -123,23 +123,23 @@ public class MenuDialog extends DialogFragment {
             }
 
             if (allProblemMenu.get(role) == true) {
+                menu.add(getString(R.string.all_problem_in_faculty));
+                drawables.add(R.drawable.ic_allreport_icon);
+            }
+
+            if (finishProblemMenu.get(role) == true) {
                 menu.add(getString(R.string.finish_problem_in_faculty));
                 drawables.add(R.drawable.ic_finishreport_icon);
             }
 
-            if (finishProblemMenu.get(role) == true) {
+            if (checkListMenu.get(role) == true) {
                 menu.add(getString(R.string.check_list_th));
                 drawables.add(R.drawable.ic_report_status);
-            }
-
-            if (checkListMenu.get(role) == true) {
-                menu.add(getString(R.string.contact_housekeeper_th));
-                drawables.add(R.drawable.ic_housekeeper);
             }
 
             if (contactMenu.get(role) == true) {
-                menu.add(getString(R.string.check_list_th));
-                drawables.add(R.drawable.ic_report_status);
+                menu.add(getString(R.string.contact_housekeeper_th));
+                drawables.add(R.drawable.ic_housekeeper);
             }
 
             if (editUserTypeMenu.get(role) == true) {
@@ -296,11 +296,11 @@ public class MenuDialog extends DialogFragment {
 
     void createcheckMenu() {
 
-        viewProfileMenu.put("ผู้ใช้ทั่วไป", false);
-        viewProfileMenu.put("ผู้ดูแลห้องเรียน", false);
-        viewProfileMenu.put("เจ้าหน้าที่", false);
-        viewProfileMenu.put("หัวหน้างาน", false);
-        viewProfileMenu.put("ผู้บริหาร", false);
+        viewProfileMenu.put("ผู้ใช้ทั่วไป", true);
+        viewProfileMenu.put("ผู้ดูแลห้องเรียน", true);
+        viewProfileMenu.put("เจ้าหน้าที่", true);
+        viewProfileMenu.put("หัวหน้างาน", true);
+        viewProfileMenu.put("ผู้บริหาร", true);
         viewProfileMenu.put("ผู้ดูแลระบบ", true);
 
         allProblemMenu.put("ผู้ใช้ทั่วไป", true);
