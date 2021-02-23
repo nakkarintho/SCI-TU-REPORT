@@ -134,6 +134,9 @@
             android:name=".FinishActivity"
             android:launchMode="singleInstance" />
         <activity
+            android:name=".StaffWorkActivity"
+            android:launchMode="singleInstance" />
+        <activity
             android:name=".FeedDuplicateActivity"
             android:launchMode="singleInstance" />
         <activity

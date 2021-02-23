@@ -34,6 +34,7 @@ import com.coldzify.finalproject.ProfileActivity;
 import com.coldzify.finalproject.R;
 
 import com.coldzify.finalproject.SettingActivity;
+import com.coldzify.finalproject.StaffWorkActivity;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -49,6 +50,7 @@ public class MenuDialog extends DialogFragment {
     ArrayList<Integer> drawables = new ArrayList<>();
     Map<String, Boolean> viewProfileMenu = new HashMap<>();
     Map<String, Boolean> allProblemMenu = new HashMap<>();
+    Map<String, Boolean> staffWorkMenu = new HashMap<>();
     Map<String, Boolean> finishProblemMenu = new HashMap<>();
     Map<String, Boolean> checkListMenu = new HashMap<>();
     Map<String, Boolean> contactMenu = new HashMap<>();
@@ -125,6 +127,11 @@ public class MenuDialog extends DialogFragment {
             if (allProblemMenu.get(role) == true) {
                 menu.add(getString(R.string.all_problem_in_faculty));
                 drawables.add(R.drawable.ic_allreport_icon);
+            }
+
+            if (staffWorkMenu.get(role) == true) {
+                menu.add(getString(R.string.staff_work_th));
+                drawables.add(R.drawable.ic_staff_work);
             }
 
             if (finishProblemMenu.get(role) == true) {
@@ -229,6 +236,7 @@ public class MenuDialog extends DialogFragment {
                 //String report_menu = getString(R.string.report_problem2_th);
                 String profile_menu = getString(R.string.view_profile_th);
                 String all_problem_menu = getString(R.string.all_problem_in_faculty);
+                String staff_work_menu = getString(R.string.staff_work_th);
                 String finish_problem_menu = getString(R.string.finish_problem_in_faculty);
                 String check_list_menu = getString(R.string.check_list_th);
                 String housekeeper_menu = getString(R.string.contact_housekeeper_th);
@@ -246,7 +254,12 @@ public class MenuDialog extends DialogFragment {
                     Intent intent = new Intent(getContext(), FeedActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
-                } else if (text.equals(finish_problem_menu)) {
+                } else if (text.equals(staff_work_menu)) {
+                    dismiss();
+                    Intent intent = new Intent(getContext(), StaffWorkActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                }else if (text.equals(finish_problem_menu)) {
                     dismiss();
                     Intent intent = new Intent(getContext(), FinishActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -309,6 +322,13 @@ public class MenuDialog extends DialogFragment {
         allProblemMenu.put("หัวหน้างาน", true);
         allProblemMenu.put("ผู้บริหาร", true);
         allProblemMenu.put("ผู้ดูแลระบบ", true);
+
+        staffWorkMenu.put("ผู้ใช้ทั่วไป", false);
+        staffWorkMenu.put("ผู้ดูแลห้องเรียน", true);
+        staffWorkMenu.put("เจ้าหน้าที่", true);
+        staffWorkMenu.put("หัวหน้างาน", false);
+        staffWorkMenu.put("ผู้บริหาร", false);
+        staffWorkMenu.put("ผู้ดูแลระบบ", true);
 
         finishProblemMenu.put("ผู้ใช้ทั่วไป", true);
         finishProblemMenu.put("ผู้ดูแลห้องเรียน", true);
