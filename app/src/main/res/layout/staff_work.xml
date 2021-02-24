@@ -16,10 +16,6 @@
         app:title_name="@string/staff_work_th">
 
     </com.coldzify.finalproject.TitleBarView>
-    <Spinner
-        android:id="@+id/filter_feed2"
-        android:layout_width="match_parent"
-        android:layout_height="49dp" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerFrameLayout"

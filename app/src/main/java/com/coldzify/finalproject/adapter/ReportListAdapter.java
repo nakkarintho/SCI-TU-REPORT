@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.bumptech.glide.request.RequestOptions;
@@ -42,6 +43,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
@@ -70,6 +72,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
     private FirebaseFirestore db;
     private FragmentManager fm;
     private String role="ผู้ใช้ทั่วไป";
+    private String user_name;
 
     public ReportListAdapter(Context context, FragmentManager fm, ArrayList<Report> reports, ArrayList<String> reportsID) {
         this.reports = reports;
@@ -199,8 +202,10 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                 int menu = R.menu.report_menu;
                 if(role!=null &&role.equals("ผู้ใช้ทั่วไป"))
                     menu = R.menu.report_menu_normal;
-                popup.getMenuInflater()
-                        .inflate(menu, popup.getMenu());
+
+
+                    popup.getMenuInflater().inflate(menu, popup.getMenu());
+
 
                 //registering popup with OnMenuItemClickListener
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -213,6 +218,9 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                             dialog.setArguments(bundle);
                             dialog.show(fm, "Manage Status Dialog");
                         }
+
+
+
 
                         return true;
                     }

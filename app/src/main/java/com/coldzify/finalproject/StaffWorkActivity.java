@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -52,7 +53,7 @@ public class StaffWorkActivity extends AppCompatActivity {
     private Profile profile;
     private Handler handler;
     private Runnable run;
-    private Spinner spinner, spinner2;
+    private String user_name;
     private boolean isGetReportFinish = false;
 
 
@@ -61,29 +62,6 @@ public class StaffWorkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.staff_work);
-        spinner2 = (Spinner) findViewById(R.id.filter_feed2);
-
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.filter_feed2, R.layout.font_spinner);
-
-        spinner2.setAdapter(adapter2);
-
-
-
-
-        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                getTypeReport(position);
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
-            }
-
-        });
         init();
         getReports();
         getTokenId();
@@ -138,9 +116,23 @@ public class StaffWorkActivity extends AppCompatActivity {
 
     private void getReports(){
         reports = new ArrayList<>();
+        db.collection("users").document(mAuth.getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful() && task.getResult() != null){
+                            DocumentSnapshot doc = task.getResult();
+                            if(doc.getString("role") != null){
+                                String firstname = doc.getString("firstname");
+                                String lastname = doc.getString("lastname");
+                                user_name = firstname +  " "+lastname;
+                            }
+                        }
+                    }
+                });
 
         db.collection("reports")
-                .whereEqualTo("status",4)
                 .orderBy("timestamp", Query.Direction.DESCENDING)
                 .get()
                 .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
@@ -151,8 +143,10 @@ public class StaffWorkActivity extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Report report = document.toObject(Report.class);
                                 Log.w(TAG,"66666666"+report.getDateFinish());
-                                reports.add(report);
-                                reportID.add(document.getId());
+                                if((report.getStatus() == 2 || report.getStatus() == 3 ) && report.getTakecareBy().equals(user_name)) {
+                                    reports.add(report);
+                                    reportID.add(document.getId());
+                                }
                             }
 
                             isGetReportFinish = true;
@@ -171,249 +165,7 @@ public class StaffWorkActivity extends AppCompatActivity {
 
     }
 
-    private void getTypeReport(int position){
-        reports = new ArrayList<>();
-        if(position==0){
-            getReports();
-        }
 
-        else if (position ==1){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "ELECTRICS")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-
-        else if (position ==2){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "WATER")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-
-        else if (position ==3){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "CONDITIONER")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-
-        else if (position ==4){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "MATERIAL")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-
-        else if (position ==5){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "TECHNOLOGY")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-
-        else if (position ==6){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "INTERNET")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-
-
-
-        else if (position ==7){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "BUILDING_ENVIRON")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-        else if (position ==8){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "CLEAN_SECURITY")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-
-        else if (position ==9){
-            Log.i(TAG, ""+position);
-            db.collection("reports")
-                    .whereEqualTo("type", "TELEPHONE")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
-                    .get()
-                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                reportID = new ArrayList<>();
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Report report = document.toObject(Report.class);
-                                    reports.add(report);
-                                    reportID.add(document.getId());
-                                }
-
-                                isGetReportFinish = true;
-                                Log.d(TAG, "Fetch report is done");
-
-                            } else {
-                                Log.w(TAG, "Error : ", task.getException());
-                            }
-                        }
-                    });
-        }
-
-        refreshFilter();
-    }
 
 
     private void refresh(){
@@ -425,15 +177,7 @@ public class StaffWorkActivity extends AppCompatActivity {
         handler.postDelayed(run, 100);
     }
 
-    private void refreshFilter(){
-        shimmerFrameLayout.setVisibility(View.VISIBLE);
-        shimmerFrameLayout.startShimmer();
-        isGetReportFinish = false;
-//        getFilterReport(spinner.getSelectedItemPosition());
 
-
-        handler.postDelayed(run, 100);
-    }
     private void getTokenId(){
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {

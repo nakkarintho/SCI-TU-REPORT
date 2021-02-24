@@ -4,10 +4,4 @@
     <item
         android:id="@+id/manage_status_item"
         android:title="@string/manage_status_th"/>
-
-    <item
-        android:id="@+id/see_detail_item"
-        android:title="@string/see_detail_th"/>
-
-
 </menu>

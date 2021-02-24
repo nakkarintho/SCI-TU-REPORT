@@ -308,11 +308,10 @@ public class OneReportActivity extends AppCompatActivity {
                             Bundle bundle = new Bundle();
                             bundle.putInt("progress", report_status);
                             bundle.putString("reportID",reportID);
-                            bundle.putString("reportID",reportID);
+                            //bundle.putString("reportID",reportID);
                             dialog.setArguments(bundle);
                             dialog.show(getSupportFragmentManager(), "Manage Status Dialog");
                         }
-
                         return true;
                     }
                 });

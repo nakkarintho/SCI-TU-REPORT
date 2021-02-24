@@ -122,6 +122,7 @@
     <string name="edit_checklist_th">แก้ไขรายการ</string>
     <string name="edit_user_type_th">แก้ไขบทบาทผู้ใช้</string>
     <string name="staff_work_th">งานที่ต้องทำ</string>
+    <string name="add_work">ดึงงาน</string>
 
     <string name="continue_th">ดำเนินการต่อ</string>
     <string name="building_and_environment_problem_th">อาคาร\nและสิ่งแวดล้อม</string>

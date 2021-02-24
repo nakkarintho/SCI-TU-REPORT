@@ -311,28 +311,28 @@ public class MenuDialog extends DialogFragment {
         viewProfileMenu.put("เจ้าหน้าที่", true);
         viewProfileMenu.put("หัวหน้างาน", true);
         viewProfileMenu.put("ผู้บริหาร", true);
-        viewProfileMenu.put("ผู้ดูแลระบบ", true);
+        viewProfileMenu.put("ผู้ดูแลระบบ", false);
 
         allProblemMenu.put("ผู้ใช้ทั่วไป", true);
         allProblemMenu.put("ผู้ดูแลห้องเรียน", true);
         allProblemMenu.put("เจ้าหน้าที่", true);
         allProblemMenu.put("หัวหน้างาน", true);
         allProblemMenu.put("ผู้บริหาร", true);
-        allProblemMenu.put("ผู้ดูแลระบบ", true);
+        allProblemMenu.put("ผู้ดูแลระบบ", false);
 
         staffWorkMenu.put("ผู้ใช้ทั่วไป", false);
         staffWorkMenu.put("ผู้ดูแลห้องเรียน", true);
         staffWorkMenu.put("เจ้าหน้าที่", true);
         staffWorkMenu.put("หัวหน้างาน", false);
         staffWorkMenu.put("ผู้บริหาร", false);
-        staffWorkMenu.put("ผู้ดูแลระบบ", true);
+        staffWorkMenu.put("ผู้ดูแลระบบ", false);
 
         finishProblemMenu.put("ผู้ใช้ทั่วไป", true);
         finishProblemMenu.put("ผู้ดูแลห้องเรียน", true);
         finishProblemMenu.put("เจ้าหน้าที่", true);
         finishProblemMenu.put("หัวหน้างาน", true);
         finishProblemMenu.put("ผู้บริหาร", true);
-        finishProblemMenu.put("ผู้ดูแลระบบ", true);
+        finishProblemMenu.put("ผู้ดูแลระบบ", false);
 
         checkListMenu.put("ผู้ใช้ทั่วไป", false);
         checkListMenu.put("ผู้ดูแลห้องเรียน", true);
@@ -346,7 +346,7 @@ public class MenuDialog extends DialogFragment {
         contactMenu.put("เจ้าหน้าที่", true);
         contactMenu.put("หัวหน้างาน", true);
         contactMenu.put("ผู้บริหาร", true);
-        contactMenu.put("ผู้ดูแลระบบ", true);
+        contactMenu.put("ผู้ดูแลระบบ", false);
 
         editUserTypeMenu.put("ผู้ใช้ทั่วไป", false);
         editUserTypeMenu.put("ผู้ดูแลห้องเรียน", false);
@@ -360,7 +360,7 @@ public class MenuDialog extends DialogFragment {
         settingMenu.put("เจ้าหน้าที่", true);
         settingMenu.put("หัวหน้างาน", true);
         settingMenu.put("ผู้บริหาร", true);
-        settingMenu.put("ผู้ดูแลระบบ", true);
+        settingMenu.put("ผู้ดูแลระบบ", false);
 
         logoutMenu.put("ผู้ใช้ทั่วไป", true);
         logoutMenu.put("ผู้ดูแลห้องเรียน", true);
