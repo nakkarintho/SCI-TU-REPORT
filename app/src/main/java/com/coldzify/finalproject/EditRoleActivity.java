@@ -1,12 +1,10 @@
 package com.coldzify.finalproject;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
@@ -22,12 +20,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditroleActivity extends AppCompatActivity {
+public class EditRoleActivity extends AppCompatActivity {
     private Spinner role_spinner;
     private AutoCompleteTextView email_autoComplete;
     private ArrayAdapter<String>role_adapter;
@@ -39,9 +35,9 @@ public class EditroleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_user_type);
+        setContentView(R.layout.activity_edit_user_type);
         db = FirebaseFirestore.getInstance();
-        role_spinner = findViewById(R.id.role_spinner);
+        role_spinner = findViewById(R.id.staff_spinner);
         email_autoComplete = findViewById(R.id.email_autoComplete);
         String[] arr = getResources().getStringArray(R.array.role);
         role_adapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line,arr);
@@ -70,7 +66,7 @@ public class EditroleActivity extends AppCompatActivity {
                             }
                             if (docpath.equals("")) {
                                 Log.w("tag", "Error Not Have This Email In Systems : ", task.getException());
-                                Toast.makeText(EditroleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                                Toast.makeText(EditRoleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
                             } else {
                                 final DocumentReference docRef = db.collection("users").document(docpath);
                                 Map<String, Object> map = new HashMap<>();
@@ -79,14 +75,14 @@ public class EditroleActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         Log.d("tag", "Update Permission Success");
-                                        Toast.makeText(EditroleActivity.this, "ระบบได้แก้ไขสิทธื์ของผู้ใช้ดังกล่าวเรียบร้อย", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(EditRoleActivity.this, "ระบบได้แก้ไขสิทธื์ของผู้ใช้ดังกล่าวเรียบร้อย", Toast.LENGTH_LONG).show();
                                     }
                                 })
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
                                                 Log.e("tag", "Failure : Not Have This Email In System", e);
-                                                Toast.makeText(EditroleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(EditRoleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
                                             }
                                         });
 
@@ -94,7 +90,7 @@ public class EditroleActivity extends AppCompatActivity {
                         }
                         else{
                             Log.w("tag","Error Not Have This Email In Systems : ",task.getException());
-                            Toast.makeText(EditroleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                            Toast.makeText(EditRoleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
                         }
 
                     }

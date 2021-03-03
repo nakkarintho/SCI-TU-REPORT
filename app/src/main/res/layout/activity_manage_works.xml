@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EditroleActivity">
+    tools:context=".EditRoleActivity">
     <com.coldzify.finalproject.TitleBarView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,52 +14,23 @@
         />
 
     <LinearLayout
-        android:layout_marginTop="60dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="50dp"
-            android:text="@string/email_th"
-            android:gravity="end"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            app:fontFamily="@font/my_font"
-            />
-
-        <android.support.v7.widget.AppCompatAutoCompleteTextView
-            android:id="@+id/email_autoComplete"
-            android:layout_marginLeft="40dp"
-            android:padding="5dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/room_edittext"
-            android:completionThreshold="1"
-            app:fontFamily="@font/my_font"
-            android:textSize="20sp"
-            />
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="70dp"
-            android:text="@string/select_user_type_th"
-            android:gravity="end"
             android:layout_gravity="center"
+            android:gravity="end"
+            android:minWidth="70dp"
+            android:text="@string/select_staff"
             android:textSize="20sp"
-            app:fontFamily="@font/my_font"
-            />
+            app:fontFamily="@font/my_font" />
 
         <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/role_spinner"
+            android:id="@+id/staff_spinner"
             android:layout_marginLeft="30dp"
             android:layout_width="160dp"
             android:layout_height="wrap_content"

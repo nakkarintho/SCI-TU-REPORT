@@ -20,7 +20,6 @@ import java.util.ArrayList;
 public class AddListDialog extends DialogFragment {
     private OnClickOKListener okListener;
     private EditText editText;
-    private Spinner spinner;
     private Button add_button,cancel_button;
     @NonNull
     @Override
@@ -30,15 +29,10 @@ public class AddListDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_add_list,null);
-        spinner = view.findViewById(R.id.spinner);
         editText = view.findViewById(R.id.editText);
         add_button = view.findViewById(R.id.addList_button);
         cancel_button = view.findViewById(R.id.cancel_button);
 
-        String[] arr = getResources().getStringArray(R.array.problemType);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(view.getContext(),
-                android.R.layout.simple_dropdown_item_1line,arr);
-        spinner.setAdapter(adapter);
 
         if(okListener != null){
             add_button.setOnClickListener(new View.OnClickListener() {
@@ -46,9 +40,7 @@ public class AddListDialog extends DialogFragment {
                 public void onClick(View view) {
                     if(editText.getText().toString().length() != 0){
                         String name = editText.getText().toString();
-                        int type_index = spinner.getSelectedItemPosition();
-                        String type =  typePositionToString(type_index);
-                        okListener.onClickOK(name,type);
+                        okListener.onClickOK(name);
                         dismiss();
                     }
 
@@ -118,7 +110,7 @@ public class AddListDialog extends DialogFragment {
         return type;
     }
     public interface OnClickOKListener{
-        void onClickOK(String name,String type);
+        void onClickOK(String name);
     }
 
 }

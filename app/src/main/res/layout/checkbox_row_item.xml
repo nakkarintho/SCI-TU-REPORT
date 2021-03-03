@@ -16,13 +16,7 @@
         android:textSize="18sp"
         android:paddingLeft="20dp"
         />
-    <ImageView
-        android:id="@+id/report_imageView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginRight="14dp"
-        android:src="@drawable/ic_megaphone"
-        />
+
     <ImageView
         android:id="@+id/delete_imageView"
         android:layout_width="24dp"

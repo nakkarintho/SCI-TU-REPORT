@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditRoleActivity">
+    <com.coldzify.finalproject.TitleBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_name="@string/edit_user_type_th"
+        app:icon_pic="@drawable/ic_menugrid"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="50dp"
+            android:text="@string/email_th"
+            android:gravity="end"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font"
+            />
+
+        <android.support.v7.widget.AppCompatAutoCompleteTextView
+            android:id="@+id/email_autoComplete"
+            android:layout_marginLeft="40dp"
+            android:padding="5dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/room_edittext"
+            android:completionThreshold="1"
+            app:fontFamily="@font/my_font"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:text="@string/select_user_type_th"
+            android:gravity="end"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font"
+            />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/staff_spinner"
+            android:layout_marginLeft="30dp"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font"
+            />
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/red_round_button"
+        android:onClick="onClickChangePermission"
+        android:text="@string/save_th"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:fontFamily="@font/my_font" />
+
+</LinearLayout>

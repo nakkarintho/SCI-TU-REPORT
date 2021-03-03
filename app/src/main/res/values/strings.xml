@@ -121,6 +121,7 @@
     <string name="main_checklist">รายการหลัก</string>
     <string name="edit_checklist_th">แก้ไขรายการ</string>
     <string name="edit_user_type_th">แก้ไขบทบาทผู้ใช้</string>
+    <string name="edit_takecare_type_th">แก้ไขงานที่รับผิดชอบ</string>
     <string name="staff_work_th">งานที่ต้องทำ</string>
     <string name="add_work">ดึงงาน</string>
 
@@ -139,5 +140,18 @@
     <string name="tustaff_th">บุคลากร</string>
     <string name="others_th">อื่นๆ</string>
     <string name="resetpass">ลืมรหัสผ่าน</string>
+
+    <string name="problem1">ระบบไฟฟ้า</string>
+    <string name="problem2">ระบบประปา</string>
+    <string name="problem3">ระบบเครื่องปรับอากาศ</string>
+    <string name="problem4">วัสดุภายในห้อง</string>
+    <string name="problem5">สื่อการเรียนการสอน</string>
+    <string name="problem6">ไอทีและอินเตอร์เน็ต</string>
+    <string name="problem7">อาคารและสิ่งแวดล้อม</string>
+    <string name="problem8">ความสะอาดและความปลอดภัย</string>
+    <string name="problem9">ระบบโทรศัพท์</string>
+
+    <string name="manage_works_th">มอบหมายงาน</string>
+    <string name="select_staff">เลือกผู้รับผิดชอบ</string>
 
 </resources>

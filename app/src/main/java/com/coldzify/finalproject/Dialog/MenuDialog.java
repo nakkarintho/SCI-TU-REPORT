@@ -22,7 +22,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.coldzify.finalproject.ChecklistActivity;
-import com.coldzify.finalproject.EditroleActivity;
+import com.coldzify.finalproject.EditTakecaretypeActivity;
+import com.coldzify.finalproject.EditRoleActivity;
 import com.coldzify.finalproject.FinishActivity;
 import com.coldzify.finalproject.SearchHousekeeperActivity;
 import com.coldzify.finalproject.FeedActivity;
@@ -52,6 +53,7 @@ public class MenuDialog extends DialogFragment {
     Map<String, Boolean> checkListMenu = new HashMap<>();
     Map<String, Boolean> contactMenu = new HashMap<>();
     Map<String, Boolean> editUserTypeMenu = new HashMap<>();
+    Map<String, Boolean> editTakecaretypeMenu = new HashMap<>();
     Map<String, Boolean> settingMenu = new HashMap<>();
     Map<String, Boolean> logoutMenu = new HashMap<>();
     Boolean round = true;
@@ -151,6 +153,12 @@ public class MenuDialog extends DialogFragment {
                 drawables.add(R.drawable.ic_edit_user_type);
             }
 
+
+            if (editTakecaretypeMenu.get(role) == true) {
+                menu.add(getString(R.string.edit_takecare_type_th));
+                drawables.add(R.drawable.ic_edit_user_type);
+            }
+
             if (settingMenu.get(role) == true) {
                 menu.add(getString(R.string.setting_th));
                 drawables.add(R.drawable.ic_settings);
@@ -238,6 +246,7 @@ public class MenuDialog extends DialogFragment {
                 String check_list_menu = getString(R.string.check_list_th);
                 String housekeeper_menu = getString(R.string.contact_housekeeper_th);
                 String edit_role_menu = getString(R.string.edit_user_type_th);
+                String edit_takecaretype_menu = getString(R.string.edit_takecare_type_th);
                 String setting_menu = getString(R.string.setting_th);
                 //String logout_menu = getString(R.string.logout_th);
                 if (text.equals(profile_menu)) {
@@ -273,7 +282,12 @@ public class MenuDialog extends DialogFragment {
                     startActivity(intent);
                 } else if (text.equals(edit_role_menu)) {
                     dismiss();
-                    Intent intent = new Intent(getContext(), EditroleActivity.class);
+                    Intent intent = new Intent(getContext(), EditRoleActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                } else if (text.equals(edit_takecaretype_menu)) {
+                    dismiss();
+                    Intent intent = new Intent(getContext(), EditTakecaretypeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                 } else if (text.equals(setting_menu)) {
@@ -355,6 +369,16 @@ public class MenuDialog extends DialogFragment {
         editUserTypeMenu.put("ผู้บริหาร", false);
         editUserTypeMenu.put("ผู้ดูแลระบบ", true);
 
+        editTakecaretypeMenu.put("ผู้ใช้ทั่วไป", false);
+        editTakecaretypeMenu.put("ผู้ดูแลห้องเรียน", false);
+        editTakecaretypeMenu.put("เจ้าหน้าที่", false);
+        editTakecaretypeMenu.put("หัวหน้างาน", false);
+        editTakecaretypeMenu.put("ผู้บริหาร", false);
+        editTakecaretypeMenu.put("ผู้ดูแลระบบ", true);
+
+
+
+
         settingMenu.put("ผู้ใช้ทั่วไป", true);
         settingMenu.put("ผู้ดูแลห้องเรียน", true);
         settingMenu.put("เจ้าหน้าที่", true);
@@ -368,6 +392,9 @@ public class MenuDialog extends DialogFragment {
         logoutMenu.put("หัวหน้างาน", true);
         logoutMenu.put("ผู้บริหาร", true);
         logoutMenu.put("ผู้ดูแลระบบ", true);
+
+
+
 
     }
 }

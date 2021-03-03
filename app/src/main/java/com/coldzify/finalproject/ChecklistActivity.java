@@ -169,10 +169,14 @@ public class ChecklistActivity extends AppCompatActivity {
     private void updateChecklistName(String checklist_id,String newName){
         db.collection("checklists").document(checklist_id)
                 .update("listName",newName);
+        recreate();
+
+
     }
     private void deleteItem(Checklist checklist){
         db.collection("checklists").document(checklist.getId())
                 .delete();
+        recreate();
     }
 
     private void addChecklist(Checklist checklist){
@@ -228,6 +232,7 @@ public class ChecklistActivity extends AppCompatActivity {
         }
         hideAddListLayout();
         addChecklist(new Checklist(listName,housekeeper));
+        recreate();
     }
 
 

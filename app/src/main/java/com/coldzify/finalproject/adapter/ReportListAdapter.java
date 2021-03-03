@@ -1,5 +1,6 @@
 package com.coldzify.finalproject.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -7,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -20,11 +20,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.bumptech.glide.request.RequestOptions;
@@ -33,6 +31,7 @@ import com.coldzify.finalproject.CommentActivity;
 import com.coldzify.finalproject.Dialog.ManageStatusDialog;
 import com.coldzify.finalproject.GlideApp;
 import com.coldzify.finalproject.LocationHandle;
+import com.coldzify.finalproject.ManageWorksActivity;
 import com.coldzify.finalproject.OneReportActivity;
 import com.coldzify.finalproject.ProfileActivity;
 import com.coldzify.finalproject.R;
@@ -43,7 +42,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
@@ -59,6 +57,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
+import static java.security.AccessController.getContext;
 
 public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.MyViewHolder> {
     private final String TAG = "ReportAdapter";
@@ -137,6 +138,11 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
         final String currentUserUid = mAuth.getUid();
         final String creator = reports.get(i).getCreatorID();
         final int report_status = reports.get(i).getStatus();
+        final String report_problem_type = reports.get(i).getType();
+        final int report_placecode = reports.get(i).getPlaceCode();
+        final String report_rooms = reports.get(i).getRoom();
+        final String report_detail  = reports.get(i).getDetail();
+
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -199,12 +205,17 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
             public void onClick(View view) {
                 PopupMenu popup = new PopupMenu(holder.view.getContext(), holder.report_setting_imageView);
                 //Inflating the Popup using xml file
-                int menu = R.menu.report_menu;
+                int menu = R.menu.report_menu_staff;
                 if(role!=null &&role.equals("ผู้ใช้ทั่วไป"))
                     menu = R.menu.report_menu_normal;
-
+                else if(role!=null && (role.equals("ผู้ดูแลห้องเรียน") || role.equals("เจ้าหน้าที่")))
+                    menu = R.menu.report_menu_staff;
+                else if(role!=null && role.equals("หัวหน้างาน"))
+                    menu = R.menu.report_menu_manager;
 
                     popup.getMenuInflater().inflate(menu, popup.getMenu());
+
+
 
 
                 //registering popup with OnMenuItemClickListener
@@ -218,10 +229,18 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                             dialog.setArguments(bundle);
                             dialog.show(fm, "Manage Status Dialog");
                         }
+                        else if(item.getItemId() == R.id.manage_works_item){
+                            ManageWorksActivity MW = new ManageWorksActivity();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("report_problem_type", report_problem_type);
+                            bundle.putInt("report_placecode",report_placecode);
+                            bundle.putString("report_rooms", report_rooms);
+                            bundle.putString("report_detail", report_detail);
+                            Intent intent = new Intent(holder.view.getContext(), ManageWorksActivity.class);
+                            intent.putExtras(bundle);
+                            holder.view.getContext().startActivity(intent);
 
-
-
-
+                        }
                         return true;
                     }
                 });

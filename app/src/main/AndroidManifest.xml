@@ -36,11 +36,13 @@
             android:resource="@color/color_titleBar_bg" />
 
         <activity android:name=".ChecklistActivity"></activity>
-        <activity android:name=".EditroleActivity" />
+        <activity android:name=".EditRoleActivity" />
+        <activity android:name=".EditTakecaretypeActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".ContactHousekeeperActivity" />
         <activity android:name=".SearchHousekeeperActivity" />
         <activity android:name=".ReportFinishActivity" />
+        <activity android:name=".ManageWorksActivity" />
         <activity
             android:name=".NotificationsActivity"
             android:launchMode="singleInstance" />

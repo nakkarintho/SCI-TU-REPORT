@@ -90,8 +90,8 @@ public class OneChecklistActivity extends AppCompatActivity {
 
         okListener = new AddListDialog.OnClickOKListener() {
             @Override
-            public void onClickOK(String name,String type) {
-                ChecklistItem checklistItem = new ChecklistItem(name,type);
+            public void onClickOK(String name) {
+                ChecklistItem checklistItem = new ChecklistItem(name);
                 addChecklistItem(checklistItem);
                 //unchecked_list.add(str);
             }
@@ -289,14 +289,7 @@ public class OneChecklistActivity extends AppCompatActivity {
             else{
                 holder.ch.setButtonDrawable(R.drawable.ic_done_red);
             }
-            holder.report_imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(holder.view.getContext(),ReportActivity.class);
-                    intent.putExtra("type",list.get(index).getType());
-                    holder.view.getContext().startActivity(intent);
-                }
-            });
+
             holder.delete_imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

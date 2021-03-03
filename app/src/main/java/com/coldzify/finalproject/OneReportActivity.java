@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.request.RequestOptions;
 import com.coldzify.finalproject.Dialog.ManageStatusDialog;
@@ -30,8 +29,6 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -42,6 +39,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class OneReportActivity extends AppCompatActivity {
     private final String TAG = "OneReportActivity";
@@ -240,6 +239,10 @@ public class OneReportActivity extends AppCompatActivity {
         final String currentUserUid = mAuth.getUid();
         final String creator = report.getCreatorID();
         final int report_status = report.getStatus();
+        final String report_problem_type = report.getType();
+        final int report_placecode = report.getPlaceCode();
+        final String report_rooms = report.getRoom();
+        final String report_detail  = report.getDetail();
 
         subscribe_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -294,9 +297,16 @@ public class OneReportActivity extends AppCompatActivity {
             public void onClick(View view) {
                 PopupMenu popup = new PopupMenu(OneReportActivity.this, report_setting_imageView);
                 //Inflating the Popup using xml file
-                int menu = R.menu.report_menu;
+                int menu = R.menu.report_menu_staff;
                 if(role!=null &&role.equals("ผู้ใช้ทั่วไป"))
                     menu = R.menu.report_menu_normal;
+                else if(role!=null && (role.equals("ผู้ดูแลห้องเรียน") || role.equals("เจ้าหน้าที่")))
+                    menu = R.menu.report_menu_staff;
+                else if(role!=null && role.equals("หัวหน้างาน"))
+                    menu = R.menu.report_menu_manager;
+
+
+
                 popup.getMenuInflater()
                         .inflate(menu, popup.getMenu());
 
@@ -311,6 +321,18 @@ public class OneReportActivity extends AppCompatActivity {
                             //bundle.putString("reportID",reportID);
                             dialog.setArguments(bundle);
                             dialog.show(getSupportFragmentManager(), "Manage Status Dialog");
+                        }
+                        else if(item.getItemId() == R.id.manage_works_item){
+                            ManageWorksActivity MW = new ManageWorksActivity();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("report_problem_type", report_problem_type);
+                            bundle.putInt("report_placecode",report_placecode);
+                            bundle.putString("report_rooms", report_rooms);
+                            bundle.putString("report_detail", report_detail);
+                            Intent intent = new Intent(getApplicationContext(), ManageWorksActivity.class);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+
                         }
                         return true;
                     }
