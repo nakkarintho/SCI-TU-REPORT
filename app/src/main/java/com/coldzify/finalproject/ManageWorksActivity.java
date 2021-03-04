@@ -14,6 +14,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.bumptech.glide.request.RequestOptions;
 import com.coldzify.finalproject.dataobject.Report;
 import com.coldzify.finalproject.dataobject.UserProfile;
 import com.coldzify.finalproject.dataobject.rooms;
@@ -27,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,9 +42,13 @@ public class ManageWorksActivity extends AppCompatActivity {
     private String report_problem_type;
     private int report_placecode;
     private String report_rooms;
-    private String report_detail,nameans, tutorialsName;
+    private String report_detail;
+    private int report_status;
+    private String report_id;
+
+    private String name,namelast = "";
     private ArrayList<String> staff;
-    Boolean check;
+    private Boolean addstaff;
 
 
     @Override
@@ -54,27 +60,26 @@ public class ManageWorksActivity extends AppCompatActivity {
         staff_spinner = findViewById(R.id.staff_spinner);
 
 
-
-
-
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             report_problem_type = bundle.getString("report_problem_type");
             report_placecode = bundle.getInt("report_placecode");
             report_rooms = bundle.getString("report_rooms");
             report_detail = bundle.getString("report_detail");
+            report_status = bundle.getInt("report_status");
+            report_id = bundle.getString("report_id");
 
         }
 
-        AppCompatTextView report_problem_type_text = (AppCompatTextView)findViewById(R.id.report_problem_type);
-        AppCompatTextView report_placecode_text = (AppCompatTextView)findViewById(R.id.report_placecode);
-        AppCompatTextView report_rooms_text = (AppCompatTextView)findViewById(R.id.report_rooms);
-        AppCompatTextView report_detail_text = (AppCompatTextView)findViewById(R.id.report_detail);
+        AppCompatTextView report_problem_type_text = (AppCompatTextView) findViewById(R.id.report_problem_type);
+        AppCompatTextView report_placecode_text = (AppCompatTextView) findViewById(R.id.report_placecode);
+        AppCompatTextView report_rooms_text = (AppCompatTextView) findViewById(R.id.report_rooms);
+        AppCompatTextView report_detail_text = (AppCompatTextView) findViewById(R.id.report_detail);
 
 
         String problemtypestring[] = getResources().getStringArray(R.array.filter_feed2);
 
-        switch(report_problem_type) {
+        switch (report_problem_type) {
             case "ELECTRICS":
                 report_problem_type_text.setText(problemtypestring[1]);
                 break;
@@ -109,7 +114,7 @@ public class ManageWorksActivity extends AppCompatActivity {
         String placecodestring[] = getResources().getStringArray(R.array.building);
         String placecodestringans = "";
 
-        switch(report_placecode) {
+        switch (report_placecode) {
             case 0:
                 placecodestringans = placecodestring[0];
                 report_placecode_text.setText(placecodestringans);
@@ -136,95 +141,85 @@ public class ManageWorksActivity extends AppCompatActivity {
 
 
 
-        if(report_problem_type.equals("MATERIAL") || report_problem_type.equals("TECHNOLOGY")  || report_problem_type.equals("BUILDING_ENVIRON")
-                || report_problem_type.equals("CLEAN_SECURITY") ) {
 
 
-            db.collection("buildings")
-                    .document(placecodestringans)
-                    .collection("rooms")
-                    .get()
-                    .addOnCompleteListener(this, new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful() && task.getResult() != null) {
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    rooms room = document.toObject(rooms.class);
-                                    String housekeeper_id = room.gethousekeeper_id();
-                                    if(!housekeeper_id.equals("")) {
-                                        db.collection("users")
-                                                .document(housekeeper_id)
-                                                .get()
-                                                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                                        if (task.isSuccessful()) {
-                                                            nameans = task.getResult().getString("firstname");
-                                                            check = true;
 
-                                                            for(int i=0;i<staff.size();i++){
-                                                                if(staff.get(i).equals(nameans)){
-                                                                    check = false;
-                                                                }
+
+
+        db.collection("buildings").document(placecodestringans).collection("rooms")
+                .get()
+                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                rooms room = document.toObject(rooms.class);
+                                if(!room.gethousekeeper_id().equals("")){
+                                    db.collection("users").document(room.gethousekeeper_id())
+                                            .get()
+                                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                    if(task.isSuccessful()&& task.getResult() != null){
+                                                        String firstname = task.getResult().getString("firstname");
+                                                        String lastname = task.getResult().getString("lastname");
+                                                        name = firstname+" "+lastname;
+                                                        addstaff = true;
+                                                        for(int i=0;i<staff.size();i++){
+                                                            if(staff.get(i).equals(name)){
+                                                                addstaff = false;
                                                             }
-
-                                                            if(check == true){
-                                                                staff.add(nameans);
-                                                            }
-
-                                                        } else {
-                                                            //Log.w(TAG, "Error getting documents.", task.getException());
                                                         }
+                                                        if(addstaff == true){
+                                                            staff.add(name);
+                                                        }
+
                                                     }
-                                                });
-                                    }
+                                                }
+                                            });
                                 }
 
 
-                            } else {
                             }
-
+                        }
+                        else{
+                            //Log.w("tag","Error Not Have This Email In Systems : ",task.getException());
+                            //Toast.makeText(EditRoleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
                         }
 
-                    });
+                    }
 
-        }
-
-
+                });
 
 
 
 
-        else{
-
-
-        }
-
-
-
-        staff_adapter = new ArrayAdapter<>(this, R.layout.font_spinner, staff);
-        staff_adapter.setDropDownViewResource( R.layout.font_spinner);
-
-
+        staff.add("กรุณาเลือกผู้รับผิดชอบ");
+        staff_adapter = new ArrayAdapter<>(this,R.layout.font_spinner,staff);
         staff_spinner.setAdapter(staff_adapter);
-        staff_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                tutorialsName = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Adaaaaaaaaaaaaa" + tutorialsName,Toast.LENGTH_LONG).show();
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView <?> parent) {
-            }
-        });
+
 
     }
 
-
-
-
-
+    public void onClickAddWork(View view){
+        String worker =  staff_spinner.getSelectedItem().toString();
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference ref =  db.collection("reports").document(report_id);
+        ref.update("status",2)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(),"มอบหมายงานเรียบร้อย",Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"เกิดข้อผิดพลาด ไม่สามารถมอบหมายงานเรียบร้อย",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+        ref.update("takecareBy",worker);
+    }
 
 
 }

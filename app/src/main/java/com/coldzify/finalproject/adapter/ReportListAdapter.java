@@ -236,6 +236,8 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                             bundle.putInt("report_placecode",report_placecode);
                             bundle.putString("report_rooms", report_rooms);
                             bundle.putString("report_detail", report_detail);
+                            bundle.putInt("report_status", report_status);
+                            bundle.putString("report_id",reportID);
                             Intent intent = new Intent(holder.view.getContext(), ManageWorksActivity.class);
                             intent.putExtras(bundle);
                             holder.view.getContext().startActivity(intent);
