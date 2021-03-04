@@ -6,18 +6,118 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".EditRoleActivity">
+
     <com.coldzify.finalproject.TitleBarView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title_name="@string/edit_user_type_th"
         app:icon_pic="@drawable/ic_menugrid"
-        />
+        app:title_name="@string/edit_user_type_th" />
 
     <LinearLayout
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:text="@string/report_problem_type"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/report_problem_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="70dp"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:text="@string/report_placecode"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/report_placecode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="70dp"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:text="@string/report_rooms"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/report_rooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="70dp"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:text="@string/report_detail"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/report_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="70dp"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp">
 
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
@@ -31,13 +131,12 @@
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/staff_spinner"
-            android:layout_marginLeft="30dp"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:padding="6dp"
             android:textSize="20sp"
-            app:fontFamily="@font/my_font"
-            />
+            app:fontFamily="@font/my_font" />
     </LinearLayout>
 
     <android.support.v7.widget.AppCompatButton

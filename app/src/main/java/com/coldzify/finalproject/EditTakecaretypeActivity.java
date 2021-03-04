@@ -39,8 +39,6 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
     private ArrayList<String> alldatacheck = new ArrayList<>();
     private String alldatacheck_finish = "";
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +66,8 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
                 }
             }
         });
+
+
 
         problem2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

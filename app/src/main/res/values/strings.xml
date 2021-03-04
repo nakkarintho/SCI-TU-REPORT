@@ -154,4 +154,10 @@
     <string name="manage_works_th">มอบหมายงาน</string>
     <string name="select_staff">เลือกผู้รับผิดชอบ</string>
 
+    <string name="report_problem_type">ประเภทปัญหา</string>
+    <string name="report_placecode" >สถานที่</string>
+    <string name="report_rooms">ห้อง</string>
+    <string name="report_detail">รายละเอียด</string>
+
+
 </resources>
