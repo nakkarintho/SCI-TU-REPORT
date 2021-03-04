@@ -8,6 +8,7 @@ import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
@@ -39,7 +40,7 @@ public class ManageWorksActivity extends AppCompatActivity {
     private String report_problem_type;
     private int report_placecode;
     private String report_rooms;
-    private String report_detail,name,nameans;
+    private String report_detail,nameans, tutorialsName;
     private ArrayList<String> staff;
     Boolean check;
 
@@ -51,6 +52,7 @@ public class ManageWorksActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         staff = new ArrayList<>();
         staff_spinner = findViewById(R.id.staff_spinner);
+
 
 
 
@@ -200,11 +202,22 @@ public class ManageWorksActivity extends AppCompatActivity {
 
 
 
-        staff_adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, staff);
+        staff_adapter = new ArrayAdapter<>(this, R.layout.font_spinner, staff);
+        staff_adapter.setDropDownViewResource( R.layout.font_spinner);
+
+
         staff_spinner.setAdapter(staff_adapter);
+        staff_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                tutorialsName = parent.getItemAtPosition(position).toString();
+                Toast.makeText(parent.getContext(), "Adaaaaaaaaaaaaa" + tutorialsName,Toast.LENGTH_LONG).show();
+            }
 
-
-
+            @Override
+            public void onNothingSelected(AdapterView <?> parent) {
+            }
+        });
 
     }
 

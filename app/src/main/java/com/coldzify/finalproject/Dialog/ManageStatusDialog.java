@@ -96,7 +96,8 @@ public class ManageStatusDialog extends DialogFragment {
         String[] arr = getResources().getStringArray(R.array.report_status);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(view.getContext(),
-                android.R.layout.simple_dropdown_item_1line,arr);
+                R.layout.font_spinner,arr);
+        adapter.setDropDownViewResource(R.layout.font_spinner);
         spinner.setAdapter(adapter);
         spinner.setSelection(progress-1);
         ok_button = view.findViewById(R.id.ok_button);

@@ -136,6 +136,7 @@
             android:layout_marginLeft="30dp"
             android:padding="6dp"
             android:textSize="20sp"
+            android:textColor="@color/color_black"
             app:fontFamily="@font/my_font" />
     </LinearLayout>
 
