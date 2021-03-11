@@ -219,10 +219,4 @@ public class ManageWorksActivity extends AppCompatActivity {
 
     }
 
-
-
-
-
-
-
 }
