@@ -52,6 +52,7 @@ public class ManageWorksActivity extends AppCompatActivity {
     private String id_owner;
     private String name_owner;
     private String check_owner;
+    private  String checkans;
 
 
     @Override
@@ -177,7 +178,8 @@ public class ManageWorksActivity extends AppCompatActivity {
                                 if(user.getUid().equals(id_owner)) {
                                    name_owner = user.getFirstname() + " "+ user.getLastname();
                                    Log.d("name_owner",name_owner);
-                                    staff.add(name_owner + " (ผู้รับผิดชอบ)");
+                                   checkans = name_owner +  " (ผู้รับผิดชอบ)";
+                                    staff.add(checkans);
                                     check_owner = name_owner;
                                 }
 
@@ -260,7 +262,20 @@ public class ManageWorksActivity extends AppCompatActivity {
     }
 
     public void onClickAddWork(View view){
+        String ans = "";
         String worker =  staff_spinner.getSelectedItem().toString();
+
+        ans = worker;
+
+        if(worker.equals(checkans)){
+            String[] temp = worker.split(" ");
+            ans = temp[0] + " " + temp[1];
+        }
+
+
+
+
+
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference ref =  db.collection("reports").document(report_id);
         ref.update("status",2)
@@ -275,7 +290,7 @@ public class ManageWorksActivity extends AppCompatActivity {
                         }
                     }
                 });
-        ref.update("takecareBy",worker);
+        ref.update("takecareBy",ans);
     }
 
 
