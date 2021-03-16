@@ -45,10 +45,13 @@ public class ManageWorksActivity extends AppCompatActivity {
     private String report_detail;
     private int report_status;
     private String report_id;
-
     private String name,namelast = "";
     private ArrayList<String> staff;
+    private ArrayList<String> temp;
     private Boolean addstaff;
+    private String id_owner;
+    private String name_owner;
+    private String check_owner;
 
 
     @Override
@@ -57,6 +60,7 @@ public class ManageWorksActivity extends AppCompatActivity {
         setContentView(R.layout.activity_manage_works);
         db = FirebaseFirestore.getInstance();
         staff = new ArrayList<>();
+        temp = new ArrayList<>();
         staff_spinner = findViewById(R.id.staff_spinner);
 
 
@@ -141,6 +145,53 @@ public class ManageWorksActivity extends AppCompatActivity {
 
 
 
+        db.collection("buildings").document(placecodestringans).collection("rooms")
+                .get()
+                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                rooms room = document.toObject(rooms.class);
+                                if(room.getname().equals(report_rooms) && !room.gethousekeeper_id().equals("")) {
+                                    id_owner = room.gethousekeeper_id();
+                                    Log.d("id_owner",id_owner);
+                                }
+
+                            }
+
+
+                        }
+                    }
+
+    });
+
+        db.collection("users")
+                .get()
+                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                UserProfile user = document.toObject(UserProfile.class);
+                                if(user.getUid().equals(id_owner)) {
+                                   name_owner = user.getFirstname() + " "+ user.getLastname();
+                                   Log.d("name_owner",name_owner);
+                                    staff.add(name_owner + " (ผู้รับผิดชอบ)");
+                                    check_owner = name_owner;
+                                }
+
+                            }
+
+
+                        }
+                    }
+
+                });
+
+
+
+
 
 
 
@@ -164,19 +215,22 @@ public class ManageWorksActivity extends AppCompatActivity {
                                                         String firstname = task.getResult().getString("firstname");
                                                         String lastname = task.getResult().getString("lastname");
                                                         name = firstname+" "+lastname;
+
                                                         addstaff = true;
                                                         for(int i=0;i<staff.size();i++){
                                                             if(staff.get(i).equals(name)){
                                                                 addstaff = false;
                                                             }
                                                         }
-                                                        if(addstaff == true){
+                                                        if(addstaff == true && !name.equals(check_owner)){
                                                             staff.add(name);
                                                         }
 
                                                     }
                                                 }
                                             });
+
+
                                 }
 
 
@@ -189,14 +243,17 @@ public class ManageWorksActivity extends AppCompatActivity {
 
                     }
 
-                });
 
+
+                });
 
 
 
         staff.add("กรุณาเลือกผู้รับผิดชอบ");
         staff_adapter = new ArrayAdapter<>(this,R.layout.font_spinner,staff);
         staff_spinner.setAdapter(staff_adapter);
+
+
 
 
 
