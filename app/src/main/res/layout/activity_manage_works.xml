@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon_pic="@drawable/ic_menugrid"
-        app:title_name="@string/edit_user_type_th" />
+        app:title_name="@string/manage_works_th" />
 
     <LinearLayout
         android:layout_width="300dp"
@@ -20,10 +20,11 @@
         android:layout_marginTop="30dp">
 
         <android.support.v7.widget.AppCompatTextView
-            android:layout_width="140dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:minWidth="70dp"
             android:text="@string/report_problem_type"
+            android:gravity="right"
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
 
@@ -32,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="15dp"
             android:minWidth="70dp"
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
@@ -45,10 +47,11 @@
         android:layout_marginTop="30dp">
 
         <android.support.v7.widget.AppCompatTextView
-            android:layout_width="140dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:minWidth="70dp"
             android:text="@string/report_placecode"
+            android:gravity="right"
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
 
@@ -57,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="15dp"
             android:minWidth="70dp"
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
@@ -70,10 +74,11 @@
         android:layout_marginTop="30dp">
 
         <android.support.v7.widget.AppCompatTextView
-            android:layout_width="140dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:minWidth="70dp"
             android:text="@string/report_rooms"
+            android:gravity="right"
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
 
@@ -82,6 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="15dp"
             android:minWidth="70dp"
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
@@ -95,10 +101,11 @@
         android:layout_marginTop="30dp">
 
         <android.support.v7.widget.AppCompatTextView
-            android:layout_width="140dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:minWidth="70dp"
             android:text="@string/report_detail"
+            android:gravity="right"
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
 
@@ -107,6 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="15dp"
             android:minWidth="70dp"
             android:textSize="20sp"
             app:fontFamily="@font/my_font" />
@@ -120,10 +128,10 @@
         android:layout_marginTop="30dp">
 
         <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="end"
+            android:gravity="right"
             android:minWidth="70dp"
             android:text="@string/select_staff"
             android:textSize="20sp"
@@ -131,9 +139,9 @@
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/staff_spinner"
-            android:layout_width="160dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="15dp"
             android:padding="6dp"
             android:textSize="20sp"
             android:textColor="@color/color_black"
