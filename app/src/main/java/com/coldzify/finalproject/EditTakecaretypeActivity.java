@@ -42,126 +42,126 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edittakecaretype);
         db = FirebaseFirestore.getInstance();
         email_autoComplete = findViewById(R.id.email_autoComplete);
-        CheckBox problem1 = (CheckBox) findViewById(R.id.problemcheck1);
-        CheckBox problem2 = (CheckBox) findViewById(R.id.problemcheck2);
-        CheckBox problem3 = (CheckBox) findViewById(R.id.problemcheck3);
-        CheckBox problem4 = (CheckBox) findViewById(R.id.problemcheck4);
-        CheckBox problem5 = (CheckBox) findViewById(R.id.problemcheck5);
-        CheckBox problem6 = (CheckBox) findViewById(R.id.problemcheck6);
-        CheckBox problem7 = (CheckBox) findViewById(R.id.problemcheck7);
-        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck9);
-        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck8);
+//        CheckBox problem1 = (CheckBox) findViewById(R.id.problemcheck1);
+//        CheckBox problem2 = (CheckBox) findViewById(R.id.problemcheck2);
+//        CheckBox problem3 = (CheckBox) findViewById(R.id.problemcheck3);
+//        CheckBox problem4 = (CheckBox) findViewById(R.id.problemcheck4);
+//        CheckBox problem5 = (CheckBox) findViewById(R.id.problemcheck5);
+//        CheckBox problem6 = (CheckBox) findViewById(R.id.problemcheck6);
+//        CheckBox problem7 = (CheckBox) findViewById(R.id.problemcheck7);
+//        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck9);
+//        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck8);
         addTakeCareType = findViewById(R.id.addTakeCareTyoe);
 
-        problem1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    alldatacheck.add("ELECTRICS");
-                }
-                else{
-                    alldatacheck.remove("ELECTRICS");
-                }
-            }
-        });
-
-
-
-        problem2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    alldatacheck.add("WATER");
-                }
-                else{
-                    alldatacheck.remove("WATER");
-                }
-            }
-        });
-
-        problem3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    alldatacheck.add("CONDITIONER");
-                }
-                else{
-                    alldatacheck.remove("CONDITIONER");
-                }
-            }
-        });
-
-        problem4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    alldatacheck.add("MATERIAL");
-                }
-                else{
-                    alldatacheck.remove("MATERIAL");
-                }
-            }
-        });
-
-        problem5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    alldatacheck.add("TECHNOLOGY");
-                }
-                else{
-                    alldatacheck.remove("TECHNOLOGY");
-                }
-            }
-        });
-
-        problem6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    alldatacheck.add("INTERNET");
-                }
-                else{
-                    alldatacheck.remove("INTERNET");
-                }
-            }
-        });
-
-        problem7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    alldatacheck.add("BUILDING_ENVIRON");
-                }
-                else{
-                    alldatacheck.remove("BUILDING_ENVIRON");
-                }
-            }
-        });
-
-        problem8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    alldatacheck.add("TELEPHONE");
-                }
-                else{
-                    alldatacheck.remove("TELEPHONE");
-                }
-            }
-        });
-
-        problem9.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    alldatacheck.add("CLEAN_SECURITY");
-                }
-                else{
-                    alldatacheck.remove("CLEAN_SECURITY");
-                }
-            }
-        });
+//        problem1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    alldatacheck.add("ELECTRICS");
+//                }
+//                else{
+//                    alldatacheck.remove("ELECTRICS");
+//                }
+//            }
+//        });
+//
+//
+//
+//        problem2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    alldatacheck.add("WATER");
+//                }
+//                else{
+//                    alldatacheck.remove("WATER");
+//                }
+//            }
+//        });
+//
+//        problem3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    alldatacheck.add("CONDITIONER");
+//                }
+//                else{
+//                    alldatacheck.remove("CONDITIONER");
+//                }
+//            }
+//        });
+//
+//        problem4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    alldatacheck.add("MATERIAL");
+//                }
+//                else{
+//                    alldatacheck.remove("MATERIAL");
+//                }
+//            }
+//        });
+//
+//        problem5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    alldatacheck.add("TECHNOLOGY");
+//                }
+//                else{
+//                    alldatacheck.remove("TECHNOLOGY");
+//                }
+//            }
+//        });
+//
+//        problem6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    alldatacheck.add("INTERNET");
+//                }
+//                else{
+//                    alldatacheck.remove("INTERNET");
+//                }
+//            }
+//        });
+//
+//        problem7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    alldatacheck.add("BUILDING_ENVIRON");
+//                }
+//                else{
+//                    alldatacheck.remove("BUILDING_ENVIRON");
+//                }
+//            }
+//        });
+//
+//        problem8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    alldatacheck.add("TELEPHONE");
+//                }
+//                else{
+//                    alldatacheck.remove("TELEPHONE");
+//                }
+//            }
+//        });
+//
+//        problem9.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked()){
+//                    alldatacheck.add("CLEAN_SECURITY");
+//                }
+//                else{
+//                    alldatacheck.remove("CLEAN_SECURITY");
+//                }
+//            }
+//        });
 
 
     }
@@ -198,39 +198,39 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
                                             switch (checktemp) {
                                                 case "ELECTRICS":
                                                     problem1.setChecked(true);
-                                                    alldatacheck.add("ELECTRICS");
+                                                    //alldatacheck.add("ELECTRICS");
                                                     break;
                                                 case "WATER":
                                                     problem2.setChecked(true);
-                                                    alldatacheck.add("WATER");
+                                                    //alldatacheck.add("WATER");
                                                     break;
                                                 case "CONDITIONER":
                                                     problem3.setChecked(true);
-                                                    alldatacheck.add("CONDITIONER");
+                                                    //alldatacheck.add("CONDITIONER");
                                                     break;
                                                 case "MATERIAL":
                                                     problem4.setChecked(true);
-                                                    alldatacheck.add("MATERIAL");
+                                                    //alldatacheck.add("MATERIAL");
                                                     break;
                                                 case "TECHNOLOGY":
                                                     problem5.setChecked(true);
-                                                    alldatacheck.add("TECHNOLOGY");
+                                                    //alldatacheck.add("TECHNOLOGY");
                                                     break;
                                                 case "INTERNET":
                                                     problem6.setChecked(true);
-                                                    alldatacheck.add("INTERNET");
+                                                    //alldatacheck.add("INTERNET");
                                                     break;
                                                 case "BUILDING_ENVIRON":
                                                     problem7.setChecked(true);
-                                                    alldatacheck.add("BUILDING_ENVIRON");
+                                                    //alldatacheck.add("BUILDING_ENVIRON");
                                                     break;
                                                 case "TELEPHONE":
                                                     problem8.setChecked(true);
-                                                    alldatacheck.add("TELEPHONE");
+                                                    //alldatacheck.add("TELEPHONE");
                                                     break;
                                                 case "CLEAN_SECURITY":
                                                     problem9.setChecked(true);
-                                                    alldatacheck.add("CLEAN_SECURITY");
+                                                    //alldatacheck.add("CLEAN_SECURITY");
                                                     break;
                                                 default:
                                                     break;
@@ -270,6 +270,47 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
 
 
     public  void OnClickChangeTakecaretype(View view){
+
+        CheckBox problem1 = (CheckBox) findViewById(R.id.problemcheck1);
+        CheckBox problem2 = (CheckBox) findViewById(R.id.problemcheck2);
+        CheckBox problem3 = (CheckBox) findViewById(R.id.problemcheck3);
+        CheckBox problem4 = (CheckBox) findViewById(R.id.problemcheck4);
+        CheckBox problem5 = (CheckBox) findViewById(R.id.problemcheck5);
+        CheckBox problem6 = (CheckBox) findViewById(R.id.problemcheck6);
+        CheckBox problem7 = (CheckBox) findViewById(R.id.problemcheck7);
+        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck9);
+        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck8);
+
+
+        if(problem1.isChecked()){
+            alldatacheck.add("ELECTRICS");
+        }
+        if(problem2.isChecked()){
+            alldatacheck.add("WATER");
+        }
+        if(problem3.isChecked()){
+            alldatacheck.add("CONDITIONER");
+        }
+        if(problem4.isChecked()){
+            alldatacheck.add("MATERIAL");
+        }
+        if(problem5.isChecked()){
+            alldatacheck.add("TECHNOLOGY");
+        }
+        if(problem6.isChecked()){
+            alldatacheck.add("INTERNET");
+        }
+        if(problem7.isChecked()){
+            alldatacheck.add("BUILDING_ENVIRON");
+        }
+        if(problem8.isChecked()){
+            alldatacheck.add("TELEPHONE");
+        }
+        if(problem9.isChecked()){
+            alldatacheck.add("CLEAN_SECURITY");
+        }
+
+
         for(int i=0;i<alldatacheck.size();i++){
             if(alldatacheck_finish.equals("")){
                 alldatacheck_finish = alldatacheck.get(i);
