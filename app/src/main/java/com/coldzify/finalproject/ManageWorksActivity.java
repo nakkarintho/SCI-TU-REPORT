@@ -145,6 +145,9 @@ public class ManageWorksActivity extends AppCompatActivity {
         report_detail_text.setText(report_detail);
 
 
+        if(report_problem_type.equals("MATERIAL") || report_problem_type.equals("TECHNOLOGY")
+                || report_problem_type.equals("CLEAN_SECURITY"))
+        {
 
         db.collection("buildings").document(placecodestringans).collection("rooms")
                 .get()
@@ -248,6 +251,53 @@ public class ManageWorksActivity extends AppCompatActivity {
 
 
                 });
+        }
+
+
+        else{
+            db.collection("buildings").document(placecodestringans).collection("staff").document(report_problem_type)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            List<String> listStaff = new ArrayList<>();
+
+                            Map<String, Object> map = document.getData();
+                            if (map != null) {
+                                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                                    listStaff.add(entry.getValue().toString());
+                                }
+                            }
+
+                            //So what you need to do with your list
+                            for (String staff_name : listStaff) {
+                                Log.d("TAG", staff_name);
+                                db.collection("users").document(staff_name)
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                if(task.isSuccessful()&& task.getResult() != null){
+                                                    String firstname = task.getResult().getString("firstname");
+                                                    String lastname = task.getResult().getString("lastname");
+                                                    name = firstname+" "+lastname;
+                                                        staff.add(name);
+                                                }
+                                            }
+                                        });
+                            }
+                        }
+                    }
+                }
+            });
+
+
+
+
+        }
 
 
 
