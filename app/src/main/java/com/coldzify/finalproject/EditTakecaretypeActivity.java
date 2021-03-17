@@ -1,17 +1,14 @@
 package com.coldzify.finalproject;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.Spinner;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.coldzify.finalproject.dataobject.UserProfile;
@@ -24,9 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,9 +30,11 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private String docpath = "";
     private String email_addtakecaretype = "";
+    private String all_takecaretype = "";
     private String role = "";
     private ArrayList<String> alldatacheck = new ArrayList<>();
     private String alldatacheck_finish = "";
+    private LinearLayout addTakeCareType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +49,9 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
         CheckBox problem5 = (CheckBox) findViewById(R.id.problemcheck5);
         CheckBox problem6 = (CheckBox) findViewById(R.id.problemcheck6);
         CheckBox problem7 = (CheckBox) findViewById(R.id.problemcheck7);
-        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck8);
-        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck9);
+        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck9);
+        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck8);
+        addTakeCareType = findViewById(R.id.addTakeCareTyoe);
 
         problem1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -169,16 +167,18 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
     }
 
 
-    public void OnClickChangeTakecaretype(View view){
+    public void OnClickSearchEmail(View view){
         email_addtakecaretype = email_autoComplete.getText().toString();
-     for(int i=0;i<alldatacheck.size();i++){
-         if(alldatacheck_finish.equals("")){
-             alldatacheck_finish = alldatacheck.get(i);
-         }
-         else {
-             alldatacheck_finish = alldatacheck_finish + "," + alldatacheck.get(i);
-         }
-     }
+
+        CheckBox problem1 = (CheckBox) findViewById(R.id.problemcheck1);
+        CheckBox problem2 = (CheckBox) findViewById(R.id.problemcheck2);
+        CheckBox problem3 = (CheckBox) findViewById(R.id.problemcheck3);
+        CheckBox problem4 = (CheckBox) findViewById(R.id.problemcheck4);
+        CheckBox problem5 = (CheckBox) findViewById(R.id.problemcheck5);
+        CheckBox problem6 = (CheckBox) findViewById(R.id.problemcheck6);
+        CheckBox problem7 = (CheckBox) findViewById(R.id.problemcheck7);
+        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck9);
+        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck8);
 
         db.collection("users")
                 .get()
@@ -190,7 +190,58 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
                                 UserProfile user = document.toObject(UserProfile.class);
                                 if (user.getEmail().equals(email_addtakecaretype)) {
                                     docpath = document.getId();
-                                    Log.d("tag", "Have Email In Systems");
+                                    if(document.getString("takecareType")!=null) {
+                                        all_takecaretype = document.getString("takecareType");
+                                        String temp[] = all_takecaretype.split(",");
+                                        for(int i=0;i<temp.length;i++){
+                                            String checktemp = temp[i];
+                                            switch (checktemp) {
+                                                case "ELECTRICS":
+                                                    problem1.setChecked(true);
+                                                    alldatacheck.add("ELECTRICS");
+                                                    break;
+                                                case "WATER":
+                                                    problem2.setChecked(true);
+                                                    alldatacheck.add("WATER");
+                                                    break;
+                                                case "CONDITIONER":
+                                                    problem3.setChecked(true);
+                                                    alldatacheck.add("CONDITIONER");
+                                                    break;
+                                                case "MATERIAL":
+                                                    problem4.setChecked(true);
+                                                    alldatacheck.add("MATERIAL");
+                                                    break;
+                                                case "TECHNOLOGY":
+                                                    problem5.setChecked(true);
+                                                    alldatacheck.add("TECHNOLOGY");
+                                                    break;
+                                                case "INTERNET":
+                                                    problem6.setChecked(true);
+                                                    alldatacheck.add("INTERNET");
+                                                    break;
+                                                case "BUILDING_ENVIRON":
+                                                    problem7.setChecked(true);
+                                                    alldatacheck.add("BUILDING_ENVIRON");
+                                                    break;
+                                                case "TELEPHONE":
+                                                    problem8.setChecked(true);
+                                                    alldatacheck.add("TELEPHONE");
+                                                    break;
+                                                case "CLEAN_SECURITY":
+                                                    problem9.setChecked(true);
+                                                    alldatacheck.add("CLEAN_SECURITY");
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+
+                                        }
+
+
+                                    }
+                                    Log.d("takecareType", all_takecaretype);
+                                    Log.d("CheckEmail", "Have Email In Systems");
                                     break;
                                 } else {
                                     docpath = "";
@@ -200,27 +251,7 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
                                 Log.w("tag", "Error Not Have This Email In Systems : ", task.getException());
                                 Toast.makeText(EditTakecaretypeActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
                             } else {
-                                final DocumentReference docRef = db.collection("users").document(docpath);
-                                Map<String, Object> map = new HashMap<>();
-                                map.put("takecareType",alldatacheck_finish );
-
-
-                                docRef.update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        alldatacheck.clear();
-                                        alldatacheck_finish = "";
-                                        Log.d("tag", "Update Takecaretype Success");
-                                        Toast.makeText(EditTakecaretypeActivity.this, "ระบบได้แก้ไขงานที่รอบผิดชอบเรียบร้อย", Toast.LENGTH_LONG).show();
-                                    }
-                                })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Log.e("tag", "Failure : Not Have This Email In System", e);
-                                                Toast.makeText(EditTakecaretypeActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
-                                            }
-                                        });
+                                 addTakeCareType.setVisibility(View.VISIBLE);
 
                             }
                         }
@@ -233,25 +264,46 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
 
                 });
 
-        CheckBox problem1s = (CheckBox) findViewById(R.id.problemcheck1);
-        CheckBox problem2s = (CheckBox) findViewById(R.id.problemcheck2);
-        CheckBox problem3s = (CheckBox) findViewById(R.id.problemcheck3);
-        CheckBox problem4s = (CheckBox) findViewById(R.id.problemcheck4);
-        CheckBox problem5s = (CheckBox) findViewById(R.id.problemcheck5);
-        CheckBox problem6s = (CheckBox) findViewById(R.id.problemcheck6);
-        CheckBox problem7s = (CheckBox) findViewById(R.id.problemcheck7);
-        CheckBox problem8s = (CheckBox) findViewById(R.id.problemcheck8);
-        CheckBox problem9s = (CheckBox) findViewById(R.id.problemcheck9);
-        problem1s.setChecked(false);
-        problem2s.setChecked(false);
-        problem3s.setChecked(false);
-        problem4s.setChecked(false);
-        problem5s.setChecked(false);
-        problem6s.setChecked(false);
-        problem7s.setChecked(false);
-        problem8s.setChecked(false);
-        problem9s.setChecked(false);
 
+
+    }
+
+
+    public  void OnClickChangeTakecaretype(View view){
+        for(int i=0;i<alldatacheck.size();i++){
+            if(alldatacheck_finish.equals("")){
+                alldatacheck_finish = alldatacheck.get(i);
+            }
+            else {
+                alldatacheck_finish = alldatacheck_finish + "," + alldatacheck.get(i);
+            }
+        }
+
+
+        final DocumentReference docRef = db.collection("users").document(docpath);
+        Map<String, Object> map = new HashMap<>();
+        map.put("takecareType","" );
+        map.put("takecareType",alldatacheck_finish );
+
+
+        docRef.update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                alldatacheck.clear();
+                alldatacheck_finish = "";
+                Log.d("tag", "Update Takecaretype Success");
+                Toast.makeText(EditTakecaretypeActivity.this, "ระบบได้แก้ไขงานที่รอบผิดชอบเรียบร้อย", Toast.LENGTH_LONG).show();
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("tag", "Failure : Not Have This Email In System", e);
+                        Toast.makeText(EditTakecaretypeActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+            addTakeCareType.setVisibility(View.GONE);
     }
 
 

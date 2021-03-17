@@ -14,152 +14,191 @@
         app:icon_pic="@drawable/ic_menugrid"
         app:title_name="@string/edit_takecare_type_th" />
 
-
-
     <LinearLayout
-        android:layout_marginTop="60dp"
-        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:layout_gravity="center"
+            android:gravity="end"
             android:minWidth="50dp"
             android:text="@string/email_th"
-            android:gravity="end"
-            android:layout_gravity="center"
             android:textColor="@color/color_black"
+            android:textSize="15dp"
 
             />
 
         <android.support.v7.widget.AppCompatAutoCompleteTextView
             android:id="@+id/email_autoComplete"
-            android:layout_marginLeft="40dp"
-            android:padding="5dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
             android:background="@drawable/room_edittext"
             android:completionThreshold="1"
+            android:padding="5dp"
 
-            />
+            android:textSize="15dp" />
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal"
-        >
-
-        <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/problemcheck1"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="43dp"
-
-            android:text="@string/problem1" />
-
-        <CheckBox
-            android:id="@+id/problemcheck2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/problem2" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/problemcheck3"
-            android:layout_width="180dp"
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/appCompatButton2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="43dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
             android:layout_weight="1"
-            android:text="@string/problem3" />
-
-        <CheckBox
-            android:id="@+id/problemcheck4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/problem4" />
-
-
+            android:background="@drawable/red_round_button"
+            android:onClick="OnClickSearchEmail"
+            android:text="@string/search_email"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:id="@+id/addTakeCareTyoe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
 
-        <CheckBox
-            android:id="@+id/problemcheck5"
-            android:layout_width="180dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="43dp"
-            android:layout_weight="1"
-            android:text="@string/problem5" />
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/problemcheck6"
-            android:layout_width="match_parent"
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/problemcheck1"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="43dp"
+
+                android:text="@string/problem1"
+                android:textSize="15dp" />
+
+            <CheckBox
+                android:id="@+id/problemcheck2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/problem2"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/problem6" />
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/problemcheck3"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="43dp"
+                android:layout_weight="1"
+                android:text="@string/problem3"
+                android:textSize="15dp" />
+
+            <CheckBox
+                android:id="@+id/problemcheck4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/problem4"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/problemcheck5"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="43dp"
+                android:layout_weight="1"
+                android:text="@string/problem5"
+                android:textSize="15dp" />
+
+            <CheckBox
+                android:id="@+id/problemcheck6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/problem6"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/problemcheck7"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="43dp"
+                android:layout_weight="1"
+                android:text="@string/problem7"
+                android:textSize="15dp" />
+
+            <CheckBox
+                android:id="@+id/problemcheck8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/problem9"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/problemcheck9"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="43dp"
+                android:layout_weight="1"
+                android:text="@string/problem8"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/appCompatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/red_round_button"
+            android:onClick="OnClickChangeTakecaretype"
+            android:text="@string/save_th"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/problemcheck7"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="43dp"
-            android:layout_weight="1"
-            android:text="@string/problem7" />
-
-        <CheckBox
-            android:id="@+id/problemcheck9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/problem9" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/problemcheck8"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="43dp"
-            android:layout_weight="1"
-            android:text="@string/problem8" />
-    </LinearLayout>
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/red_round_button"
-        android:onClick="OnClickChangeTakecaretype"
-        android:text="@string/save_th"
-        android:textColor="@color/white" />
 
 </LinearLayout>
