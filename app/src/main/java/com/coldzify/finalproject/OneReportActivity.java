@@ -243,6 +243,7 @@ public class OneReportActivity extends AppCompatActivity {
         final int report_placecode = report.getPlaceCode();
         final String report_rooms = report.getRoom();
         final String report_detail  = report.getDetail();
+        final String report_takecareBy  = report.getTakecareBy();
 
         subscribe_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -329,6 +330,7 @@ public class OneReportActivity extends AppCompatActivity {
                             bundle.putInt("report_placecode",report_placecode);
                             bundle.putString("report_rooms", report_rooms);
                             bundle.putString("report_detail", report_detail);
+                            bundle.putString("report_takecareBy", report_takecareBy);
                             bundle.putInt("report_status", report_status);
                             bundle.putString("report_id",reportID);
                             Intent intent = new Intent(getApplicationContext(), ManageWorksActivity.class);

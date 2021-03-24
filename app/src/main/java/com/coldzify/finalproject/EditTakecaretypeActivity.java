@@ -51,7 +51,7 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
 //        CheckBox problem7 = (CheckBox) findViewById(R.id.problemcheck7);
 //        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck9);
 //        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck8);
-        addTakeCareType = findViewById(R.id.addTakeCareTyoe);
+        addTakeCareType = findViewById(R.id.addTakeCareType);
 
 //        problem1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override

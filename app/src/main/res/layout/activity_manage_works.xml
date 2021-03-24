@@ -126,6 +126,36 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/report_takecareBy_layout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp"
+        >
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:minWidth="70dp"
+            android:text="@string/report_takecareBy"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/my_font" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/report_takecareBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:minWidth="70dp"
+            android:textSize="20sp"
+            app:fontFamily="@font/my_font" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
@@ -164,5 +194,38 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:fontFamily="@font/my_font" />
+
+    <LinearLayout
+        android:id="@+id/note_layout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp"
+        tools:visibility="gone">
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:minWidth="70dp"
+            android:text="@string/note"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/my_font" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:minWidth="70dp"
+            android:text="* หมายถึงผู้รับผิดชอบห้องโดยตรง"
+            android:textSize="18sp"
+            app:fontFamily="@font/my_font" />
+    </LinearLayout>
 
 </LinearLayout>

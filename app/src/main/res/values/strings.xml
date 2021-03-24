@@ -158,7 +158,10 @@
     <string name="report_placecode" >สถานที่</string>
     <string name="report_rooms">ตำแหน่ง</string>
     <string name="report_detail">รายละเอียด</string>
+    <string name="report_takecareBy">ผู้รับผิดชอบเดิม</string>
     <string name="search_email">ค้นหา</string>
+
+    <string name="note">หมายเหตุ</string>
 
 
 

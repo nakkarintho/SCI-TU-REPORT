@@ -142,6 +142,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
         final int report_placecode = reports.get(i).getPlaceCode();
         final String report_rooms = reports.get(i).getRoom();
         final String report_detail  = reports.get(i).getDetail();
+        final String report_takecareBy  = reports.get(i).getTakecareBy();
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,6 +237,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                             bundle.putInt("report_placecode",report_placecode);
                             bundle.putString("report_rooms", report_rooms);
                             bundle.putString("report_detail", report_detail);
+                            bundle.putString("report_takecareBy", report_takecareBy);
                             bundle.putInt("report_status", report_status);
                             bundle.putString("report_id",reportID);
                             Intent intent = new Intent(holder.view.getContext(), ManageWorksActivity.class);

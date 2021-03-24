@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -43,6 +44,7 @@ public class ManageWorksActivity extends AppCompatActivity {
     private int report_placecode;
     private String report_rooms;
     private String report_detail;
+    private String report_takecareBy;
     private int report_status;
     private String report_id;
     private String name,namelast = "";
@@ -53,6 +55,8 @@ public class ManageWorksActivity extends AppCompatActivity {
     private String name_owner;
     private String check_owner;
     private  String checkans;
+    private LinearLayout report_takecareBy_layout;
+    private LinearLayout note_layout;
 
 
     @Override
@@ -63,7 +67,8 @@ public class ManageWorksActivity extends AppCompatActivity {
         staff = new ArrayList<>();
         temp = new ArrayList<>();
         staff_spinner = findViewById(R.id.staff_spinner);
-
+        report_takecareBy_layout = findViewById(R.id.report_takecareBy_layout);
+        note_layout = findViewById(R.id.note_layout);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -71,6 +76,7 @@ public class ManageWorksActivity extends AppCompatActivity {
             report_placecode = bundle.getInt("report_placecode");
             report_rooms = bundle.getString("report_rooms");
             report_detail = bundle.getString("report_detail");
+            report_takecareBy = bundle.getString("report_takecareBy");
             report_status = bundle.getInt("report_status");
             report_id = bundle.getString("report_id");
 
@@ -80,6 +86,7 @@ public class ManageWorksActivity extends AppCompatActivity {
         AppCompatTextView report_placecode_text = (AppCompatTextView) findViewById(R.id.report_placecode);
         AppCompatTextView report_rooms_text = (AppCompatTextView) findViewById(R.id.report_rooms);
         AppCompatTextView report_detail_text = (AppCompatTextView) findViewById(R.id.report_detail);
+        AppCompatTextView report_takecareBy_text = (AppCompatTextView) findViewById(R.id.report_takecareBy);
 
 
         String problemtypestring[] = getResources().getStringArray(R.array.filter_feed2);
@@ -144,6 +151,12 @@ public class ManageWorksActivity extends AppCompatActivity {
         report_rooms_text.setText(report_rooms);
         report_detail_text.setText(report_detail);
 
+        if(report_takecareBy==null){
+            report_takecareBy_layout.setVisibility(View.GONE);
+        }
+
+
+        report_takecareBy_text.setText(report_takecareBy);
 
         if(report_problem_type.equals("MATERIAL") || report_problem_type.equals("TECHNOLOGY")
                 || report_problem_type.equals("CLEAN_SECURITY"))
@@ -181,7 +194,7 @@ public class ManageWorksActivity extends AppCompatActivity {
                                 if(user.getUid().equals(id_owner)) {
                                    name_owner = user.getFirstname() + " "+ user.getLastname();
                                    Log.d("name_owner",name_owner);
-                                   checkans = name_owner +  " (ผู้รับผิดชอบ)";
+                                   checkans = name_owner +  " *";
                                     staff.add(checkans);
                                     check_owner = name_owner;
                                 }
@@ -298,7 +311,6 @@ public class ManageWorksActivity extends AppCompatActivity {
 
 
         }
-
 
 
         staff.add("กรุณาเลือกผู้รับผิดชอบ");
