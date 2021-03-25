@@ -122,6 +122,7 @@
     <string name="edit_checklist_th">แก้ไขรายการ</string>
     <string name="edit_user_type_th">แก้ไขบทบาทผู้ใช้</string>
     <string name="edit_takecare_type_th">แก้ไขงานที่รับผิดชอบ</string>
+    <string name="statistic">สรุปผล</string>
     <string name="staff_work_th">งานที่ต้องทำ</string>
     <string name="add_work">ดึงงาน</string>
 
@@ -163,6 +164,19 @@
 
     <string name="note">หมายเหตุ</string>
 
+
+
+    <string name="all_stat">ทั้งหมด</string>
+    <string name="stat1">ฝ่ายอาคารและสถานที่</string>
+    <string name="stat2">ฝ่ายสารสนเทศ</string>
+    <string name="stat3">ฝ่ายซ่อมบำรุง</string>
+
+
+
+    <string name="all_problem">ปัญหาทั้งหมด</string>
+    <string name="finish_problem">แก้ไขสำเร็จ</string>
+    <string name="unfinish_problem">ตกค้าง</string>
+    <string name="percent_problem">คิดเป็น</string>
 
 
 </resources>

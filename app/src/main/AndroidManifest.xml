@@ -38,6 +38,7 @@
         <activity android:name=".ChecklistActivity"></activity>
         <activity android:name=".EditRoleActivity" />
         <activity android:name=".EditTakecaretypeActivity" />
+        <activity android:name=".StatisticActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".ContactHousekeeperActivity" />
         <activity android:name=".SearchHousekeeperActivity" />

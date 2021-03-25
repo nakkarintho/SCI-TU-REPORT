@@ -33,6 +33,7 @@ import com.coldzify.finalproject.R;
 
 import com.coldzify.finalproject.SettingActivity;
 import com.coldzify.finalproject.StaffWorkActivity;
+import com.coldzify.finalproject.StatisticActivity;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -54,6 +55,7 @@ public class MenuDialog extends DialogFragment {
     Map<String, Boolean> contactMenu = new HashMap<>();
     Map<String, Boolean> editUserTypeMenu = new HashMap<>();
     Map<String, Boolean> editTakecaretypeMenu = new HashMap<>();
+    Map<String, Boolean> statisticMenu = new HashMap<>();
     Map<String, Boolean> settingMenu = new HashMap<>();
     Map<String, Boolean> logoutMenu = new HashMap<>();
     Boolean round = true;
@@ -159,6 +161,12 @@ public class MenuDialog extends DialogFragment {
                 drawables.add(R.drawable.ic_edit_user_type);
             }
 
+
+            if (statisticMenu.get(role) == true) {
+                menu.add(getString(R.string.statistic));
+                drawables.add(R.drawable.ic_edit_user_type);
+            }
+
             if (settingMenu.get(role) == true) {
                 menu.add(getString(R.string.setting_th));
                 drawables.add(R.drawable.ic_settings);
@@ -246,6 +254,7 @@ public class MenuDialog extends DialogFragment {
                 String check_list_menu = getString(R.string.check_list_th);
                 String housekeeper_menu = getString(R.string.contact_housekeeper_th);
                 String edit_role_menu = getString(R.string.edit_user_type_th);
+                String statistic_menu = getString(R.string.statistic);
                 String edit_takecaretype_menu = getString(R.string.edit_takecare_type_th);
                 String setting_menu = getString(R.string.setting_th);
                 //String logout_menu = getString(R.string.logout_th);
@@ -290,6 +299,11 @@ public class MenuDialog extends DialogFragment {
                     Intent intent = new Intent(getContext(), EditTakecaretypeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
+                } else if (text.equals(statistic_menu)) {
+                    dismiss();
+                    Intent intent = new Intent(getContext(), StatisticActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
                 } else if (text.equals(setting_menu)) {
                     dismiss();
                     Intent intent = new Intent(getContext(), SettingActivity.class);
@@ -322,73 +336,90 @@ public class MenuDialog extends DialogFragment {
 
         viewProfileMenu.put("ผู้ใช้ทั่วไป", true);
         viewProfileMenu.put("ผู้ดูแลห้องเรียน", true);
-        viewProfileMenu.put("เจ้าหน้าที่", true);
+        viewProfileMenu.put("ฝ่ายซ่อมบำรุง", true);
+        viewProfileMenu.put("ฝ่ายสารสนเทศ", true);
         viewProfileMenu.put("หัวหน้างาน", true);
         viewProfileMenu.put("ผู้บริหาร", true);
         viewProfileMenu.put("ผู้ดูแลระบบ", false);
 
         allProblemMenu.put("ผู้ใช้ทั่วไป", true);
         allProblemMenu.put("ผู้ดูแลห้องเรียน", true);
-        allProblemMenu.put("เจ้าหน้าที่", true);
+        allProblemMenu.put("ฝ่ายซ่อมบำรุง", true);
+        allProblemMenu.put("ฝ่ายสารสนเทศ", true);
         allProblemMenu.put("หัวหน้างาน", true);
         allProblemMenu.put("ผู้บริหาร", true);
         allProblemMenu.put("ผู้ดูแลระบบ", false);
 
         staffWorkMenu.put("ผู้ใช้ทั่วไป", false);
         staffWorkMenu.put("ผู้ดูแลห้องเรียน", true);
-        staffWorkMenu.put("เจ้าหน้าที่", true);
+        staffWorkMenu.put("ฝ่ายซ่อมบำรุง", true);
+        staffWorkMenu.put("ฝ่ายสารสนเทศ", true);
         staffWorkMenu.put("หัวหน้างาน", false);
         staffWorkMenu.put("ผู้บริหาร", false);
         staffWorkMenu.put("ผู้ดูแลระบบ", false);
 
         finishProblemMenu.put("ผู้ใช้ทั่วไป", true);
         finishProblemMenu.put("ผู้ดูแลห้องเรียน", true);
-        finishProblemMenu.put("เจ้าหน้าที่", true);
+        finishProblemMenu.put("ฝ่ายซ่อมบำรุง", true);
+        finishProblemMenu.put("ฝ่ายสารสนเทศ", true);
         finishProblemMenu.put("หัวหน้างาน", true);
         finishProblemMenu.put("ผู้บริหาร", true);
         finishProblemMenu.put("ผู้ดูแลระบบ", false);
 
         checkListMenu.put("ผู้ใช้ทั่วไป", false);
         checkListMenu.put("ผู้ดูแลห้องเรียน", true);
-        checkListMenu.put("เจ้าหน้าที่", false);
+        checkListMenu.put("ฝ่ายซ่อมบำรุง", false);
+        checkListMenu.put("ฝ่ายสารสนเทศ", false);
         checkListMenu.put("หัวหน้างาน", false);
         checkListMenu.put("ผู้บริหาร", false);
         checkListMenu.put("ผู้ดูแลระบบ", false);
 
         contactMenu.put("ผู้ใช้ทั่วไป", true);
         contactMenu.put("ผู้ดูแลห้องเรียน", true);
-        contactMenu.put("เจ้าหน้าที่", true);
+        contactMenu.put("ฝ่ายซ่อมบำรุง", true);
+        contactMenu.put("ฝ่ายสารสนเทศ", true);
         contactMenu.put("หัวหน้างาน", true);
         contactMenu.put("ผู้บริหาร", true);
         contactMenu.put("ผู้ดูแลระบบ", false);
 
         editUserTypeMenu.put("ผู้ใช้ทั่วไป", false);
         editUserTypeMenu.put("ผู้ดูแลห้องเรียน", false);
-        editUserTypeMenu.put("เจ้าหน้าที่", false);
+        editUserTypeMenu.put("ฝ่ายซ่อมบำรุง", false);
+        editUserTypeMenu.put("ฝ่ายสารสนเทศ", false);
         editUserTypeMenu.put("หัวหน้างาน", false);
         editUserTypeMenu.put("ผู้บริหาร", false);
         editUserTypeMenu.put("ผู้ดูแลระบบ", true);
 
         editTakecaretypeMenu.put("ผู้ใช้ทั่วไป", false);
         editTakecaretypeMenu.put("ผู้ดูแลห้องเรียน", false);
-        editTakecaretypeMenu.put("เจ้าหน้าที่", false);
+        editTakecaretypeMenu.put("ฝ่ายซ่อมบำรุง", false);
+        editTakecaretypeMenu.put("ฝ่ายสารสนเทศ", false);
         editTakecaretypeMenu.put("หัวหน้างาน", false);
         editTakecaretypeMenu.put("ผู้บริหาร", false);
         editTakecaretypeMenu.put("ผู้ดูแลระบบ", true);
 
 
+        statisticMenu.put("ผู้ใช้ทั่วไป", false);
+        statisticMenu.put("ผู้ดูแลห้องเรียน", false);
+        statisticMenu.put("ฝ่ายซ่อมบำรุง", false);
+        statisticMenu.put("ฝ่ายสารสนเทศ", false);
+        statisticMenu.put("หัวหน้างาน", true);
+        statisticMenu.put("ผู้บริหาร", true);
+        statisticMenu.put("ผู้ดูแลระบบ", false);
 
 
         settingMenu.put("ผู้ใช้ทั่วไป", true);
         settingMenu.put("ผู้ดูแลห้องเรียน", true);
-        settingMenu.put("เจ้าหน้าที่", true);
+        settingMenu.put("ฝ่ายซ่อมบำรุง", true);
+        settingMenu.put("ฝ่ายสารสนเทศ", true);
         settingMenu.put("หัวหน้างาน", true);
         settingMenu.put("ผู้บริหาร", true);
         settingMenu.put("ผู้ดูแลระบบ", false);
 
         logoutMenu.put("ผู้ใช้ทั่วไป", true);
         logoutMenu.put("ผู้ดูแลห้องเรียน", true);
-        logoutMenu.put("เจ้าหน้าที่", true);
+        logoutMenu.put("ฝ่ายซ่อมบำรุง", true);
+        logoutMenu.put("ฝ่ายสารสนเทศ", true);
         logoutMenu.put("หัวหน้างาน", true);
         logoutMenu.put("ผู้บริหาร", true);
         logoutMenu.put("ผู้ดูแลระบบ", true);

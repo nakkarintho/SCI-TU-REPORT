@@ -1,38 +1,27 @@
 package com.coldzify.finalproject;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.bumptech.glide.request.RequestOptions;
-import com.coldzify.finalproject.dataobject.Report;
 import com.coldzify.finalproject.dataobject.UserProfile;
 import com.coldzify.finalproject.dataobject.rooms;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -82,7 +71,7 @@ public class ManageWorksActivity extends AppCompatActivity {
 
         }
 
-        AppCompatTextView report_problem_type_text = (AppCompatTextView) findViewById(R.id.report_problem_type);
+        AppCompatTextView report_problem_type_text = (AppCompatTextView) findViewById(R.id.finish_problem_ans);
         AppCompatTextView report_placecode_text = (AppCompatTextView) findViewById(R.id.report_placecode);
         AppCompatTextView report_rooms_text = (AppCompatTextView) findViewById(R.id.report_rooms);
         AppCompatTextView report_detail_text = (AppCompatTextView) findViewById(R.id.report_detail);
@@ -160,7 +149,7 @@ public class ManageWorksActivity extends AppCompatActivity {
 
         if(report_problem_type.equals("MATERIAL") || report_problem_type.equals("TECHNOLOGY")
                 || report_problem_type.equals("CLEAN_SECURITY"))
-        {
+        { //ผู้ดูแลห้องเรียน
 
         db.collection("buildings").document(placecodestringans).collection("rooms")
                 .get()

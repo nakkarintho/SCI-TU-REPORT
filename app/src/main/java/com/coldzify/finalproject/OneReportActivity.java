@@ -301,7 +301,7 @@ public class OneReportActivity extends AppCompatActivity {
                 int menu = R.menu.report_menu_staff;
                 if(role!=null &&role.equals("ผู้ใช้ทั่วไป"))
                     menu = R.menu.report_menu_normal;
-                else if(role!=null && (role.equals("ผู้ดูแลห้องเรียน") || role.equals("เจ้าหน้าที่")))
+                else if(role!=null && (role.equals("ผู้ดูแลห้องเรียน") || role.equals("ฝ่ายซ่อมบำรุง") || role.equals("ฝ่ายสารสนเทศ")))
                     menu = R.menu.report_menu_staff;
                 else if(role!=null && role.equals("หัวหน้างาน"))
                     menu = R.menu.report_menu_manager;

@@ -27,7 +27,7 @@
             android:gravity="end"
             android:minWidth="50dp"
             android:text="@string/email_th"
-            android:textColor="@color/color_black"
+            android:textColor="#3C3A3A"
             android:textSize="15dp"
 
             />
@@ -87,6 +87,7 @@
                 android:layout_marginLeft="43dp"
 
                 android:text="@string/problem1"
+                android:textColor="#3C3A3A"
                 android:textSize="15dp" />
 
             <CheckBox
@@ -94,6 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/problem2"
+                android:textColor="#3C3A3A"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -111,6 +113,7 @@
                 android:layout_marginLeft="43dp"
                 android:layout_weight="1"
                 android:text="@string/problem3"
+                android:textColor="#3C3A3A"
                 android:textSize="15dp" />
 
             <CheckBox
@@ -118,6 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/problem4"
+                android:textColor="#3C3A3A"
                 android:textSize="15dp" />
 
 
@@ -136,6 +140,7 @@
                 android:layout_marginLeft="43dp"
                 android:layout_weight="1"
                 android:text="@string/problem5"
+                android:textColor="#3C3A3A"
                 android:textSize="15dp" />
 
             <CheckBox
@@ -143,6 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/problem6"
+                android:textColor="#3C3A3A"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -160,6 +166,7 @@
                 android:layout_marginLeft="43dp"
                 android:layout_weight="1"
                 android:text="@string/problem7"
+                android:textColor="#3C3A3A"
                 android:textSize="15dp" />
 
             <CheckBox
@@ -167,6 +174,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/problem9"
+                android:textColor="#3C3A3A"
                 android:textSize="15dp" />
         </LinearLayout>
 
@@ -183,6 +191,7 @@
                 android:layout_marginLeft="43dp"
                 android:layout_weight="1"
                 android:text="@string/problem8"
+                android:textColor="#3C3A3A"
                 android:textSize="15dp" />
         </LinearLayout>
 

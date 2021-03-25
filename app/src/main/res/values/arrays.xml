@@ -96,7 +96,8 @@
     <string-array name="role">
         <item>ผู้ใช้ทั่วไป</item>
         <item>ผู้ดูแลห้องเรียน</item>
-        <item>เจ้าหน้าที่</item>
+        <item>ฝ่ายซ่อมบำรุง</item>
+        <item>ฝ่ายสารสนเทศ</item>
         <item>หัวหน้างาน</item>
         <item>ผู้บริหาร</item>
         <item>ผู้ดูแลระบบ</item>
@@ -155,5 +156,12 @@
         <item>โทรศัพท์ใช้ไม่ได้</item>
         <item>โทรศัพท์โทรไม่ติด</item>
     </string-array>
+
+    <string-array name="statistic_array">
+        <item>ภาคเรียนที่ 1/2564</item>
+        <item>ภาคเรียนที่ 2/2564</item>
+    </string-array>
+
+
 
 </resources>

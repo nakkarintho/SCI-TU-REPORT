@@ -152,24 +152,10 @@ public class SignUpActivity extends AppCompatActivity {
                                     Log.d(TAG, "Error getting documents: ", task.getException());
                                 }
 
-                                if(checkType.equals("ผู้ใช้ทั่วไป")){
                                     Intent intent = new Intent(SignUpActivity.this,ReportActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                     finish();
-                                }
-                                else if(checkType.equals("ผู้ดูแลห้องเรียน")){
-                                    Intent intent = new Intent(SignUpActivity.this,ChecklistActivity.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                                else if(checkType.equals("เจ้าหน้าที่")){
-                                    Intent intent = new Intent(SignUpActivity.this,FeedActivity.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                    finish();
-                                }
 
                             }
                         });

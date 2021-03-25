@@ -30,7 +30,7 @@
             app:fontFamily="@font/my_font" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/report_problem_type"
+            android:id="@+id/finish_problem_ans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
