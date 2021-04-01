@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -33,7 +34,6 @@ import com.coldzify.finalproject.R;
 
 import com.coldzify.finalproject.SettingActivity;
 import com.coldzify.finalproject.StaffWorkActivity;
-import com.coldzify.finalproject.StatisticActivity;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -300,10 +300,10 @@ public class MenuDialog extends DialogFragment {
                     intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                 } else if (text.equals(statistic_menu)) {
-                    dismiss();
-                    Intent intent = new Intent(getContext(), StatisticActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    startActivity(intent);
+                    String url = "https://datastudio.google.com/s/hXVCuzHkXNA";
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
                 } else if (text.equals(setting_menu)) {
                     dismiss();
                     Intent intent = new Intent(getContext(), SettingActivity.class);
