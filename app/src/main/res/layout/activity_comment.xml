@@ -83,23 +83,6 @@
                 app:fontFamily="@font/my_font" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnChoose"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Choose Image" />
-
-        <Button
-            android:id="@+id/btnUpload"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Upload Image" />
-
-        <ImageView
-            android:id="@+id/imgView"
-            android:layout_width="match_parent"
-            android:layout_height="300dp" />
-
 
     </LinearLayout>
 

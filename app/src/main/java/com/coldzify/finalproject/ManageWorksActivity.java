@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.coldzify.finalproject.dataobject.UserProfile;
 import com.coldzify.finalproject.dataobject.rooms;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -22,6 +24,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +47,8 @@ public class ManageWorksActivity extends AppCompatActivity {
     private String name_owner;
     private String check_owner;
     private  String checkans;
+    private String ans = "";
+    private String uid = "";
     private LinearLayout report_takecareBy_layout;
     private LinearLayout note_layout;
 
@@ -313,7 +318,7 @@ public class ManageWorksActivity extends AppCompatActivity {
     }
 
     public void onClickAddWork(View view){
-        String ans = "";
+
         String worker =  staff_spinner.getSelectedItem().toString();
 
         ans = worker;
@@ -325,23 +330,53 @@ public class ManageWorksActivity extends AppCompatActivity {
 
 
 
-
-
+        Toast.makeText(getApplicationContext(),"มอบหมายงานเรียบร้อย",Toast.LENGTH_LONG).show();
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference ref =  db.collection("reports").document(report_id);
-        ref.update("status",2)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
+        ref.update("takecareBy",ans);
+
+        db.collection("users")
+                .get()
+                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"มอบหมายงานเรียบร้อย",Toast.LENGTH_LONG).show();
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                UserProfile user = document.toObject(UserProfile.class);
+                                String temp1 = user.getFirstname() + " " + user.getLastname();
+                                if (temp1.equals(ans)) {
+                                    ref.update("takecareBy_id",user.getUid());
+                                }
+                            }
+
                         }
                         else{
-                            Toast.makeText(getApplicationContext(),"เกิดข้อผิดพลาด ไม่สามารถมอบหมายงานเรียบร้อย",Toast.LENGTH_LONG).show();
+
                         }
+
                     }
                 });
-        ref.update("takecareBy",ans);
+
+
+
+
+
+
+//        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        DocumentReference ref =  db.collection("reports").document(report_id);
+//        ref.update("status",2)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if(task.isSuccessful()){
+//                            Toast.makeText(getApplicationContext(),"มอบหมายงานเรียบร้อย",Toast.LENGTH_LONG).show();
+//                        }
+//                        else{
+//                            Toast.makeText(getApplicationContext(),"เกิดข้อผิดพลาด ไม่สามารถมอบหมายงานเรียบร้อย",Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                });
+//        ref.update("takecareBy",ans);
     }
 
 

@@ -164,7 +164,7 @@ public class OneReportActivity extends AppCompatActivity {
 
 
     }
-    private void checkSubscribe(String uid,String reportID){
+    public void checkSubscribe(String uid,String reportID){
         db.collection("users").document(uid).collection("subscribe")
                 .whereEqualTo("reportID",reportID)
                 .get()
@@ -191,7 +191,7 @@ public class OneReportActivity extends AppCompatActivity {
 
 
     }
-    private void subscribe(final String uid, final String reportID){
+    public void subscribe(final String uid, final String reportID){
         subscribe_button.setText(getResources().getString(R.string.unsubscribe_th));
         Map<String, Object> data = new HashMap<>();
         data.put("reportID", reportID);

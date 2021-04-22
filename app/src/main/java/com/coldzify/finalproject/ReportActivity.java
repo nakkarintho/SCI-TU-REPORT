@@ -1124,42 +1124,42 @@ public class ReportActivity extends AppCompatActivity {
     }
 
     public void checkDuplicate(){
-        db.collection("reports")
-                .get()
-                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful() && task.getResult() != null) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Report report = document.toObject(Report.class);
-                                String room = room_autoComplete.getText().toString();
-                                if(report.getType().equals(problemType.toString()) && report.getRoom().equals(room)) {
-                                   /* Toast.makeText(getApplicationContext(),"พบปัญหาที่มีคนแจ้งเข้ามาแล้ว",Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(ReportActivity.this,FeedDuplicateActivity.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                                    intent.putExtra("problemType",problemType.toString());
-                                    intent.putExtra("room",room);
-                                    Log.d("FOUND ITEM","problemType : " + problemType.toString() + "  ,  rOOM" + room);
-                                    startActivity(intent);
-                                    finish(); */
-                                    DuplicateReportDialog duplicateReportDialog = new DuplicateReportDialog();
-                                    Bundle bundle = new Bundle();
-                                    bundle.putString("Type",problemType.toString());
-                                    bundle.putString("reportID",report.getReportID());
-                                    duplicateReportDialog.setArguments(bundle);
-                                    duplicateReportDialog.show(getSupportFragmentManager(),"DuplicateReportDialog");
-                                }
-                            }
-                            Log.d(TAG,"Fetch report is done");
-                        }
-                        else{
-                            Log.w(TAG,"Error : ",task.getException());
-                        }
-
-                    }
-
-                });
+//        db.collection("reports")
+//                .get()
+//                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful() && task.getResult() != null) {
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                Report report = document.toObject(Report.class);
+//                                String room = room_autoComplete.getText().toString();
+//                                if(report.getType().equals(problemType.toString()) && report.getRoom().equals(room)) {
+//                                   /* Toast.makeText(getApplicationContext(),"พบปัญหาที่มีคนแจ้งเข้ามาแล้ว",Toast.LENGTH_SHORT).show();
+//                                    Intent intent = new Intent(ReportActivity.this,FeedDuplicateActivity.class);
+//                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//                                    intent.putExtra("problemType",problemType.toString());
+//                                    intent.putExtra("room",room);
+//                                    Log.d("FOUND ITEM","problemType : " + problemType.toString() + "  ,  rOOM" + room);
+//                                    startActivity(intent);
+//                                    finish(); */
+//                                    DuplicateReportDialog duplicateReportDialog = new DuplicateReportDialog();
+//                                    Bundle bundle = new Bundle();
+//                                    bundle.putString("Type",problemType.toString());
+//                                    bundle.putString("reportID",report.getReportID());
+//                                    duplicateReportDialog.setArguments(bundle);
+//                                    duplicateReportDialog.show(getSupportFragmentManager(),"DuplicateReportDialog");
+//                                }
+//                            }
+//                            Log.d(TAG,"Fetch report is done");
+//                        }
+//                        else{
+//                            Log.w(TAG,"Error : ",task.getException());
+//                        }
+//
+//                    }
+//
+//                });
 
         return;
     }

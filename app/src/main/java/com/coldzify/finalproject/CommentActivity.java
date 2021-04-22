@@ -73,24 +73,6 @@ public class CommentActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         comment_editText = findViewById(R.id.comment_editText);
 
-        btnChoose = (Button) findViewById(R.id.btnChoose);
-        btnUpload = (Button) findViewById(R.id.btnUpload);
-        imageView = (ImageView) findViewById(R.id.imgView);
-
-        btnChoose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                chooseImage();
-            }
-        });
-
-        btnUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                uploadImage();
-            }
-        });
-
 
         comments = new ArrayList<>();
         listAdapter = new CommentListAdapter(this,comments);
