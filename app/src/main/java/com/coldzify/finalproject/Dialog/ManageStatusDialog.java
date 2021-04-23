@@ -197,6 +197,32 @@ public class ManageStatusDialog extends DialogFragment {
             }
         });
 
+   //subscribe
+            Log.d(TAG, "subscribing: "+reportID);
+            Map<String, Object> data = new HashMap<>();
+            data.put("reportID", reportID);
+            db.collection("users")
+                    .document(mAuth.getUid())
+                    .collection("subscribe")
+                    .document(reportID)
+                    .set(data)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "subscribed : "+reportID);
+                            progress++;
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error to subscribe", e);
+                            progress++;
+                        }
+                    });
+
+
+
         builder.setView(view);
         return builder.create();
     }
