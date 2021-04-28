@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,11 +28,15 @@ import java.util.Map;
 public class EditRoleActivity extends AppCompatActivity {
     private Spinner role_spinner;
     private AutoCompleteTextView email_autoComplete;
+    private String email_addrole = "";
+    private String all_role = "";
     private ArrayAdapter<String>role_adapter;
     private FirebaseFirestore db;
     private String docpath = "";
     private String email_addpermission = "";
     private String role = "";
+
+    private LinearLayout addRole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,80 @@ public class EditRoleActivity extends AppCompatActivity {
         String[] arr = getResources().getStringArray(R.array.role);
         role_adapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line,arr);
         role_spinner.setAdapter(role_adapter);
+        addRole = findViewById(R.id.addRole);
+    }
+
+    public void OnClickSearchRole(View view){
+        email_addrole = email_autoComplete.getText().toString();
+
+        db.collection("users")
+                .get()
+                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                UserProfile user = document.toObject(UserProfile.class);
+                                if (user.getEmail().equals(email_addrole)) {
+                                    docpath = document.getId();
+                                    if(document.getString("role")!=null) {
+                                        all_role = document.getString("role");
+                                            switch (all_role) {
+                                                case "ผู้ใช้ทั่วไป":
+                                                    role_spinner.setSelection(0);
+                                                    break;
+                                                case "ผู้ดูแลห้องเรียน":
+                                                    role_spinner.setSelection(1);
+                                                    break;
+                                                case "ฝ่ายซ่อมบำรุง":
+                                                    role_spinner.setSelection(2);
+                                                    break;
+                                                case "ฝ่ายสารสนเทศ":
+                                                    role_spinner.setSelection(3);
+                                                    break;
+                                                case "หัวหน้างาน":
+                                                    role_spinner.setSelection(4);
+                                                    break;
+                                                case "ผู้บริหาร":
+                                                    role_spinner.setSelection(5);
+                                                    break;
+                                                case "ผู้ดูแลระบบ":
+                                                    role_spinner.setSelection(6);
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+
+
+
+
+                                    }
+                                    Log.d("role", all_role);
+                                    Log.d("CheckEmail", "Have Email In Systems");
+                                    break;
+                                } else {
+                                    docpath = "";
+                                }
+                            }
+                            if (docpath.equals("")) {
+                                Log.w("tag", "Error Not Have This Email In Systems : ", task.getException());
+                                Toast.makeText(EditRoleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                            } else {
+                                addRole.setVisibility(View.VISIBLE);
+
+                            }
+                        }
+                        else{
+                            Log.w("tag","Error Not Have This Email In Systems : ",task.getException());
+                            Toast.makeText(EditRoleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                });
+
+
+
     }
 
     public void onClickChangePermission(View view){
@@ -54,20 +134,6 @@ public class EditRoleActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful() && task.getResult() != null) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                UserProfile user = document.toObject(UserProfile.class);
-                                if (user.getEmail().equals(email_addpermission)) {
-                                    docpath = document.getId();
-                                    Log.d("tag", "Have Email In Systems");
-                                    break;
-                                } else {
-                                    docpath = "";
-                                }
-                            }
-                            if (docpath.equals("")) {
-                                Log.w("tag", "Error Not Have This Email In Systems : ", task.getException());
-                                Toast.makeText(EditRoleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
-                            } else {
                                 final DocumentReference docRef = db.collection("users").document(docpath);
                                 Map<String, Object> map = new HashMap<>();
                                 map.put("role", role);
@@ -86,18 +152,15 @@ public class EditRoleActivity extends AppCompatActivity {
                                             }
                                         });
 
-                            }
+
                         }
-                        else{
-                            Log.w("tag","Error Not Have This Email In Systems : ",task.getException());
-                            Toast.makeText(EditRoleActivity.this, "ไม่มีอีเมลดังกล่าวในระบบ", Toast.LENGTH_LONG).show();
-                        }
+
 
                     }
 
                 });
 
-
+        addRole.setVisibility(View.GONE);
     }
 
 }
