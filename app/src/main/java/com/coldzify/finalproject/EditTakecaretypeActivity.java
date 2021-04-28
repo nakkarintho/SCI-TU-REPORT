@@ -177,8 +177,18 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
         CheckBox problem5 = (CheckBox) findViewById(R.id.problemcheck5);
         CheckBox problem6 = (CheckBox) findViewById(R.id.problemcheck6);
         CheckBox problem7 = (CheckBox) findViewById(R.id.problemcheck7);
-        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck9);
-        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck8);
+        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck8);
+        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck9);
+
+        problem1.setChecked(false);
+        problem2.setChecked(false);
+        problem3.setChecked(false);
+        problem4.setChecked(false);
+        problem5.setChecked(false);
+        problem6.setChecked(false);
+        problem7.setChecked(false);
+        problem8.setChecked(false);
+        problem9.setChecked(false);
 
         db.collection("users")
                 .get()
@@ -278,8 +288,8 @@ public class EditTakecaretypeActivity extends AppCompatActivity {
         CheckBox problem5 = (CheckBox) findViewById(R.id.problemcheck5);
         CheckBox problem6 = (CheckBox) findViewById(R.id.problemcheck6);
         CheckBox problem7 = (CheckBox) findViewById(R.id.problemcheck7);
-        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck9);
-        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck8);
+        CheckBox problem8 = (CheckBox) findViewById(R.id.problemcheck8);
+        CheckBox problem9 = (CheckBox) findViewById(R.id.problemcheck9);
 
 
         if(problem1.isChecked()){
