@@ -262,44 +262,77 @@ public class ManageWorksActivity extends AppCompatActivity {
 
 
         else{
-            db.collection("buildings").document(placecodestringans).collection("staff").document(report_problem_type)
+            db.collection("users")
                     .get()
-                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            List<String> listStaff = new ArrayList<>();
+                    .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful() && task.getResult() != null) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    UserProfile user = document.toObject(UserProfile.class);
+                                    if(user.gettakecareType() != null) {
+                                        String temp = user.gettakecareType();
+                                        String tempsplit[] = temp.split(",");
+                                        for(int i=0;i<tempsplit.length;i++){
+                                            if(tempsplit[i].equals(report_problem_type)){
+                                                String firstname = user.getFirstname();
+                                                String lastname = user.getLastname();
+                                                name = firstname+" "+lastname;
+                                                staff.add(name);
 
-                            Map<String, Object> map = document.getData();
-                            if (map != null) {
-                                for (Map.Entry<String, Object> entry : map.entrySet()) {
-                                    listStaff.add(entry.getValue().toString());
-                                }
-                            }
-
-                            //So what you need to do with your list
-                            for (String staff_name : listStaff) {
-                                Log.d("TAG", staff_name);
-                                db.collection("users").document(staff_name)
-                                        .get()
-                                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                                if(task.isSuccessful()&& task.getResult() != null){
-                                                    String firstname = task.getResult().getString("firstname");
-                                                    String lastname = task.getResult().getString("lastname");
-                                                    name = firstname+" "+lastname;
-                                                        staff.add(name);
-                                                }
                                             }
-                                        });
+                                        }
+
+                                    }
+
+                                }
+
+
                             }
                         }
-                    }
-                }
-            });
+
+                    });
+
+
+
+//            db.collection("buildings").document(placecodestringans).collection("staff").document(report_problem_type)
+//                    .get()
+//                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                @Override
+//                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                    if (task.isSuccessful()) {
+//                        DocumentSnapshot document = task.getResult();
+//                        if (document.exists()) {
+//                            List<String> listStaff = new ArrayList<>();
+//
+//                            Map<String, Object> map = document.getData();
+//                            if (map != null) {
+//                                for (Map.Entry<String, Object> entry : map.entrySet()) {
+//                                    listStaff.add(entry.getValue().toString());
+//                                }
+//                            }
+//
+//                            //So what you need to do with your list
+//                            for (String staff_name : listStaff) {
+//                                Log.d("TAG", staff_name);
+//                                db.collection("users").document(staff_name)
+//                                        .get()
+//                                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                                            @Override
+//                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                                                if(task.isSuccessful()&& task.getResult() != null){
+//                                                    String firstname = task.getResult().getString("firstname");
+//                                                    String lastname = task.getResult().getString("lastname");
+//                                                    name = firstname+" "+lastname;
+//                                                        staff.add(name);
+//                                                }
+//                                            }
+//                                        });
+//                            }
+//                        }
+//                    }
+//                }
+//            });
 
 
 

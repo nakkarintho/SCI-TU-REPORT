@@ -105,7 +105,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                             String email = email_editText.getText().toString();
-                            UserProfile user = new UserProfile(currentUser.getUid(),first_name,last_name,email,"user_default.jpg",role,userType);
+                            UserProfile user = new UserProfile(currentUser.getUid(),first_name,last_name,email,"user_default.jpg",role,userType,"");
                             addUser(user);
                         } else {
                             // If sign in fails, display a message to the user.

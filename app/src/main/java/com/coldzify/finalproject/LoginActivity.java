@@ -319,7 +319,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 String picName = taskSnapshot.getMetadata().getName();
-                final UserProfile user = new UserProfile(mAuth.getUid(), first_name, last_name, email, picName, "ผู้ใช้ทั่วไป", "test");
+                final UserProfile user = new UserProfile(mAuth.getUid(), first_name, last_name, email, picName, "ผู้ใช้ทั่วไป", "test","");
                 addUser(user);
             }
         });
