@@ -195,6 +195,23 @@
                 android:textSize="15dp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/problemcheck10"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="43dp"
+                android:layout_weight="1"
+                android:text="@string/problem10"
+                android:textColor="#3C3A3A"
+                android:textSize="15dp" />
+        </LinearLayout>
+
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/appCompatButton"
             android:layout_width="wrap_content"

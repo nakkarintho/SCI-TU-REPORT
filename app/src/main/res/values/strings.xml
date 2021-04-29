@@ -76,6 +76,7 @@
     <string name="technology_problem_th">สื่อการเรียนการสอน</string>
     <string name="internet_problem_th">ไอทีและอินเทอร์เน็ต</string>
     <string name="clean_and_security_problem_th">ความสะอาด\nและความปลอดภัย</string>
+    <string name="others_problem_th">อื่นๆ</string>
     <string name="sound_problem_th">ปัญหาเสียง</string>
     <string name="select_problem_type_th">เลือกประเภทปัญหา</string>
     <string name="select_user_type_th">เลือกประเภทผู้ใช้</string>
@@ -120,7 +121,7 @@
     <string name="save_th">บันทึก</string>
     <string name="main_checklist">รายการหลัก</string>
     <string name="edit_checklist_th">แก้ไขรายการ</string>
-    <string name="edit_user_type_th">แก้ไขบทบาทผู้ใช้</string>
+    <string name="edit_role_th">แก้ไขบทบาทผู้ใช้</string>
     <string name="edit_takecare_type_th">แก้ไขงานที่รับผิดชอบ</string>
     <string name="statistic">สรุปผล</string>
     <string name="staff_work_th">งานที่ต้องทำ</string>
@@ -151,6 +152,7 @@
     <string name="problem7">อาคารและสิ่งแวดล้อม</string>
     <string name="problem8">ความสะอาดและความปลอดภัย</string>
     <string name="problem9">ระบบโทรศัพท์</string>
+    <string name="problem10">อื่นๆ</string>
 
     <string name="manage_works_th">มอบหมายงาน</string>
     <string name="select_staff">เลือกผู้รับผิดชอบ</string>

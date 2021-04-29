@@ -113,6 +113,9 @@ public class ManageWorksActivity extends AppCompatActivity {
             case "TELEPHONE":
                 report_problem_type_text.setText(problemtypestring[9]);
                 break;
+            case "OTHERS":
+                report_problem_type_text.setText(problemtypestring[10]);
+                break;
             default:
                 break;
         }
@@ -153,7 +156,7 @@ public class ManageWorksActivity extends AppCompatActivity {
         report_takecareBy_text.setText(report_takecareBy);
 
         if(report_problem_type.equals("MATERIAL") || report_problem_type.equals("TECHNOLOGY")
-                || report_problem_type.equals("CLEAN_SECURITY"))
+                || report_problem_type.equals("CLEAN_SECURITY")  || report_problem_type.equals("OTHERS"))
         { //ผู้ดูแลห้องเรียน
 
         db.collection("buildings").document(placecodestringans).collection("rooms")

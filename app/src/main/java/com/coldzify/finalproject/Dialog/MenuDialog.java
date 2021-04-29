@@ -53,7 +53,7 @@ public class MenuDialog extends DialogFragment {
     Map<String, Boolean> finishProblemMenu = new HashMap<>();
     Map<String, Boolean> checkListMenu = new HashMap<>();
     Map<String, Boolean> contactMenu = new HashMap<>();
-    Map<String, Boolean> editUserTypeMenu = new HashMap<>();
+    Map<String, Boolean> editRoleMenu = new HashMap<>();
     Map<String, Boolean> editTakecaretypeMenu = new HashMap<>();
     Map<String, Boolean> statisticMenu = new HashMap<>();
     Map<String, Boolean> settingMenu = new HashMap<>();
@@ -150,21 +150,21 @@ public class MenuDialog extends DialogFragment {
                 drawables.add(R.drawable.ic_housekeeper);
             }
 
-            if (editUserTypeMenu.get(role) == true) {
-                menu.add(getString(R.string.edit_user_type_th));
-                drawables.add(R.drawable.ic_edit_user_type);
+            if (editRoleMenu.get(role) == true) {
+                menu.add(getString(R.string.edit_role_th));
+                drawables.add(R.drawable.ic_edit_role);
             }
 
 
             if (editTakecaretypeMenu.get(role) == true) {
                 menu.add(getString(R.string.edit_takecare_type_th));
-                drawables.add(R.drawable.ic_edit_user_type);
+                drawables.add(R.drawable.ic_edit_takecare_type);
             }
 
 
             if (statisticMenu.get(role) == true) {
                 menu.add(getString(R.string.statistic));
-                drawables.add(R.drawable.ic_edit_user_type);
+                drawables.add(R.drawable.ic_statistic);
             }
 
             if (settingMenu.get(role) == true) {
@@ -253,7 +253,7 @@ public class MenuDialog extends DialogFragment {
                 String finish_problem_menu = getString(R.string.finish_problem_in_faculty);
                 String check_list_menu = getString(R.string.check_list_th);
                 String housekeeper_menu = getString(R.string.contact_housekeeper_th);
-                String edit_role_menu = getString(R.string.edit_user_type_th);
+                String edit_role_menu = getString(R.string.edit_role_th);
                 String statistic_menu = getString(R.string.statistic);
                 String edit_takecaretype_menu = getString(R.string.edit_takecare_type_th);
                 String setting_menu = getString(R.string.setting_th);
@@ -382,13 +382,13 @@ public class MenuDialog extends DialogFragment {
         contactMenu.put("ผู้บริหาร", true);
         contactMenu.put("ผู้ดูแลระบบ", false);
 
-        editUserTypeMenu.put("ผู้ใช้ทั่วไป", false);
-        editUserTypeMenu.put("ผู้ดูแลห้องเรียน", false);
-        editUserTypeMenu.put("ฝ่ายซ่อมบำรุง", false);
-        editUserTypeMenu.put("ฝ่ายสารสนเทศ", false);
-        editUserTypeMenu.put("หัวหน้างาน", false);
-        editUserTypeMenu.put("ผู้บริหาร", false);
-        editUserTypeMenu.put("ผู้ดูแลระบบ", true);
+        editRoleMenu.put("ผู้ใช้ทั่วไป", false);
+        editRoleMenu.put("ผู้ดูแลห้องเรียน", false);
+        editRoleMenu.put("ฝ่ายซ่อมบำรุง", false);
+        editRoleMenu.put("ฝ่ายสารสนเทศ", false);
+        editRoleMenu.put("หัวหน้างาน", false);
+        editRoleMenu.put("ผู้บริหาร", false);
+        editRoleMenu.put("ผู้ดูแลระบบ", true);
 
         editTakecaretypeMenu.put("ผู้ใช้ทั่วไป", false);
         editTakecaretypeMenu.put("ผู้ดูแลห้องเรียน", false);

@@ -9,7 +9,7 @@
     <com.coldzify.finalproject.TitleBarView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title_name="@string/edit_user_type_th"
+        app:title_name="@string/edit_role_th"
         app:icon_pic="@drawable/ic_menugrid"
         />
 

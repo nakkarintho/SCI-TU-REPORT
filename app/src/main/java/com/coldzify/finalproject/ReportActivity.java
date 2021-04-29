@@ -257,6 +257,11 @@ public class ReportActivity extends AppCompatActivity {
                         choice2.setText("โทรศัพท์ใช้ไม่ได้");
                         choice3.setText("โทรศัพท์โทรไม่ติด");
                         break;
+                    case "OTHERS":
+                        choice1.setText("เจองู");
+                        choice2.setText("ต้นไม้ล้ม");
+                        choice3.setText("ของหาย");
+                        break;
 
                 }
 
@@ -964,9 +969,9 @@ public class ReportActivity extends AppCompatActivity {
             case TELEPHONE:
                 str = "งานเดินสายโทรศัพท์";
                 break;
-//            case INTERNET_WIRING:
-//                str = "งานเดินสายระบบอินเทอร์เน็ต";
-//                break;
+            case OTHERS:
+                str = "อื่นๆ";
+                break;
 
         }
         return str;
@@ -1001,9 +1006,9 @@ public class ReportActivity extends AppCompatActivity {
             case TELEPHONE:
                 str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_telephone);
                 break;
-//            case INTERNET_WIRING:
-//                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_internet_wiring);
-//                break;
+            case OTHERS:
+                str = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_others);
+                break;
         }
         return str;
     }

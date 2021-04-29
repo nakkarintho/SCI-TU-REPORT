@@ -128,20 +128,6 @@
                     android:layout_marginTop="20dp"
                     android:weightSum="3"
                     >
-
-<!--                    <android.support.v7.widget.AppCompatTextView-->
-<!--                        android:id="@+id/internet_wiring_textView"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:background="@drawable/detail_problem_background"-->
-<!--                        android:drawableTop="@drawable/ic_internet_wiring"-->
-
-<!--                        android:text="@string/internet_wiring_problem_th"-->
-<!--                        android:textAlignment="center"-->
-<!--                        android:textSize="16sp"-->
-<!--                        app:fontFamily="@font/my_font" />-->
-
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/building_and_environment_textView"
                         android:layout_width="0dp"
@@ -178,6 +164,27 @@
                         android:textAlignment="center"
                         android:textSize="16sp"
                         app:fontFamily="@font/my_font" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:weightSum="3"
+                    >
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/others_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/detail_problem_background"
+                        android:drawableTop="@drawable/ic_others"
+                        android:text="@string/others_problem_th"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/my_font" />
+
+
                 </TableRow>
 
                 <TableRow

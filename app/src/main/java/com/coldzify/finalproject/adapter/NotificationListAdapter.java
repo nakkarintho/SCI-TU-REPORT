@@ -163,13 +163,13 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
                                                 .into(holder.noti_imageView);
                                     }
 
-//                                    else if(checkanstype.equals("INTERNET_WIRING")){
-//                                        holder.message_textView.setText(message);
-//                                        holder.time_textView.setText(getTimeAgo(timestamp));
-//                                        GlideApp.with(holder.view)
-//                                                .load(R.drawable.ic_internet_wiring)
-//                                                .into(holder.noti_imageView);
-//                                    }
+                                    else if(checkanstype.equals("OTHERS")){
+                                        holder.message_textView.setText(message);
+                                        holder.time_textView.setText(getTimeAgo(timestamp));
+                                        GlideApp.with(holder.view)
+                                                .load(R.drawable.ic_others)
+                                                .into(holder.noti_imageView);
+                                    }
                                     else{
                                         holder.message_textView.setText(message);
                                         holder.time_textView.setText(getTimeAgo(timestamp));

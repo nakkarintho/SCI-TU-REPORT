@@ -78,6 +78,7 @@
         <item>อาคารและสิ่งแวดล้อม</item>
         <item>ความสะอาดและความปลอดภัย</item>
         <item>ระบบโทรศัพท์</item>
+        <item>อื่นๆ</item>
     </string-array>
 
     <string-array name="problemType">
@@ -155,6 +156,12 @@
         <item>โทรศัพท์เสีย</item>
         <item>โทรศัพท์ใช้ไม่ได้</item>
         <item>โทรศัพท์โทรไม่ติด</item>
+    </string-array>
+
+    <string-array name="OTHERS_desc">
+        <item>เจองู</item>
+        <item>ต้นไม้ล้ม</item>
+        <item>ของหาย</item>
     </string-array>
 
     <string-array name="statistic_array">

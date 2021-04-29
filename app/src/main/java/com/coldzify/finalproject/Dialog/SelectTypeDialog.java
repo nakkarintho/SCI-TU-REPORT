@@ -17,7 +17,7 @@ import com.coldzify.finalproject.ProblemType;
 import com.coldzify.finalproject.R;
 
 public class SelectTypeDialog extends DialogFragment implements View.OnClickListener{
-    private TextView electric,water,conditioner,material,technology,internet,building_environ,clean_security,telephone, internet_wiring;
+    private TextView electric,water,conditioner,material,technology,internet,building_environ,clean_security,telephone, others;
     private onItemClickListener listener;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class SelectTypeDialog extends DialogFragment implements View.OnClickList
         building_environ = view.findViewById(R.id.building_and_environment_textView);
         clean_security = view.findViewById(R.id.clean_and_security_textView);
         telephone = view.findViewById(R.id.telephone_textView);
-//        internet_wiring = view.findViewById(R.id.internet_wiring_textView);
+        others = view.findViewById(R.id.others_textView);
 
         Drawable water_ic = AppCompatResources.getDrawable(getContext(), R.drawable.ic_water);
         water.setCompoundDrawablesWithIntrinsicBounds(null,water_ic,null,null);
@@ -64,6 +64,7 @@ public class SelectTypeDialog extends DialogFragment implements View.OnClickList
         building_environ.setOnClickListener(this);
         clean_security.setOnClickListener(this);
         telephone.setOnClickListener(this);
+        others.setOnClickListener(this);
 //        internet_wiring.setOnClickListener(this);
         builder.setView(view);
         return builder.create();
@@ -113,9 +114,9 @@ public class SelectTypeDialog extends DialogFragment implements View.OnClickList
             case R.id.telephone_textView:
                 listener.onItemClick(ProblemType.TELEPHONE);
                 break;
-//            case R.id.internet_wiring_textView:
-//                listener.onItemClick(ProblemType.INTERNET_WIRING);
-//                break;
+            case R.id.others_textView:
+                listener.onItemClick(ProblemType.OTHERS);
+                break;
         }
     }
 
