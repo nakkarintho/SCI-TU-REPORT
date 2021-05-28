@@ -173,7 +173,7 @@ public class EditRoleActivity extends AppCompatActivity {
 //                        if (task.isSuccessful() && task.getResult() != null) {
 //                            for (QueryDocumentSnapshot document : task.getResult()) {
 //                                rooms room = document.toObject(rooms.class);
-//                                if(room.gethousekeeper_id().equals("nodata")) {
+//                                if(room.gethousekeeper_id().equals("No")) {
 //                                    final DocumentReference docRef =   db.collection("buildings").document("บร.2").collection("rooms").document(document.getId());
 //                                    Map<String, Object> map = new HashMap<>();
 //                                    map.put("housekeeper_id", "");
@@ -203,7 +203,7 @@ public class EditRoleActivity extends AppCompatActivity {
 //                        if (task.isSuccessful() && task.getResult() != null) {
 //                            for (QueryDocumentSnapshot document : task.getResult()) {
 //                                rooms room = document.toObject(rooms.class);
-//                                if(room.gethousekeeper_id().equals("nodata")) {
+//                                if(room.gethousekeeper_id().equals("No")) {
 //                                    final DocumentReference docRef =   db.collection("buildings").document("บร.3").collection("rooms").document(document.getId());
 //                                    Map<String, Object> map = new HashMap<>();
 //                                    map.put("housekeeper_id", "");
@@ -233,7 +233,7 @@ public class EditRoleActivity extends AppCompatActivity {
 //                        if (task.isSuccessful() && task.getResult() != null) {
 //                            for (QueryDocumentSnapshot document : task.getResult()) {
 //                                rooms room = document.toObject(rooms.class);
-//                                if(room.gethousekeeper_id().equals("nodata")) {
+//                                if(room.gethousekeeper_id().equals("No")) {
 //                                    final DocumentReference docRef =   db.collection("buildings").document("บร.4").collection("rooms").document(document.getId());
 //                                    Map<String, Object> map = new HashMap<>();
 //                                    map.put("housekeeper_id", "");
@@ -262,7 +262,7 @@ public class EditRoleActivity extends AppCompatActivity {
 //                        if (task.isSuccessful() && task.getResult() != null) {
 //                            for (QueryDocumentSnapshot document : task.getResult()) {
 //                                rooms room = document.toObject(rooms.class);
-//                                if(room.gethousekeeper_id().equals("nodata")) {
+//                                if(room.gethousekeeper_id().equals("No")) {
 //                                    final DocumentReference docRef =   db.collection("buildings").document("บร.5").collection("rooms").document(document.getId());
 //                                    Map<String, Object> map = new HashMap<>();
 //                                    map.put("housekeeper_id", "");
