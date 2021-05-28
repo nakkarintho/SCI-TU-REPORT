@@ -13,10 +13,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.coldzify.finalproject.dataobject.UserProfile;
+import com.coldzify.finalproject.dataobject.rooms;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -156,9 +158,138 @@ public class EditRoleActivity extends AppCompatActivity {
                         }
 
 
+
+
                     }
 
                 });
+
+
+//        db.collection("buildings").document("บร.2").collection("rooms")
+//                .get()
+//                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful() && task.getResult() != null) {
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                rooms room = document.toObject(rooms.class);
+//                                if(room.gethousekeeper_id().equals("nodata")) {
+//                                    final DocumentReference docRef =   db.collection("buildings").document("บร.2").collection("rooms").document(document.getId());
+//                                    Map<String, Object> map = new HashMap<>();
+//                                    map.put("housekeeper_id", "");
+//                                    docRef.update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void aVoid) {
+//                                            Log.d("tag", "Update Permission Success");
+//                                            Toast.makeText(EditRoleActivity.this, "ระบบได้แก้ไขสิทธื์ของผู้ใช้ดังกล่าวเรียบร้อย", Toast.LENGTH_LONG).show();
+//                                        }
+//                                    });
+//                                }
+//
+//                            }
+//
+//
+//                        }
+//                    }
+//
+//                });
+//
+//
+//        db.collection("buildings").document("บร.3").collection("rooms")
+//                .get()
+//                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful() && task.getResult() != null) {
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                rooms room = document.toObject(rooms.class);
+//                                if(room.gethousekeeper_id().equals("nodata")) {
+//                                    final DocumentReference docRef =   db.collection("buildings").document("บร.3").collection("rooms").document(document.getId());
+//                                    Map<String, Object> map = new HashMap<>();
+//                                    map.put("housekeeper_id", "");
+//                                    docRef.update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void aVoid) {
+//                                            Log.d("tag", "Update Permission Success");
+//                                            Toast.makeText(EditRoleActivity.this, "ระบบได้แก้ไขสิทธื์ของผู้ใช้ดังกล่าวเรียบร้อย", Toast.LENGTH_LONG).show();
+//                                        }
+//                                    });
+//                                }
+//
+//                            }
+//
+//
+//                        }
+//                    }
+//
+//                });
+//
+//
+//        db.collection("buildings").document("บร.4").collection("rooms")
+//                .get()
+//                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful() && task.getResult() != null) {
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                rooms room = document.toObject(rooms.class);
+//                                if(room.gethousekeeper_id().equals("nodata")) {
+//                                    final DocumentReference docRef =   db.collection("buildings").document("บร.4").collection("rooms").document(document.getId());
+//                                    Map<String, Object> map = new HashMap<>();
+//                                    map.put("housekeeper_id", "");
+//                                    docRef.update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void aVoid) {
+//                                            Log.d("tag", "Update Permission Success");
+//                                            Toast.makeText(EditRoleActivity.this, "ระบบได้แก้ไขสิทธื์ของผู้ใช้ดังกล่าวเรียบร้อย", Toast.LENGTH_LONG).show();
+//                                        }
+//                                    });
+//                                }
+//
+//                            }
+//
+//
+//                        }
+//                    }
+//
+//                });
+//
+//        db.collection("buildings").document("บร.5").collection("rooms")
+//                .get()
+//                .addOnCompleteListener(this,new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful() && task.getResult() != null) {
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                rooms room = document.toObject(rooms.class);
+//                                if(room.gethousekeeper_id().equals("nodata")) {
+//                                    final DocumentReference docRef =   db.collection("buildings").document("บร.5").collection("rooms").document(document.getId());
+//                                    Map<String, Object> map = new HashMap<>();
+//                                    map.put("housekeeper_id", "");
+//                                    docRef.update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void aVoid) {
+//                                            Log.d("tag", "Update Permission Success");
+//                                            Toast.makeText(EditRoleActivity.this, "ระบบได้แก้ไขสิทธื์ของผู้ใช้ดังกล่าวเรียบร้อย", Toast.LENGTH_LONG).show();
+//                                        }
+//                                    });
+//                                }
+//
+//                            }
+//
+//
+//                        }
+//                    }
+//
+//                });
+
+
+
+
+
+
+
+
 
         addRole.setVisibility(View.GONE);
     }
