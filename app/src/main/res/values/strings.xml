@@ -13,6 +13,7 @@
     <string name="loading">Loading . . .</string>
     <string name="close_image_button_description">Close Image Button Description</string>
     <string name="subscribe_th">ติดตาม</string>
+    <string name="rating_th">ให้คะแนน</string>
     <string name="unsubscribe_th">เลิกติดตาม</string>
     <string name="comment_th">แสดงความคิดเห็น</string>
     <string name="logout_icon_description">Logout Icon</string>

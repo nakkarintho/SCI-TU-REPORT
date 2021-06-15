@@ -19,7 +19,7 @@ public class Report implements Comparable<Report>{
     private int placeCode;
     private String creatorID;
     private Timestamp timestamp;
-    private int status;
+    private int status,rating;
     private GeoPoint geoPoint;
     private String reportID;
     private String takecareBy;
@@ -29,7 +29,6 @@ public class Report implements Comparable<Report>{
     public static final int STATUS_IN_PROGRESS = 3;
     public static final int STATUS_FINISHED = 4;
     public Report(){}
-
     public Report(List<String> pictures, String type, String detail,GeoPoint geoPoint, int placeCode, String room, String creatorID) {
         this.pictures = pictures;
         this.type = type;
@@ -37,17 +36,13 @@ public class Report implements Comparable<Report>{
         this.placeCode = placeCode;
         this.room = room;
         this.creatorID = creatorID;
-
-
-
-
         this.status = STATUS_WAITING;
         this.geoPoint = geoPoint;
 
         //DateFormat dateFormat = DateFormat.getDateInstance().format()
     }
 
-    public Report(List<String> pictures, String type, String detail,GeoPoint geoPoint, int placeCode, String room, String creatorID, String takecareBy, String dateFinish) {
+    public Report(List<String> pictures, String type, String detail,GeoPoint geoPoint, int placeCode, String room, String creatorID, String takecareBy, String dateFinish,int rating) {
         this.pictures = pictures;
         this.type = type;
         this.detail = detail;
@@ -56,9 +51,7 @@ public class Report implements Comparable<Report>{
         this.creatorID = creatorID;
         this.takecareBy = takecareBy;
         this.dateFinish = dateFinish;
-
-
-
+        this.rating = rating;
         this.status = STATUS_WAITING;
         this.geoPoint = geoPoint;
 
@@ -89,7 +82,20 @@ public class Report implements Comparable<Report>{
         this.room = room;
         this.takecareBy = takecareBy;
         this.dateFinish = dateFinish;
+    }
 
+    public Report(ArrayList<String> pictures, String type, String detail, int placeCode, String room, int status, String creatorID, Timestamp timestamp, String takecareBy, String dateFinish,int rating) {
+        this.pictures = pictures;
+        this.type = type;
+        this.detail = detail;
+        this.placeCode = placeCode;
+        this.creatorID = creatorID;
+        this.timestamp = timestamp;
+        this.status = status;
+        this.room = room;
+        this.takecareBy = takecareBy;
+        this.dateFinish = dateFinish;
+        this.rating = rating;
     }
 
 
@@ -133,6 +139,10 @@ public class Report implements Comparable<Report>{
     }
     public String getDateFinish() {
         return dateFinish;
+    }
+
+    public int  getRating() {
+        return rating;
     }
 
 

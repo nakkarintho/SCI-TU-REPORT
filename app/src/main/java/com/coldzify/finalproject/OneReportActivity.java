@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.request.RequestOptions;
 import com.coldzify.finalproject.Dialog.ManageStatusDialog;
+import com.coldzify.finalproject.Dialog.RatingDialog;
 import com.coldzify.finalproject.adapter.SlidingImageAdapter;
 import com.coldzify.finalproject.dataobject.Report;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -50,7 +51,7 @@ public class OneReportActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy,dateFinish_editText;
     private ImageView user_imageView,report_setting_imageView;
-    private Button subscribe_button,comment_button;
+    private Button subscribe_button,comment_button,rating_button;
     private ProgressBar statusBar;
     private CirclePageIndicator indicator;
     private ViewPager mPager;
@@ -69,6 +70,7 @@ public class OneReportActivity extends AppCompatActivity {
         user_imageView = findViewById(R.id.user_imageView);
         subscribe_button = findViewById(R.id.subscribe_button);
         comment_button = findViewById(R.id.comment_button);
+        rating_button = findViewById(R.id.rating_button);
         mPager = findViewById(R.id.image_pager);
         indicator = findViewById(R.id.indicator);
         report_setting_imageView = findViewById(R.id.report_setting_imageView);
@@ -129,7 +131,8 @@ public class OneReportActivity extends AppCompatActivity {
         if(report.getTakecareBy()!=null){
             takecareBy.setText("ผู้รับผิดชอบ: " + report.getTakecareBy());
         }
-        if(report.getDateFinish()!=null){
+        if(report.getDateFinish()!=null && report.getDateFinish()!="" ){
+            dateFinish_editText.setVisibility(View.VISIBLE);
             dateFinish_editText.setText("คาดว่าจะเสร็จภายใน: " + report.getDateFinish());
         }
 
@@ -277,6 +280,18 @@ public class OneReportActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        rating_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RatingDialog dialog = new RatingDialog();
+                Bundle bundle = new Bundle();
+                bundle.putString("reportID",reportID);
+                //bundle.putString("reportID",reportID);
+                dialog.setArguments(bundle);
+                dialog.show(getSupportFragmentManager(), "Rating Dialog");
+            }
+        });
+
         user_imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

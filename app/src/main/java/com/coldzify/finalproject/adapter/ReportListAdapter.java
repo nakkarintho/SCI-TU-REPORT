@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import com.coldzify.finalproject.CommentActivity;
 import com.coldzify.finalproject.Dialog.ManageStatusDialog;
+import com.coldzify.finalproject.Dialog.RatingDialog;
 import com.coldzify.finalproject.GlideApp;
 import com.coldzify.finalproject.LocationHandle;
 import com.coldzify.finalproject.ManageWorksActivity;
@@ -118,8 +120,14 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
             holder.takecareBy.setText("ผู้รับผิดชอบ: " + reports.get(i).getTakecareBy());
         }
 //        Log.w(TAG,reports.get(i).getDateFinish());
-        if(reports.get(i).getDateFinish()!=null){
+        if(reports.get(i).getDateFinish()!=null && reports.get(i).getDateFinish()!= "" ){
+            holder.dateFinish_editText.setVisibility(View.VISIBLE);
             holder.dateFinish_editText.setText("คาดว่าจะเสร็จภายใน: "+reports.get(i).getDateFinish());
+        }
+
+        if(reports.get(i).getRating() == 1 || reports.get(i).getRating() == 2 || reports.get(i).getRating() == 3 ||reports.get(i).getRating() == 4 || reports.get(i).getRating() == 5 ){
+            holder.rating_layout.setVisibility(View.VISIBLE);
+            holder.rating_textview.setText(reports.get(i).getRating() + " คะแนน");
         }
 
         final ArrayList<String> pictures = (ArrayList<String>) reports.get(i).getPictures();
@@ -153,6 +161,8 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
                 holder.view.getContext().startActivity(intent);
             }
         });
+
+
         holder.subscribe_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -439,12 +449,14 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         View view;
-        TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy, dateFinish_editText;
+        TextView time_textView,detail_textView,creator_textView,place_textView, takecareBy, dateFinish_editText,rating_textview;
         ImageView user_imageView,report_setting_imageView;
         Button subscribe_button,comment_button;
         ProgressBar statusBar;
         CirclePageIndicator indicator;
         ViewPager mPager;
+        LinearLayout rating_layout;
+
 
         public MyViewHolder(View v) {
             super(v);
@@ -456,12 +468,14 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.My
             user_imageView = view.findViewById(R.id.user_imageView);
             subscribe_button = view.findViewById(R.id.subscribe_button);
             comment_button = view.findViewById(R.id.comment_button);
+            rating_textview = view.findViewById(R.id.rating_textview);
             mPager = view.findViewById(R.id.image_pager);
             indicator = view.findViewById(R.id.indicator);
             report_setting_imageView = view.findViewById(R.id.report_setting_imageView);
             place_textView = view.findViewById(R.id.place_textView);
             takecareBy = view.findViewById(R.id.takecareBy);
             dateFinish_editText = view.findViewById(R.id.dateFinish_editText);
+            rating_layout = view.findViewById(R.id.rating_layout);
         }
     }
 }

@@ -149,6 +149,7 @@
                     android:lineSpacingExtra="4dp"
                     android:textAlignment="gravity"
                     android:textSize="20sp"
+                    android:visibility="gone"
                     app:fontFamily="@font/my_font" />
 
                 <com.coldzify.finalproject.TickedProgressBarView
@@ -162,6 +163,7 @@
                     android:progressDrawable="@drawable/progress_horizontal"
                     app:lineWidth="5dp"
                     app:percentWidth="0.8" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -174,6 +176,46 @@
 
                 <View
                     android:id="@+id/divider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="9"
+                    android:background="@color/placeholder_background" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:weightSum="1">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/rating_button"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/report_button_background"
+                    android:drawableLeft="@drawable/ic_notifications_grey"
+                    android:drawablePadding="-135dp"
+                    android:paddingLeft="160dp"
+                    android:text="@string/rating_th"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/my_font" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <View
+                    android:id="@+id/divider2"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="9"
