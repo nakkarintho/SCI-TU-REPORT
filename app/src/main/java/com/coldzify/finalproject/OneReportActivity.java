@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -55,6 +56,8 @@ public class OneReportActivity extends AppCompatActivity {
     private ProgressBar statusBar;
     private CirclePageIndicator indicator;
     private ViewPager mPager;
+    private LinearLayout rating_layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +80,7 @@ public class OneReportActivity extends AppCompatActivity {
         place_textView = findViewById(R.id.place_textView);
         takecareBy = findViewById(R.id.takecareBy);
         dateFinish_editText = findViewById(R.id.dateFinish_editText);
+        rating_layout = findViewById(R.id.rating_layout);
         if(mAuth.getCurrentUser() == null){
             Intent login = new Intent(this,LoginActivity.class);
             startActivity(login);
@@ -90,7 +94,28 @@ public class OneReportActivity extends AppCompatActivity {
             checkSubscribe(uid,reportID);
             getReportData(reportID);
             getrole();
+
+            db.collection("reports").document(reportID)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if(task.isSuccessful() && task.getResult() != null){
+                                DocumentSnapshot snapshot = task.getResult();
+                                String creatorID = snapshot.getString("creatorID");
+                                int status = snapshot.getLong("status").intValue();
+                                    if(uid.equals(creatorID) && status == 4 ){
+                                        rating_layout.setVisibility(View.VISIBLE);
+                                    }
+                                    else{
+                                        rating_layout.setVisibility(View.GONE);
+                                    }
+
+                            }
+                        }
+                    });
         }
+
     }
 
     private void getReportData(final String reportID){
